@@ -1,0 +1,353 @@
+@font-face{
+    font-family: 'Source Code Pro';
+    font-weight: 100;
+    font-style: normal;
+    font-stretch: normal;
+    src: url('fonts/SourceCodePro-Light.otf.woff') format('woff');
+}
+
+@font-face{
+    font-family: 'Source Code Pro';
+    font-weight: 400;
+    font-style: normal;
+    font-stretch: normal;
+    src: url('fonts/SourceCodePro-Regular.otf.woff') format('woff');
+}
+
+@font-face{
+    font-family: 'Source Sans Pro';
+    font-weight: 100;
+    font-style: normal;
+    font-stretch: normal;
+    src: url('fonts/SourceSansPro-Light.otf.woff') format('woff');
+}
+
+@font-face{
+    font-family: 'Source Sans Pro';
+    font-weight: 400;
+    font-style: normal;
+    font-stretch: normal;
+    src: url('fonts/SourceSansPro-Regular.otf.woff') format('woff');
+}
+
+@font-face{
+    font-family: 'Source Sans Pro';
+    font-weight: 100;
+    font-style: italic;
+    font-stretch: normal;
+    src: url('fonts/SourceSansPro-LightIt.otf.woff') format('woff');
+}
+
+@font-face{
+    font-family: 'Source Sans Pro';
+    font-weight: 400;
+    font-style: italic;
+    font-stretch: normal;
+    src: url('fonts/SourceSansPro-It.otf.woff') format('woff');
+}
+
+html {
+}
+
+body {
+    color: #222;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 18px;
+    font-weight: 100;
+    line-height: 1.5em;
+    padding: 1em;
+    margin: auto;
+    max-width: 42em;
+    background: #fff;
+    counter-reset: h1 h2 h3;
+}
+
+strong {
+    font-weight: 400;
+}
+
+p {
+    margin: 1em 0;
+    text-align: justify;
+}
+
+/* --- Links --------------------------------------------------------------- */
+a {
+    color: #06e;
+    text-decoration:none;
+}
+a:visited {
+    color: #06e;
+}
+a:hover {
+    color: #06e;
+    border-bottom: .5px solid #06e;
+}
+a:active {
+    color:#000000;
+}
+
+/* --- Headers ------------------------------------------------------------- */
+h1::before {
+    content: counter(h1) "";
+    counter-increment: h1;
+    margin-right:10px;
+    color: white;
+    background-color: black;
+    padding-left: 10px; padding-right:10px;
+}
+h2::before {
+    content: counter(h1) "."counter(h2) " ";
+    counter-increment: h2;
+    margin-right: 10px;
+}
+h3::before {
+/*
+    content: counter(h1) "."counter(h2) "."counter(h3) " ";
+    counter-increment: h3;
+    margin-right:10px;
+*/
+}
+
+
+::selection {
+    color: #000;
+    background-color: #f0f0ff;
+}
+
+h1, h2, h3 {
+    padding: 15px 0 3px;
+    clear: both;
+    font-weight: 400;
+}
+h1 { font-size: 1.5em; counter-reset: h2;   padding-top: 2.5em;}
+h2 { font-size: 1.25em;  counter-reset: h3; padding-top: 1.5em;}
+h3, h4, h5, h6 { font-size: 1.00em; }
+h1, h1 a, h1 a:visited,
+h2, h2 a, h2 a:visited,
+h3, h3 a, h3 a:visited {
+    color: black;
+}
+h1, h1 a, h1 a:visited {
+    decoration: none;
+    color: black;
+    margin-top: 3em;
+    border-bottom: 2px solid black;
+    padding-left:  5%;
+    margin-left:  -5%;
+}
+h1 a:hover {
+     color: #06e;
+/*       color: white;
+       background-color: black; */
+}
+h2 a:hover, h3 a:hover {
+    color: black;
+    border-bottom: 1px solid black;
+}
+
+/* --- Images -------------------------------------------------------------- */
+.bordered {
+    border: 1px solid black;
+}
+
+/* --- Table of contents --------------------------------------------------- */
+.main-content {
+    padding-top: 1em;
+}
+    
+.main-content .topic-title {
+    border-bottom: 1px solid black;
+    padding-left:  5%;
+    margin-left:  -5%;
+}
+
+.main-content ul.simple {
+    padding-left: 0;
+    column-count: 3;
+    -moz-column-count: 3;
+    -webkit-column-count: 3;
+}
+
+.main-content ul ul {
+    padding-left: 1em;
+}
+
+.main-content ul.simple li {
+    color: #06e;
+    font-weight: 400;
+    list-style-type: decimal;
+    list-style-position: inside;
+/*  list-style-type: none;*/
+}
+
+.main-content ul.simple li li {
+    font-weight: 200;
+    list-style-type: none;
+}
+.main-content ul.simple li li:before {
+    content: "•"; /* Insert content that looks like bullets */
+    padding-right: 0.5em;
+}
+
+
+
+
+/* --- Title/Subtitle ------------------------------------------------------ */
+h1.title::before { content: none; }
+h1.title {
+    font-size: 2.5em;
+    font-weight: 500;
+    text-align: center;
+    margin: 0;
+    margin-top:    64px;
+    margin-bottom: 12px;
+    padding: 0;
+    border: none;
+}
+h2.subtitle::before { content: none; }
+h2.subtitle {
+    font-size: 1.0em;
+    font-weight: 500;
+    text-align: center;
+    padding: 0;
+}
+.title-logos {
+    /* opacity: 0.15; */
+    text-align: center;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 64px;
+}
+.title-logos p {
+    text-align: center;
+}
+
+    
+/* --- Math ---------------------------------------------------------------- */
+span.formula {
+    color: #955;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: 300;
+}
+div.formula {
+    color: #955;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: 300;
+}
+
+/* --- Code ---------------------------------------------------------------- */
+code {
+    font-size: 95%;
+    font-weight: 300;
+    font-family: 'Source Code Pro';
+}
+pre.code {
+    font-size:      85%;
+    font-family:    'Source Code Pro', monospace;
+    line-height:    125%;
+    background:     #fcfcfc;
+    border-top:     .5px solid #ccc;
+    border-bottom:  .5px solid #ccc;
+    padding-left:   2.0em;
+    padding-top:    0.5em;
+    padding-bottom: 0.5em;
+}
+pre.output {
+    font-size:      85%;
+    font-family:    'Source Code Pro', monospace;
+    line-height:    125%;
+    background:     #fff;
+    border:         none;
+    padding-left:   2.0em;
+    padding-top:    0.5em;
+    padding-bottom: 0.5em;
+}
+
+.function, .class {
+    font-weight: 400;
+}
+.comment {
+    color: #459;
+}
+
+/* --- Bibliography -------------------------------------------------------- */
+.abstract {
+    border-left: 1px solid #ddd;
+    padding-left: 1em;
+    font-size:    85%;
+    line-height: 125%;
+}
+.line-block {
+    line-height: 125%;
+}
+
+/* --- Tables -------------------------------------------------------------- */
+table {
+    margin-left: auto;
+    margin-right: auto;
+    min-width: 33%;
+    border-collapse: collapse;
+    border-spacing: 0;
+    border: none;
+    border-bottom: .5px solid #999999;
+}
+td, th {
+    border: none;
+}
+th {
+    text-align: left; 
+    font-weight: 400; /* Make sure they're bold */
+    border-bottom: 1px solid black;
+}
+td {
+    text-align: left; 
+    border: none;
+}
+tr:nth-child(even) td {
+    background: #f0f0f0;
+}
+
+/* --- Admonitions --------------------------------------------------------- */
+.note {
+    font-size: 85%;
+    line-height: 125%;
+    float: left;
+    width: 240px;
+    padding: 0;
+    margin-left: -270px;
+}
+.note p {
+    text-align: left;
+    padding: 0;
+    margin:0;
+    padding-top: 0.5em;
+}
+.note p.first {
+    padding: 0;
+    padding-bottom: .5em;
+    font-weight: 400;
+    border-bottom: 1px solid #000;
+}
+
+.legend {
+    font-size: 85%;
+    line-height: 125%;
+    padding: 0;
+    float: right;
+    width: 240px;
+    margin-right: -270px;
+}
+.legend p {
+    text-align: left;
+    padding: 0;
+    margin:0;
+    padding-top: 0.5em;
+}
+.legend p.first {
+    padding: 0;
+    padding-bottom: .5em;
+    font-weight: 400;
+    border-bottom: 1px solid #000;
+}
