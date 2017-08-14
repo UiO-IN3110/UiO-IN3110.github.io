@@ -1,0 +1,4 @@
+jupyter
+RISE
+numpy
+matplotlib
