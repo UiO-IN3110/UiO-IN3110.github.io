@@ -2,3 +2,4 @@ jupyter
 RISE
 numpy
 matplotlib
+bash_kernel
