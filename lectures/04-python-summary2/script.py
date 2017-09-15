@@ -1,8 +1,5 @@
-def func(x):
+def absolute_value(x):
     if x < 0:
         return x
     else:
-        return x
-
-f(x)
-b = 2
+        return -x
