@@ -132,15 +132,15 @@ verify(find_hyperlinks, sample_inputs, expected_outputs)
 
 
 ################################
-####  parse_downmark tests  ####
+####  parse_nwodkram tests  ####
 ################################
 
-from parser import parse_downmark
+from parser import parse_nwodkram
 
 
 
 sample_input = r"""
-This is some Downmark text. Note that *this* is in italic, and %this% is in bold.
+This is some Nwodkram text. Note that *this* is in italic, and %this% is in bold.
 If you want to write an \* or an equal sign and not have the parser eat them, 
 that's easy -  note that \* this \* is not in italic even though it's between two \*s,
 and \% this \% is not in bold.
@@ -161,18 +161,18 @@ weird stuff.
 
 
 expected_output = r"""
-This is some Downmark text. Note that <i>this</i> is in italic, and <b>this</b> is in bold.
-If you want to write an \* or an equal sign and not have the parser eat them, 
-that's easy -  note that \* this \* is not in italic even though it's between two \*s,
-and \% this \% is not in bold.
+This is some Nwodkram text. Note that <i>this</i> is in italic, and <b>this</b> is in bold.
+If you want to write an * or an equal sign and not have the parser eat them, 
+that's easy -  note that * this * is not in italic even though it's between two *s,
+and % this % is not in bold.
 
 <a href='http://www.google.com'>here</a> is a hyperlink.
 <a href='http://www.google.com'>here</a> is another.
-<a href='http://www.weird?$|site.weird/path/'>and here</a> is a third with some weird characters.
+<a href='https://www.weird?$|site.weird/path/'>and here</a> is a third with some weird characters.
 Follow it at your own peril.
 
 Ideally, it would be good if your hyperlinks can contain parentheses and underscores.
 But don't worry too much if some weird combination is ambiguous or results in
 weird stuff.
 """
-verify(parse_downmark, [sample_input], [expected_output])
+verify(parse_nwodkram, [sample_input], [expected_output])
