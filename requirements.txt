@@ -3,3 +3,6 @@ RISE
 numpy
 matplotlib
 bash_kernel
+pandas
+gmplot
+bs4
