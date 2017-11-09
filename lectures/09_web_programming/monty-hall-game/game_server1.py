@@ -1,3 +1,11 @@
+"""
+A Basic Monty Hall Game.
+========================
+
+Run with
+python game_server1.py
+"""
+
 from flask import Flask
 
 app = Flask(__name__)

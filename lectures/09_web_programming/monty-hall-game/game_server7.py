@@ -1,4 +1,19 @@
-# File: game_server.py
+"""
+A Basic Monty Hall Game.
+========================
+
+Run with
+python game_server7.py
+
+
+Improvements to game_server6.py:
+
+Makes the game look prettier by:
+- Add layout template files
+- Use Bootstrap (bootstrap) 
+- Add images for doors and winning/loosing (using the /static folder)
+"""
+
 from flask import Flask
 from flask import render_template
 from flask import request

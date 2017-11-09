@@ -1,4 +1,18 @@
-# File: game_server.py
+"""
+A Basic Monty Hall Game.
+========================
+
+Run with
+python game_server6.py
+
+
+Improvements to game_server5.py:
+
+Implement a /statistics page that computes the win/loss chances of all played
+games. For that, I needed to extend the game_state to store all game
+information
+"""
+
 from flask import Flask
 from flask import render_template
 from flask import request

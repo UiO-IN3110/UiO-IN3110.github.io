@@ -1,4 +1,17 @@
-# File: game_server.py
+"""
+A Basic Monty Hall Game.
+========================
+
+Run with
+python game_server5.py
+
+
+Improvements to game_server4.py:
+
+Implements the /final page. Shows the results of the game and a link to start
+a new game
+"""
+
 from flask import Flask
 from flask import render_template
 from flask import request

@@ -1,4 +1,17 @@
-# File: game_server.py
+"""
+A Basic Monty Hall Game.
+========================
+
+Run with
+python game_server2.py
+
+
+Improvements to game_server1.py:
+- /select URL is now rendered from a template. 
+- The template contains a form with a POST request to the /reselect.
+"""
+
+
 from flask import Flask
 from flask import render_template
 

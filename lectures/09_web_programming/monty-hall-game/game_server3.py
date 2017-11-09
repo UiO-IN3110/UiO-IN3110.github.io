@@ -1,4 +1,18 @@
-# File: game_server.py
+"""
+A Basic Monty Hall Game.
+========================
+
+Run with
+python game_server3.py
+
+
+Improvements to game_server2.py:
+
+- /reselect endpoint is implement. It receives the selected door as a the POST request
+  and displays it in the reselect3.html template
+"""
+
+
 from flask import Flask
 from flask import render_template
 from flask import request
