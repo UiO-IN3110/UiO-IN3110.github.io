@@ -22,7 +22,7 @@ def reselect():
 
     # request.form contains all form parameters, like the selected door
     selected = int(request.form["door"])
-    return render_template("reselect1.html", selected=selected)
+    return render_template("reselect3.html", selected=selected)
 
 
 if __name__ == "__main__":

@@ -21,7 +21,7 @@ def new():
     winning = random.randint(1, 3)
     game_states[game_id] = {"winning": winning}
 
-    return render_template('select4.html', game_id=game_id)
+    return render_template('select7.html', game_id=game_id)
 
 @app.route('/reselect', methods=['POST'])
 def reselect():
@@ -43,7 +43,7 @@ def reselect():
     opened.discard(selected)
     opened = random.choice(list(opened))
 
-    return render_template("reselect4.html", game_id=game_id, selected=selected, opened=opened)
+    return render_template("reselect7.html", game_id=game_id, selected=selected, opened=opened)
 
 @app.route('/final', methods=['POST'])
 def final():
@@ -61,7 +61,7 @@ def final():
     game_states[game_id]["changed_choice"] = selected != game_states[game_id]["first_choice"]
     game_states[game_id]["won"] = has_won
 
-    return render_template("final.html", has_won=has_won, winning=winning)
+    return render_template("final7.html", has_won=has_won, winning=winning)
 
 @app.route('/statistics')
 def statistics():

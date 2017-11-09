@@ -21,7 +21,7 @@ def new():
     winning = random.randint(1, 3)  # Define a winning door
     game_states[game_id] = winning
 
-    return render_template('select.html', game_id=game_id)
+    return render_template('select4.html', game_id=game_id)
 
 @app.route('/reselect', methods=['POST']) 
 def reselect():           
@@ -39,7 +39,7 @@ def reselect():
     opened.discard(selected)
     opened = random.choice(list(opened))
 
-    return render_template("reselect.html", game_id=game_id, selected=selected, opened=opened)
+    return render_template("reselect4.html", game_id=game_id, selected=selected, opened=opened)
 
 if __name__ == "__main__":
     app.run(debug=True)
