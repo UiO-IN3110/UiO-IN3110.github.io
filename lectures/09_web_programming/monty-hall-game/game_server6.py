@@ -68,8 +68,11 @@ def statistics():
     changed_and_won = [e["won"] for e in game_states.values() if "changed_choice" in e and e["changed_choice"]]
     notchanged_and_won = [e["won"] for e in game_states.values() if "changed_choice" in e and not e["changed_choice"]]
 
-    s1 = "Changed and won: {} out of {}".format(sum(changed_and_won), len(changed_and_won))
-    s2 = "Not changed and won: {} out of {}".format(sum(notchanged_and_won), len(notchanged_and_won))
+    changed_sucess_rate = 100*sum(changed_and_won)/len(changed_and_won) if len(changed_and_won) > 0 else 0
+    notchanged_success_rate = 100*sum(notchanged_and_won)/len(notchanged_and_won) if len(notchanged_and_won) > 0 else 0
+
+    s1 = "Changed and won: {} out of {} ({}% success)".format(sum(changed_and_won), len(changed_and_won), changed_sucess_rate)
+    s2 = "Not changed and won: {} out of {} ({}% success)".format(sum(notchanged_and_won), len(notchanged_and_won), notchanged_success_rate)
     return "<h1>Statistics</h1>{}</br>{}".format(s1, s2)
 
 if __name__ == "__main__":
