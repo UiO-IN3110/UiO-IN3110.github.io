@@ -1,3 +1,11 @@
+Run with 
+
+python game_serverX.py
+
+where X=1, ... 7 is the version.
+
+Version description:
+
 
 Version 1:
 - Basic static website
