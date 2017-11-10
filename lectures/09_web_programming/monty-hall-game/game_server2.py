@@ -7,7 +7,7 @@ python game_server2.py
 
 
 Improvements to game_server1.py:
-- /select URL is now rendered from a template. 
+- /select URL implemented and and rendered from a template. 
 - The template contains a form with a POST request to the /reselect.
 """
 

@@ -41,7 +41,7 @@ def root():
 
 @app.route("/select/")
 def new():
-    game_id = str(uuid.uuid4())  # Creates a unique identifer for this game
+    game_id = str(uuid.uuid4())  # Create a unique identifier for this game
     winning = random.randint(1, 3)  # Define a winning door
     game_states[game_id] = winning
 
