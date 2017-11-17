@@ -8,4 +8,5 @@ setup(
     description = ("A game implementation of the Monty Hall problem."),
     license = "BSD",
     packages=['monty_hall_game'],
+    scripts=['bin/play_monty_hall_cli.py', 'bin/play_monty_hall_web.py'],
 )

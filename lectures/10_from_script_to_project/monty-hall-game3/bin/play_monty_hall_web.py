@@ -1,6 +1,5 @@
 #!/usr/bin/env python
 
-# File: game_server.py
 import uuid
 from flask import Flask
 from flask import render_template

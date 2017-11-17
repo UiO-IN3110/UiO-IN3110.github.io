@@ -1,10 +1,7 @@
 #!/usr/bin/env python
 
-# File: game_server.py
 import uuid
-from flask import Flask
-from flask import render_template
-from flask import request
+from flask import Flask, render_template, request
 from monty_hall_game import MontyHallGame
 
 app = Flask("MontyHallGame")

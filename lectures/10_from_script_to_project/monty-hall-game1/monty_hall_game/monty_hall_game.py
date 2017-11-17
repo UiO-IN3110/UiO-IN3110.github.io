@@ -79,6 +79,7 @@ class MontyHallGame(object):
         return game_won
 
 if __name__ == "__main__":
+
     game = MontyHallGame()
 
     game.select_door(1)

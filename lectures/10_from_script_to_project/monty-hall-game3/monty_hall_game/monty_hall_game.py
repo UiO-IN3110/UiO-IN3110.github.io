@@ -88,7 +88,8 @@ class MontyHallGame(object):
 
 
     def let_host_open_door(self):
-        """ When this function is called, the host will open a door that contains no price.
+        """ When this function is called, the host will open a door
+            that contains no price.
 
         :returns: The newly opened door number as an `int`. """
 
