@@ -21,6 +21,7 @@ def test_that_selecting_invalid_door_raises_correct_exception():
 
     try:
         game.select_door(4)
+        assert False
     except InvalidGameInput:
         pass
 
