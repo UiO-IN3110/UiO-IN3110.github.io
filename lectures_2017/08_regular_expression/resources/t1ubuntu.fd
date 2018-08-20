@@ -1,0 +1,16 @@
+\ProvidesFile{t1ubuntu.fd}[Ubuntu Font]
+\DeclareFontFamily{T1}{ubuntu}{}
+
+%% Regular Ubuntu Font, also in bold and italic variant
+%
+
+\DeclareFontShape{T1}{ubuntu}{m}{n}{ <-> ubuntu}{}
+\DeclareFontShape{T1}{ubuntu}{m}{it}{ <-> ubuntui}{}
+
+\DeclareFontShape{T1}{ubuntu}{b}{n}{ <-> ubuntubd}{}
+\DeclareFontShape{T1}{ubuntu}{b}{it}{ <-> ubuntubi}{}
+
+\DeclareFontShape{T1}{ubuntu}{bx}{n}{<->ssub * ubuntu/b/n}{}
+\DeclareFontShape{T1}{ubuntu}{bx}{it}{<->ssub * ubuntu/b/it}{}
+
+\endinput
