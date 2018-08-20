@@ -1,0 +1,20 @@
+
+
+\section*{}
+
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{l+s+sd}{\PYZdq{}\PYZdq{}\PYZdq{}}
+\PY{l+s+sd}{Non\PYZhy{}capturing groups is encurrage to separete grouping from capturing.}
+\PY{l+s+sd}{\PYZdq{}\PYZdq{}\PYZdq{}}
+
+\PY{k+kn}{import} \PY{n+nn}{re}
+
+\PY{n}{source\PYZus{}text} \PY{o}{=} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{mohahahahahahe}\PY{l+s+s2}{\PYZdq{}}
+
+\PY{n}{regex\PYZus{}in} \PY{o}{=} \PY{l+s+s2}{r\PYZdq{}}\PY{l+s+s2}{(}\PY{l+s+s2}{\PYZbs{}}\PY{l+s+s2}{w*?)(?:ha)*(}\PY{l+s+s2}{\PYZbs{}}\PY{l+s+s2}{w*?)}\PY{l+s+s2}{\PYZdq{}}
+\PY{n}{regex\PYZus{}out} \PY{o}{=} \PY{l+s+s2}{r\PYZdq{}}\PY{l+s+s2}{\PYZbs{}}\PY{l+s+s2}{2}\PY{l+s+s2}{\PYZbs{}}\PY{l+s+s2}{1}\PY{l+s+s2}{\PYZdq{}}
+
+\PY{n}{substituted\PYZus{}text} \PY{o}{=} \PY{n}{re}\PY{o}{.}\PY{n}{sub}\PY{p}{(}\PY{n}{regex\PYZus{}in}\PY{p}{,} \PY{n}{regex\PYZus{}out}\PY{p}{,} \PY{n}{source\PYZus{}text}\PY{p}{)}
+\PY{k}{print}\PY{p}{(}\PY{n}{substituted\PYZus{}text}\PY{p}{)}
+\end{Verbatim}
+

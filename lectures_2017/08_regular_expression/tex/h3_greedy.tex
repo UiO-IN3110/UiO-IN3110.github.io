@@ -1,0 +1,22 @@
+
+
+\section*{}
+
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{l+s+sd}{\PYZdq{}\PYZdq{}\PYZdq{}}
+\PY{l+s+sd}{Once again with and without greedy operator.}
+\PY{l+s+sd}{\PYZdq{}\PYZdq{}\PYZdq{}}
+
+\PY{k+kn}{import} \PY{n+nn}{re}
+
+\PY{n}{search\PYZus{}text} \PY{o}{=} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{pineappleapplepineapple}\PY{l+s+s2}{\PYZdq{}}
+
+\PY{n}{regex} \PY{o}{=} \PY{l+s+s2}{r\PYZdq{}}\PY{l+s+s2}{\PYZbs{}}\PY{l+s+s2}{w*apple}\PY{l+s+s2}{\PYZdq{}}
+\PY{n}{search\PYZus{}results} \PY{o}{=} \PY{n}{re}\PY{o}{.}\PY{n}{findall}\PY{p}{(}\PY{n}{regex}\PY{p}{,} \PY{n}{search\PYZus{}text}\PY{p}{)}
+\PY{k}{print}\PY{p}{(}\PY{n}{search\PYZus{}results}\PY{p}{)}
+
+\PY{n}{regex} \PY{o}{=} \PY{l+s+s2}{r\PYZdq{}}\PY{l+s+s2}{\PYZbs{}}\PY{l+s+s2}{w*?apple}\PY{l+s+s2}{\PYZdq{}}
+\PY{n}{search\PYZus{}results} \PY{o}{=} \PY{n}{re}\PY{o}{.}\PY{n}{findall}\PY{p}{(}\PY{n}{regex}\PY{p}{,} \PY{n}{search\PYZus{}text}\PY{p}{)}
+\PY{k}{print}\PY{p}{(}\PY{n}{search\PYZus{}results}\PY{p}{)}
+\end{Verbatim}
+

@@ -1,0 +1,141 @@
+\ProvidesPackage{ubuntu}
+\RequirePackage{ifpdf}
+\RequirePackage{ifthen}
+
+% For PDF map the TrueType fonts
+\ifpdf
+	\pdfmapfile{+ubuntu.map}
+\fi
+
+% Options represented by boolean - not nice
+% TODO: case by value 
+
+\newboolean{bUbuntuRegular}
+\setboolean{bUbuntuRegular}{true}
+
+\newboolean{bUbuntuNone}
+\setboolean{bUbuntuNone}{false}
+
+\newboolean{bUbuntuLight}
+\setboolean{bUbuntuLight}{false}
+
+\newboolean{bUbuntuMedium}
+\setboolean{bUbuntuMedium}{false}
+
+\newboolean{bUbuntuCondensed}
+\setboolean{bUbuntuCondensed}{false}
+
+% Parse options - this is ugly
+
+\DeclareOption{none}{%
+	\setboolean{bUbuntuRegular}{false}%
+	\setboolean{bUbuntuNone}{true}%
+	\setboolean{bUbuntuLight}{false}%
+	\setboolean{bUbuntuMedium}{false}%
+	\setboolean{bUbuntuCondensed}{false}%
+}
+
+\DeclareOption{regular}{%
+	\setboolean{bUbuntuRegular}{true}%
+	\setboolean{bUbuntuNone}{false}%
+	\setboolean{bUbuntuLight}{false}%
+	\setboolean{bUbuntuMedium}{false}%
+	\setboolean{bUbuntuCondensed}{false}%
+}
+
+\DeclareOption{light}{%
+	\setboolean{bUbuntuRegular}{false}%
+	\setboolean{bUbuntuNone}{false}%
+	\setboolean{bUbuntuLight}{true}%
+	\setboolean{bUbuntuMedium}{false}%
+	\setboolean{bUbuntuCondensed}{false}%
+}
+
+\DeclareOption{medium}{%
+	\setboolean{bUbuntuRegular}{false}%
+	\setboolean{bUbuntuNone}{false}%
+	\setboolean{bUbuntuLight}{false}%
+	\setboolean{bUbuntuMedium}{true}%
+	\setboolean{bUbuntuCondensed}{false}%
+}
+
+\DeclareOption{condensed}{%
+	\setboolean{bUbuntuRegular}{false}%
+	\setboolean{bUbuntuNone}{false}%
+	\setboolean{bUbuntuLight}{false}%
+	\setboolean{bUbuntuMedium}{false}%
+	\setboolean{bUbuntuCondensed}{true}%
+}
+
+\DeclareOption*{%
+	\PackageWarning{ubuntu}{Unknown option ‘\CurrentOption’}%
+}
+
+\ProcessOptions\relax
+
+% Commands
+
+\newcommand{\Ubuntu}{%
+	\renewcommand{\encodingdefault}{T1}%
+	\renewcommand{\rmdefault}{ubuntu}%
+}
+
+\newcommand{\fontUbuntu}{%
+	\usefont{T1}{ubuntu}{m}{n}
+}
+
+\newcommand{\UbuntuLight}{%
+	\renewcommand{\encodingdefault}{T1}%
+	\renewcommand{\rmdefault}{ubuntulight}%
+}
+
+\newcommand{\fontUbuntuLight}{%
+	\usefont{T1}{ubuntulight}{m}{n}
+}
+
+\newcommand{\UbuntuMedium}{%
+	\renewcommand{\encodingdefault}{T1}%
+	\renewcommand{\rmdefault}{ubuntumedium}%
+}
+
+\newcommand{\fontUbuntuMedium}{%
+	\usefont{T1}{ubuntumedium}{m}{n}%
+}
+
+\newcommand{\UbuntuMono}{%
+	\renewcommand{\encodingdefault}{T1}%
+	\renewcommand{\ttdefault}{ubuntumono}%
+}
+
+\newcommand{\fontUbuntuMono}{%
+	\usefont{T1}{ubuntumono}{m}{n}%
+}
+
+\newcommand{\UbuntuCondensed}{%
+	\renewcommand{\encodingdefault}{T1}%
+	\renewcommand{\rmdefault}{ubuntucondensed}%
+}
+
+\newcommand{\fontUbuntuCondensed}{%
+	\usefont{T1}{ubuntucondensed}{m}{n}
+}
+
+% Initial font - an ifcase is much nicer, isn't it?
+
+\ifthenelse{\boolean{bUbuntuRegular}}%
+	{\Ubuntu{}}%
+{\ifthenelse{\boolean{bUbuntuNone}}%
+	{}%
+{\ifthenelse{\boolean{bUbuntuLight}}%
+	{\UbuntuLight{}}%
+{\ifthenelse{\boolean{bUbuntuMedium}}%
+	{\UbuntuMedium{}}%
+{\ifthenelse{\boolean{bUbuntuCondensed}}%
+	{\UbuntuCondensed{}}%
+{}}}}}%
+
+\ifthenelse{\boolean{bUbuntuNone}}%
+{}%
+{\UbuntuMono}%
+
+\endinput

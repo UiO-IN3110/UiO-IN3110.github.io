@@ -1,0 +1,22 @@
+
+
+\section*{}
+
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{l+s+sd}{\PYZdq{}\PYZdq{}\PYZdq{}}
+\PY{l+s+sd}{Full decimals}
+\PY{l+s+sd}{\PYZdq{}\PYZdq{}\PYZdq{}}
+\PY{k+kn}{import} \PY{n+nn}{re}
+
+\PY{n}{regex} \PY{o}{=} \PY{l+s+s2}{r\PYZdq{}}\PY{l+s+s2}{[}\PY{l+s+s2}{\PYZbs{}}\PY{l+s+s2}{\PYZhy{}+]?(}\PY{l+s+s2}{\PYZbs{}}\PY{l+s+s2}{d*}\PY{l+s+s2}{\PYZbs{}}\PY{l+s+s2}{.}\PY{l+s+s2}{\PYZbs{}}\PY{l+s+s2}{d+|}\PY{l+s+s2}{\PYZbs{}}\PY{l+s+s2}{d+}\PY{l+s+s2}{\PYZbs{}}\PY{l+s+s2}{.}\PY{l+s+s2}{\PYZbs{}}\PY{l+s+s2}{d*)}\PY{l+s+s2}{\PYZdq{}}
+
+\PY{n}{all\PYZus{}the\PYZus{}numbers} \PY{o}{=} \PY{l+s+s2}{\PYZdq{}\PYZdq{}\PYZdq{}}
+\PY{l+s+s2}{INTEGERS: 1 +2 \PYZhy{}3}
+\PY{l+s+s2}{DECIMAL: +42.5 \PYZhy{}.25 3.}
+\PY{l+s+s2}{SCIENCE: .23E+4 \PYZhy{}4.00e\PYZhy{}02 +1e1}
+\PY{l+s+s2}{CORNER\PYZus{}CASES: 1\PYZhy{}2 4.\PYZhy{} \PYZhy{}E1\PYZhy{} C++ .}
+\PY{l+s+s2}{\PYZdq{}\PYZdq{}\PYZdq{}}
+
+\PY{k}{print}\PY{p}{(}\PY{n}{re}\PY{o}{.}\PY{n}{findall}\PY{p}{(}\PY{n}{regex}\PY{p}{,} \PY{n}{all\PYZus{}the\PYZus{}numbers}\PY{p}{)}\PY{p}{)}
+\end{Verbatim}
+
