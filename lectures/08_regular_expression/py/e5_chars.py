@@ -1,4 +1,4 @@
-"""
+
 Brackets allows for the construction of custom character classes.
 
 ------  -----------------------------
@@ -10,4 +10,3 @@ Key     Description
 [A-Q]   Upper case letter from A to Q
 [0-7]   Digit from 0 to 7
 ------  -----------------------------
-"""

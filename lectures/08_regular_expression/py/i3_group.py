@@ -9,7 +9,7 @@ import re
 regex_in = r"(\w*)fix"
 regex_out = r"\1break"
 
-source_text = "prefix, infix, postfix, quickfix, fix"
+source_text = "prefix, infix, postfix, quickfix, fix, prefixfix"
 
 substituted_text = re.sub(regex_in, regex_out, source_text)
 print(substituted_text)

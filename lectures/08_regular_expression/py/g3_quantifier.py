@@ -6,7 +6,7 @@ import re
 
 search_text = "no, no, nooooooo."
 
-regex = "no+"
+regex = "no{5}"
 
 search_results = re.findall(regex, search_text)
 
