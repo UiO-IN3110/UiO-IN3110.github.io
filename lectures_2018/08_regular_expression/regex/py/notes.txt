@@ -1,0 +1,102 @@
+Recap
+-----
+
+Go to https://regex101.com/
+
+Element	Description
+.	This element matches any character except \n
+\d	This matches any digit [0-9]
+\D	This matches non-digit characters [^0-9]
+\s	This matches whitespace character [\t\n\r\f\v]
+\S	This matches non-whitespace character [^\s\t\n\r\f\v]
+\w	This matches alphanumeric character [a-zA-Z0-9]
+\W	This matches any non-alphanumeric character [^a-zA-Z0-9]
+
+
+
+validate_ips
+============
+
+
+regex = r"\d\d\d\.\d\d\d\.\d\d\d\.\d\d\d"
+
+-------------------------------------------------
+
+Problem: We match the IP with 5 parts. Solution
+
+regex = "^" + regex + "$" 
+-------------------------------------------------
+
+
+Shorter implemementation
+char = r"\d"
+regex = r"\.".join([char*3]*4)
+
+-------------------------------------------------
+
+Match also numbers without 0s
+
+char = r"\d+"
+regex = r"\.".join([char]*4)   # + is a modifier 
+
+Introduce * as a modifier
+
+
+Problem: What if numbers have 4 digits?
+
+-------------------------------------------------
+
+Solution: Modifiers for counts
+
+
+char = r"\d{1,3}"   # {n} is a count modifier 
+
+
+
+---------------------------------------------
+
+Show 06_quantifiers.rst 
+
+No need to remember all of these
+
+
+----------------------------------------------
+
+Now more complicated:
+
+256.0.0.0.1 
+
+
+Show 07_grouping1.rst 
+
+----------------------------------------------
+
+regex = r"^\d{1,3}(?:\.\d{1,3}){3}$"   
+
+
+Show 08_grouping2.rst 
+
+----------------------------------------------
+
+char = r"\d+"
+
+regex = r"{char}(?:\.({char}){3}".format(char)
+
+----------------------------------------------
+
+Now let's restrict to numbers lower than 256
+
+
+char = r"(?:25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])"
+regex = r"^%s(?:\.%s){3}$" % (char, char)
+
+
+----------------------------------------------
+
+Show 09_grouping3.rst 
+
+----------------------------------------------
+
+Final example
+char = r"(?:25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])"
+regex = r"^%s(?:\.%s){3}$" % (char, char)

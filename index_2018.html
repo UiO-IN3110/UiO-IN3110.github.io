@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="Docutils 0.12: http://docutils.sourceforge.net/" />
+<title>Higher Level Programming</title>
+<link rel="stylesheet" href="index.css" type="text/css" />
+</head>
+<body>
+<div class="document" id="higher-level-programming">
+<h1 class="title">Higher Level Programming 2019</h1>
+<h2 class="subtitle">A course taught at the <a href="http://www.uio.no/studier/emner/matnat/ifi/INF3331/">University of Oslo</a></h2>
+<div class="title-logos container">
+<div class="line-block">
+<div class="line"><br /></div>
+<div class="line">Latest version - August 2018</div>
+</div>
+</div>
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+<div class="title-logos container">
+<img alt="Logo" src="logo.png" style="width: 100%;" />
+</div>
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+<p>This lecture series introduces concepts of higher level programming. The lecture introduces essential tools to quickly and efficiently implement programming problems.</p>
+<p>The assignments are available on the <a href="https://www.uio.no/studier/emner/matnat/ifi/INF3110/h19/oppgaver.html">University course website</a>.
+The <img style="height:15px" src="notebook.png"></img> images link to the lecture scripts and the <img src="play.png" alt="Play video" style="height:15px;"> images link to the video recordings of each lecture.
+</ndep>. You can also run the lecture slides interactively on your browser <a href="https://mybinder.org/v2/gh/UiO-IN3110/UiO-IN3110.github.io/master?filepath=lectures"><img id="badge" src="badge_logo.svg"></a>.
+
+<p>The lecture was initially created by Hans Petter Langtangen and extended by Joakim Sundnes, Ola Skavhaug, Jonathan Feinberg, Karl-Erik Holter, Vidar Tonaas Fauske, Benjamin Ragan-Kelley and <a class="reference external" href="mailto:simon&#64;simula.no">Simon Funke simon&#64;simula.no</a>. It is being taught on a yearly basis at University of Oslo under the name <a href="http://www.uio.no/studier/emner/matnat/ifi/INF3110/">INF3110/INF4110</a>.</p>
+
+
+<div class="contents main-content topic" id="table-of-contents">
+<p class="topic-title first"><strong>Table of Contents</strong></p>
+
+<ul class="simple">
+    <li>About this course
+        <a href="https://youtu.be/zm3lAP_bOew"><img src="play.png" style="height:15px;"></a>
+        <ul>
+            <li>About this course<a href="http://nbviewer.jupyter.org/github/UiO-INF3331/UiO-INF3331.github.io/blob/master/lectures/01-about-course/About%20the%20course.ipynb"> <img style="height:15px" src="notebook.png"></img></a></li>
+            <li>Scripting vs regular programming<a href="http://nbviewer.jupyter.org/github/UiO-INF3331/UiO-INF3331.github.io/blob/master/lectures/01-about-course/Scripting%20vs%20regular%20programming.ipynb" src="ipython-notebook.png"> <img style="height:15px" src="notebook.png"></img></a></li>
+        </ul>
+    </li>
+    <li>The git version control system<a href="http://nbviewer.jupyter.org/github/UiO-INF3331/UiO-INF3331.github.io/blob/master/lectures/01-about-course/Introduction%20to%20git.ipynb"> <img style="height:15px" src="notebook.png"></img></a>
+    </li>
+    <li>Bash programming <a href="http://nbviewer.jupyter.org/github/UiO-INF3331/UiO-INF3331.github.io/blob/master/lectures/02-bash-programming/Bash%20programming.ipynb"> <img style="height:15px" src="notebook.png"></a>
+        <a href="https://youtu.be/FYAtGCGh6zQ"><img src="play.png" alt="Part 1" style="height:15px;"></a> 
+        <a href="https://youtu.be/QBvZv4esH-U"><img src="play.png" alt="Part 2" style="height:15px;"></a>
+    </li>
+    <li>Introduction to Python <a href="http://nbviewer.jupyter.org/github/UiO-INF3331/UiO-INF3331.github.io/blob/master/lectures/03-python-summary/03_python_summary-short.ipynb"> <img style="height:15px" src="notebook.png"></a>
+        <a href="https://youtu.be/qJ56VRYG_Wk"><img src="play.png" alt="Part 1" style="height:15px;"></a>
+        <a href="https://youtu.be/XvSsSHxJRQ0"><img src="play.png" alt="Part 2" style="height:15px;"></a>
+        <ul>
+            <li>Installation</li>
+            <li>Getting help</li>
+            <li>Variables and types</li>
+            <li>Control structures</li>
+            <li>Functions</li>
+            <li>Classes</li>
+        </ul> 
+    </li>
+    <li>Advanced Python topics 
+         <a href="http://nbviewer.jupyter.org/github/UiO-INF3331/UiO-INF3331.github.io/blob/master/lectures/04-python-summary2/04_python_summary2.ipynb"> <img style="height:15px" src="notebook.png"></a>
+       <!-- <a href="https://youtu.be/rx5f6SUl-tU"><img src="play.png" alt="Part 1" style="height:15px;"></a>
+       <a href="https://youtu.be/vIKAZf1m62o"><img src="play.png" alt="Part 2" style="height:15px;"></a> -->
+        <ul>
+            <li>Modules and packages</li>
+            <li>Documentation</li>
+            <li>Testing</li>
+        </ul> 
+    </li>   
+    <li>Numerical computing with NumPy  <a href="http://nbviewer.jupyter.org/github/UiO-INF3331/UiO-INF3331.github.io/blob/master/lectures/05-numerical-python/05_numerical_python.ipynb"> <img style="height:15px" src="notebook.png"></a> 
+        <a href="https://youtu.be/wVBPy8hxPtI"><img src="play.png" alt="Part 1" style="height:15px;"></a>
+        <a href="https://youtu.be/FLpiZxxN7pk"><img src="play.png" alt="Part 2" style="height:15px;"></a>
+        <ul>
+            <li>Vectorisation</li>
+            <li>A first taste of NumPy</li>
+            <li>Creating arrays</li>
+            <li>Indexing/slicing arrays</li>
+            <li>Performance considerations</li>
+            <li>Plotting</li>
+        </ul> 
+    </li>
+    <li>Mixed programming
+         <a href="https://youtu.be/z3DJGXQ1v0c"><img src="play.png" alt="Part 1" style="height:15px;"></a>
+         <a href="https://youtu.be/gx4jc3QMU5Q"><img src="play.png" alt="Part 2" style="height:15px;"></a> 
+        <ul>
+            <li>Profiling <a href="http://nbviewer.jupyter.org/github/UiO-INF3331/UiO-INF3331.github.io/blob/master/lectures/06-mixed-programming1/python_profiling.ipynb"><img style="height:15px" src="notebook.png"></a>
+            <li>Overview of mixed-programming<a href="http://nbviewer.jupyter.org/github/UiO-INF3331/UiO-INF3331.github.io/blob/master/lectures/06-mixed-programming1/mixed_programming_introduction.ipynb"><img style="height:15px" src="notebook.png"></a>
+            <li>Cython<a href="http://nbviewer.jupyter.org/github/UiO-INF3331/UiO-INF3331.github.io/blob/master/lectures/06-mixed-programming1/mixed_programming_cython.ipynb"><img style="height:15px" src="notebook.png"></a>
+            <li>Numba<a href="http://nbviewer.jupyter.org/github/UiO-INF3331/UiO-INF3331.github.io/blob/master/lectures/06-mixed-programming1/Numba.ipynb"><img style="height:15px" src="notebook.png"></a>
+        </ul> 
+    </li>
+    <!-- <li>Peer-review information <a href="http://nbviewer.jupyter.org/github/UiO-INF3331/UiO-INF3331.github.io/blob/master/lectures/Peer-review information.ipynb">  <img style="height:15px" src="notebook.png"></a>  -->
+    <li>Peer-review information <a href="https://github.com/UiO-INF3331/UiO-INF3331.github.io/blob/master/lectures/Peer-review%20information.ipynb">  <img style="height:15px" src="notebook.png"></a> 
+         <a href="https://youtu.be/dag1-j6RhyE"><img src="play.png" alt="Part 1" style="height:15px;"></a> 
+    </li>
+    <li>Jupyter Notebook
+          <a href="https://youtu.be/qD2bK0ac7vA"><img src="play.png" alt="Play video" style="height:15px;"></a>
+    </li>
+
+    <li>Python in production</li><a href="https://youtu.be/W6eUqNan6rM"><img src="play.png" alt="Part 1" style="height:15px;"></a> 
+    <li>Regular expressions</li>
+    <a href="https://youtu.be/8kRLkAgiYAM"><img src="play.png" alt="Part 1" style="height:15px;"></a> 
+    <a href="https://youtu.be/8vVc10cumjE"><img src="play.png" alt="Part 2" style="height:15px;"></a> 
+    <!--
+    <li>Regular expressions
+         <ul>
+            <li>Part 1
+                <a href="https://youtu.be/6wCwKZInzP8" title="Part 1"><img src="play.png" alt="Play video" style="height:15px;"></a>
+                <a href="https://youtu.be/jzRB1sBOUno" title="Part 2"><img src="play.png" alt="Play video" style="height:15px;"></a>
+                <a href="https://youtu.be/Psqcs_kdkmo" title="Part 3"><img src="play.png" alt="Play video" style="height:15px;"></a>
+            </li>
+        </ul>
+        <ul>
+            <li>Part 2
+            <a href="https://youtu.be/UrWmYPKL_zw" title="Part 1"><img src="play.png" alt="Play video" style="height:15px;"></a>
+            <a href="https://youtu.be/K4NEXudXQFg" title="Part 2"><img src="play.png" alt="Play video" style="height:15px;"></a>
+            </li>
+        </ul> -->
+    </li>
+    <li>Data analysis with Pandas 
+         <a href="http://nbviewer.jupyter.org/github/UiO-INF3331/UiO-INF3331.github.io/blob/master/lectures/11_pandas/Pandas.ipynb"><img style="height:15px" src="notebook.png"></a>
+    <a href="https://youtu.be/n_DgiKFg3yc"><img src="play.png" alt="Part 1" style="height:15px;"></a> 
+    <a href="https://youtu.be/QTMWewrVd2E"><img src="play.png" alt="Part 2" style="height:15px;"></a> 
+	 <!--        <a href="https://youtu.be/HEtgQyvD-Y8" title="Part 1"><img src="play.png" alt="Play video" style="height:15px;"></a>
+        <a href="https://youtu.be/ski9LAVN9xc" title="Part 2"><img src="play.png" alt="Play video" style="height:15px;"></a> -->
+    </li>
+    <li>Web programming with Flask
+            <a href="https://youtu.be/tal2A9m-BLc" title="Part 1"><img src="play.png" alt="Play video" style="height:15px;"></a>
+            <a href="https://youtu.be/f3RhT6LRaK0" title="Part 2"><img src="play.png" alt="Play video" style="height:15px;"></a> 
+            <a href="http://nbviewer.jupyter.org/github/UiO-INF3331/UiO-INF3331.github.io/blob/master/lectures/09_web_programming/Introduction%20to%20HTML.ipynb"><img style="height:15px" src="notebook.png"></a>
+            <a href="http://nbviewer.jupyter.org/github/UiO-INF3331/UiO-INF3331.github.io/blob/master/lectures/09_web_programming/Introduction%20to%20HTML%20-%20Forms.ipynb"><img style="height:15px" src="notebook.png"></a>
+            <a href="http://nbviewer.jupyter.org/github/UiO-INF3331/UiO-INF3331.github.io/blob/master/lectures/09_web_programming/Introduction%20to%20Flask.ipynb"><img style="height:15px" src="notebook.png"></a>
+            <a href="http://nbviewer.jupyter.org/github/UiO-INF3331/UiO-INF3331.github.io/blob/master/lectures/09_web_programming/monty-hall-game.ipynb"><img style="height:15px" src="notebook.png"></a>
+        <ul>
+            <li>Introduction to HTML</li>
+            <li>The Flask web server</li>
+            <li>The Monty Hall Game</li>
+        </ul>
+    </li>
+    <li>From script to project
+             <a href="https://youtu.be/oF9ATYK3Wmc" title="Part 1"><img src="play.png" alt="Play video" style="height:15px;"></a>
+            <a href="https://youtu.be/EWaqTUeeRCs" title="Part 2"><img src="play.png" alt="Play video" style="height:15px;"></a>
+        <ul>
+		<li>Basics<a href="http://nbviewer.jupyter.org/github/UiO-INF3331/UiO-INF3331.github.io/blob/master/lectures/10_from_script_to_project/From%20Script%20to%20Project.ipynb"><img style="height:15px" src="notebook.png"></a></li>
+		<li>Error handling<a href="http://nbviewer.jupyter.org/github/UiO-INF3331/UiO-INF3331.github.io/blob/master/lectures/10_from_script_to_project/Error%20handling%20in%20Python.ipynb"><img style="height:15px" src="notebook.png"></a>
+            </li>
+	    <li>Decorators<a href="http://nbviewer.jupyter.org/github/UiO-INF3331/UiO-INF3331.github.io/blob/master/lectures/10_from_script_to_project/Decorators%20in%20Python.ipynb"><img style="height:15px" src="notebook.png"></a>
+            </li>
+        </ul> 
+    </li> 
+    <li>Machine learning with SciKit Learn
+        <a href="https://youtu.be/_PBz14Q1EjE" title="Part 1"><img src="play.png" alt="Play video" style="height:15px;"></a>
+        <a href="https://youtu.be/29GjVs7FPXo" title="Part 2"><img src="play.png" alt="Play video" style="height:15px;"></a>
+  
+    <a href="http://nbviewer.jupyter.org/github/UiO-INF3331/UiO-INF3331.github.io/blob/master/lectures/12_scikit_learn/scikit-learn-1-presentation.ipynb"><img style="height:15px" src="notebook.png"></a>
+        <ul>
+            <li>What is machine learning</li>
+            <li>Intrduction to scikit-learn</li>
+            <li>Performance evaluation</li>
+        </ul>
+    </li>
+    <li>Tips of the week
+      <ul>
+          <li><a href="http://nbviewer.jupyter.org/github/UiO-INF3331/UiO-INF3331.github.io/blob/master/lectures/tips_and_tricks/gitignore.ipynb">Tip 1: Executable slides</a></li>
+          <li><a href="http://nbviewer.jupyter.org/github/UiO-INF3331/UiO-INF3331.github.io/blob/master/lectures/tips_and_tricks/ipython_embed.ipynb">Tip 2: IPython embed</a></li>
+          <li><a href="http://nbviewer.jupyter.org/github/UiO-INF3331/UiO-INF3331.github.io/blob/master/lectures/tips_and_tricks/bash_rc_alias.ipynb">Tip 3: Bash aliases and lambda functions</a></li> 
+          <!-- <li><a href="http://nbviewer.jupyter.org/github/UiO-INF3331/UiO-INF3331.github.io/blob/master/lectures/tips_and_tricks/gitignore.ipynb">Tip 1: gitignore files</a></li> -->
+          <!--<li><a href="http://nbviewer.jupyter.org/github/UiO-INF3331/UiO-INF3331.github.io/blob/master/lectures/tips_and_tricks/git_gui.ipynb">Tip 3: Git GUIs</a></li>
+          <li><a href="http://nbviewer.jupyter.org/github/UiO-INF3331/UiO-INF3331.github.io/blob/master/lectures/tips_and_tricks/prettier_git.ipynb">Tip 4: Prettier git log</a></li>
+          <li><a href="http://nbviewer.jupyter.org/github/UiO-INF3331/UiO-INF3331.github.io/blob/master/lectures/tips_and_tricks/Builtin%20Superheroes.ipynb">Tip 5: Builtin Superheroes</a></li> -->
+      </ul>
+   </li>
+</ul>
+</div>
+<div class="line-block">
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<!-- More information -->
+The 2017 course content is available <a href="index_2017.html">here</a>.
+
+Page design: <a href="http://www.labri.fr/perso/nrougier/from-python-to-numpy">From Python to Numpy</a> book.
+</div>
+</body>
+</html>

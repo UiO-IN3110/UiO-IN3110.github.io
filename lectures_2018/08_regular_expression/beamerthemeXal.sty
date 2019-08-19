@@ -1,0 +1,77 @@
+\newif\ifusefontspec
+\newif\ifuseubuntuinstall
+\DeclareOptionBeamer{fontspec}{\usefontspectrue}
+\DeclareOptionBeamer{installed}{\useubuntuinstalltrue}
+\ProcessOptionsBeamer
+
+\ifusefontspec
+  \usepackage{fontspec}
+  \setmainfont{Ubuntu}
+  \setmonofont{Ubuntu Mono}
+\else
+  \ifuseubuntuinstall
+    \usepackage{ubuntu}
+  \else
+    \usepackage{ifluatex}
+    \ifluatex
+      \usepackage{fontspec}
+      \setmainfont{Ubuntu}
+      \setmonofont{Ubuntu Mono}
+    \else
+      \usepackage{ubuntu}
+    \fi
+  \fi
+\fi
+
+\definecolor{xalblue}{rgb}{0.1719,0.3516,0.6250}
+\definecolor{xaldark}{rgb}{0.1290,0.2566,0.4688}
+\definecolor{white}{rgb}{1., 1., 1.}
+
+\setbeamercolor{structure}{fg=xalblue}
+\setbeamercolor{title}{fg=white}
+\usecolortheme{rose}
+
+\RequirePackage{type1cm}
+\RequirePackage{type1ec}
+
+\mode<presentation>
+\setbeamertemplate{background}
+{
+  \ifnum\insertframenumber=1
+    \includegraphics[width=\paperwidth,height=\paperheight]{beamerthemeXalTitlepage}
+  \else
+    \includegraphics[width=\paperwidth,height=\paperheight]{beamerthemeXalSlide}
+  \fi
+}
+
+\renewcommand{\frametitle}[1]{\ifnum\insertframenumber=1
+  \vspace*{1cm}\color{white}\LARGE\textbf{#1}\par\bigskip\large\else
+  {\bf\Large #1\par}\medskip\fi}
+
+\defbeamertemplate*{sidebar right}{Xal}
+{
+  \vfill%
+  \hspace*{3.8cm}
+  \llap{\makebox[\paperwidth]{\usebeamertemplate***{navigation symbols}}}%
+  \vskip6pt%
+}
+
+\defbeamertemplate*{footline}{Xal}
+{%
+  \leavevmode%
+  \raisebox{13mm}[0pt][0pt]{%
+    \hbox{\begin{beamercolorbox}[wd=.5\paperwidth,ht=2.5ex,dp=1.125ex,
+      leftskip=.2cm,rightskip=.2cm plus 1fill]{title in head/foot}%
+      \usebeamerfont{title in head/foot}%
+      \ifnum\insertframenumber=1\else\insertdate\fi
+    \end{beamercolorbox}%
+    \begin{beamercolorbox}[wd=.5\paperwidth,ht=2.5ex,dp=1.125ex,
+      leftskip=.2cm plus 1fill,rightskip=.2cm]{title in head/foot}%
+      \usebeamerfont{title in head/foot}%
+      \ifnum\insertframenumber=1\else\insertframenumber\fi
+    \end{beamercolorbox}}}%
+  \vskip 0mm%
+}
+
+\mode
+<all>
