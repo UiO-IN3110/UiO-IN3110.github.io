@@ -1,5 +1,5 @@
-sleep 1 && echo "Sleep 1s finished" &
-sleep 2 && echo "Sleep 2s finished" &
-sleep 3 && echo "Sleep 3s finished" &
+sleep 1 && echo "First sleep finished" &
+sleep 1 && echo "Second sleep finished" &
+sleep 1 && echo "Third sleep finished" &
 wait
 echo "All sleeps finished"
