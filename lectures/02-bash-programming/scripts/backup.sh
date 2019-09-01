@@ -1,6 +1,6 @@
-#!/bin/bash
+#!/bin/bash -x
 
-if [ "`date +%R`" == "tirsdag" ]; then
+if [ "`date +%A`" == "onsdag" ]; then
    echo "Starting backup."
 else
    echo "No backup today."
