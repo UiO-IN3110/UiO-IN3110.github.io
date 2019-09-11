@@ -1,6 +1,6 @@
-from script import absolute_value
+from math_tools import absolute_value
 
-def test_func():
+def test_absolute_value():
     assert absolute_value(-3) == 3
     assert absolute_value(5) == 5
     assert absolute_value(0) == 0
