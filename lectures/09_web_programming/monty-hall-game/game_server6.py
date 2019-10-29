@@ -79,8 +79,8 @@ def final():
 
 @app.route('/statistics')
 def statistics():
-    changed_and_won = [e["won"] for e in game_states.values() if "changed_choice" in e and e["changed_choice"]]
-    notchanged_and_won = [e["won"] for e in game_states.values() if "changed_choice" in e and not e["changed_choice"]]
+    changed_and_won = [e["won"] for e in game_states.values() if e["changed_choice"]]
+    notchanged_and_won = [e["won"] for e in game_states.values() if not e["changed_choice"]]
 
     changed_sucess_rate = 100*sum(changed_and_won)/len(changed_and_won) if len(changed_and_won) > 0 else 0
     notchanged_success_rate = 100*sum(notchanged_and_won)/len(notchanged_and_won) if len(notchanged_and_won) > 0 else 0
