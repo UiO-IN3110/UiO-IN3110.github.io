@@ -27,10 +27,10 @@ game_states = {}  # Maps game id to winner door
 @app.route("/")
 def root():
         return """<h1>Welcome to the <b>magic door</b> game!</h1>
-<a href="/select/">Launch game</a>
+<a href="/select">Launch game</a>
 """
 
-@app.route("/select/")
+@app.route("/select")
 def new():
     game_id = str(uuid.uuid4())
     winning = random.randint(1, 3)
