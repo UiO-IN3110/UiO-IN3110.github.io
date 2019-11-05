@@ -4,23 +4,16 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>monty_hall_game package &#8212; Monty Hall Game 0.0.1 documentation</title>
     <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <script type="text/javascript">
-      var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    './',
-        VERSION:     '0.0.1',
-        COLLAPSE_INDEX: false,
-        FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true,
-        SOURCELINK_SUFFIX: '.txt'
-      };
-    </script>
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
    
@@ -28,8 +21,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
 
-  </head>
-  <body>
+  </head><body>
   
 
     <div class="document">
@@ -42,23 +34,12 @@
 <div class="section" id="submodules">
 <h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
 </div>
-<div class="section" id="module-monty_hall_game.game_exceptions">
-<span id="monty-hall-game-game-warnings-module"></span><h2>monty_hall_game.game_warnings module<a class="headerlink" href="#module-monty_hall_game.game_exceptions" title="Permalink to this headline">¶</a></h2>
-<dl class="exception">
-<dt id="monty_hall_game.game_exceptions.InvalidGameInput">
-<em class="property">exception </em><code class="descclassname">monty_hall_game.game_exceptions.</code><code class="descname">InvalidGameInput</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/monty_hall_game/game_exceptions.html#InvalidGameInput"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#monty_hall_game.game_exceptions.InvalidGameInput" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">Exception</span></code></p>
-<p>This exception should be thrown if invalid input is provided to the
-game. An example is to finish the game before selecting a door.</p>
-</dd></dl>
-
-</div>
 <div class="section" id="module-monty_hall_game.monty_hall_game">
 <span id="monty-hall-game-monty-hall-game-module"></span><h2>monty_hall_game.monty_hall_game module<a class="headerlink" href="#module-monty_hall_game.monty_hall_game" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt id="monty_hall_game.monty_hall_game.MontyHallGame">
 <em class="property">class </em><code class="descclassname">monty_hall_game.monty_hall_game.</code><code class="descname">MontyHallGame</code><a class="reference internal" href="_modules/monty_hall_game/monty_hall_game.html#MontyHallGame"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#monty_hall_game.monty_hall_game.MontyHallGame" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>Instantiates a new Monty Hall Game object.</p>
 <p>Example usage:</p>
 <p><a href="#id1"><span class="problematic" id="id2">``</span></a>`
@@ -72,18 +53,29 @@ game.select_door(to_open)</p>
 <dl class="method">
 <dt id="monty_hall_game.monty_hall_game.MontyHallGame.available_doors">
 <code class="descname">available_doors</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/monty_hall_game/monty_hall_game.html#MontyHallGame.available_doors"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#monty_hall_game.monty_hall_game.MontyHallGame.available_doors" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns a list of doors that are still available for selection</p>
+<dd><p>Returns a list of doors that are still available for selection.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">List of available doors.</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
 <dt id="monty_hall_game.monty_hall_game.MontyHallGame.let_host_open_door">
 <code class="descname">let_host_open_door</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/monty_hall_game/monty_hall_game.html#MontyHallGame.let_host_open_door"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#monty_hall_game.monty_hall_game.MontyHallGame.let_host_open_door" title="Permalink to this definition">¶</a></dt>
-<dd><p>When this function is called, the host will open a door that contains no price.</p>
+<dd><dl class="docutils">
+<dt>When this function is called, the host will open a door</dt>
+<dd>that contains no price.</dd>
+</dl>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">The newly opened door number as an int.</td>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">The newly opened door number as an <cite>int</cite>.</td>
 </tr>
 </tbody>
 </table>
@@ -108,7 +100,7 @@ game.select_door(to_open)</p>
 <code class="descname">select_door</code><span class="sig-paren">(</span><em>door</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/monty_hall_game/monty_hall_game.html#MontyHallGame.select_door"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#monty_hall_game.monty_hall_game.MontyHallGame.select_door" title="Permalink to this definition">¶</a></dt>
 <dd><p>Use this function to let the play select a door. This function
 should be called twice: Once at the beginning of the game for the initial
-door choice. And once after calling <a href="#id7"><span class="problematic" id="id8">:function:`MontyHallGame.let_host_open_door`</span></a>.</p>
+door choice. And once after calling <cite>MontyHallGame.let_host_open_door</cite>.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -124,6 +116,14 @@ door choice. And once after calling <a href="#id7"><span class="problematic" id=
 <em class="property">static </em><code class="descname">statistics</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/monty_hall_game/monty_hall_game.html#MontyHallGame.statistics"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#monty_hall_game.monty_hall_game.MontyHallGame.statistics" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns statistics about the winning chances of the “change door”
 and “do not change door” strategies of all games played.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">String containing the game statistics.</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="attribute">
@@ -145,16 +145,17 @@ and “do not change door” strategies of all games played.</p>
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-  <h3><a href="index.html">Table Of Contents</a></h3>
-  <ul>
-<li><a class="reference internal" href="#">monty_hall_game package</a><ul>
-<li><a class="reference internal" href="#submodules">Submodules</a></li>
-<li><a class="reference internal" href="#module-monty_hall_game.game_exceptions">monty_hall_game.game_warnings module</a></li>
-<li><a class="reference internal" href="#module-monty_hall_game.monty_hall_game">monty_hall_game.monty_hall_game module</a></li>
-<li><a class="reference internal" href="#module-monty_hall_game">Module contents</a></li>
-</ul>
-</li>
-</ul>
+<h1 class="logo"><a href="index.html">Monty Hall Game</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+
 <div class="relations">
 <h3>Related Topics</h3>
 <ul>
@@ -162,21 +163,16 @@ and “do not change door” strategies of all games played.</p>
   </ul></li>
 </ul>
 </div>
-  <div role="note" aria-label="source link">
-    <h3>This Page</h3>
-    <ul class="this-page-menu">
-      <li><a href="_sources/monty_hall_game.rst.txt"
-            rel="nofollow">Show Source</a></li>
-    </ul>
-   </div>
 <div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
+    <div class="searchformwrapper">
     <form class="search" action="search.html" method="get">
-      <div><input type="text" name="q" /></div>
-      <div><input type="submit" value="Go" /></div>
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
       <input type="hidden" name="check_keywords" value="yes" />
       <input type="hidden" name="area" value="default" />
     </form>
+    </div>
 </div>
 <script type="text/javascript">$('#searchbox').show(0);</script>
         </div>
@@ -187,7 +183,7 @@ and “do not change door” strategies of all games played.</p>
       &copy;2016, Simon Funke.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.6.5</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.8.5</a>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.8</a>
       
       |

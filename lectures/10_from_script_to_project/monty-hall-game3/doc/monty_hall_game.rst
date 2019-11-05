@@ -1,19 +1,11 @@
-monty_hall_game package
-=======================
+monty\_hall\_game package
+=========================
 
 Submodules
 ----------
 
-monty_hall_game.game_warnings module
-------------------------------------
-
-.. automodule:: monty_hall_game.game_exceptions
-    :members:
-    :undoc-members:
-    :show-inheritance:
-
-monty_hall_game.monty_hall_game module
---------------------------------------
+monty\_hall\_game.monty\_hall\_game module
+------------------------------------------
 
 .. automodule:: monty_hall_game.monty_hall_game
     :members:
