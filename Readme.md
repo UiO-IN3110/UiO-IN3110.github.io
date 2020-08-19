@@ -8,8 +8,3 @@ The dependencies for these slides can then be installed with the following comma
 ```
 pip install -r requirements.txt
 ```
-
-Next, install the RISE extension with:
-```
-conda install -c damianavila82 rise
-```
