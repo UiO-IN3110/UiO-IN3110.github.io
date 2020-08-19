@@ -6,5 +6,6 @@ First make sure that you have conda installed (see for example here: https://con
 The dependencies for these slides can then be installed with the following commands:
 
 ```
-pip install -r requirements.txt
+python3 -m pip install -r requirements.txt
+python3 -m bash_kernel.install --sys-prefix
 ```
