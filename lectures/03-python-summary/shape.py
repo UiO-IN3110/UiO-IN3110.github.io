@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 class Shape:
     """A class defining Shapes"""
     def __str__(self):
