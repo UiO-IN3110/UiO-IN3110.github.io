@@ -1,4 +1,4 @@
-from math_tools import absolute_value
+from math_tools import absolute_value, is_even
 
 def test_absolute_value():
     assert absolute_value(-3) == 3

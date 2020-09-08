@@ -3,3 +3,9 @@ def absolute_value(x):
         return -x
     else:
         return x
+
+def is_even(x):
+    if x%2==0:
+        return False
+    else:
+        return True
