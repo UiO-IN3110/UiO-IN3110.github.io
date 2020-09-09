@@ -351,3 +351,7 @@ tr:nth-child(even) td {
     font-weight: 400;
     border-bottom: 1px solid #000;
 }
+
+img.icon {
+    height: 15px;
+}
