@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Altair plot</title>
+    <style>
+      .error {
+        color: red;
+      }
+    </style>
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm//vega@5"
+    ></script>
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm//vega-lite@4.8.1"
+    ></script>
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm//vega-embed@6"
+    ></script>
+  </head>
+  <body>
+    <!--  call our submitForm() function on submit instead of the default -->
+    <form onsubmit="return submitForm();" id="form">
+      <label for="x-axis">X-axis</label>
+
+<!--  select gives a dropdown. The selected option can be accessed with `selectedOptions[0]` on the select element -->
+      <select name="x" id="x-axis">
+        <option value="Miles_per_Gallon">Miles per Gallon</option>
+        <option value="Cylinders">Cylinders</option>
+        <option value="Displacement">Displacement</option>
+        <option value="Horsepower" selected="selected">Horsepower</option>
+        <option value="Weight_in_lbs">Weight</option>
+        <option value="Year">Year</option>
+      </select>
+
+      <label for="y-axis">Y axis</label>
+      <select name="y" id="y-axis">
+        <option value="Miles_per_Gallon" selected="selected">
+          Miles per Gallon
+        </option>
+        <option value="Cylinders">Cylinders</option>
+        <option value="Displacement">Displacement</option>
+        <option value="Horsepower">Horsepower</option>
+        <option value="Weight_in_lbs">Weight</option>
+        <option value="Year">Year</option>
+      </select>
+
+      <input type="submit" value="Plot" />
+    </form>
+    <div id="vis"></div>
+
+    <script>
+      function submitForm() {
+        // call our plot function when the form is submitted
+        plot();
+        // return false is important to prevent reloading the page on submit
+        return false;
+      }
+      async function plot() {
+        // get the values out of the form
+        var data = {
+          "x-axis": document.getElementById("x-axis").selectedOptions[0].value,
+          "y-axis": document.getElementById("y-axis").selectedOptions[0].value,
+        };
+        // submit a POST request with a JSON body
+        var response = await fetch("/plot.json", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(data),
+        });
+        // the response is the vega spec JSON
+        var spec = await response.json();
+
+        // the rest is
+        var embedOpt = { mode: "vega-lite" };
+
+        function showError(el, error) {
+          el.innerHTML =
+            '<div class="error" style="color:red;">' +
+            "<p>JavaScript Error: " +
+            error.message +
+            "</p>" +
+            "<p>This usually means there's a typo in your chart specification. " +
+            "See the javascript console for the full traceback.</p>" +
+            "</div>";
+          throw error;
+        }
+        const el = document.getElementById("vis");
+        vegaEmbed("#vis", spec, embedOpt).catch((error) =>
+          showError(el, error)
+        );
+      }
+
+      // invoke plot on page load
+      plot();
+    </script>
+  </body>
+</html>
