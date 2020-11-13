@@ -1,0 +1,7 @@
+[requires]
+python_version = "3.8"
+
+[packages]
+altair = "*"
+flask = "*"
+vega-datasets = "*"
