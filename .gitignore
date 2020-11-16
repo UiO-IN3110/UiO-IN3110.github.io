@@ -1,3 +1,10 @@
 *.swp
 /**/.ipynb_checkpoints
 __pycache__
+env-1
+_build
+*~
+.DS_Store
+*.so
+build
+*.egg-info
