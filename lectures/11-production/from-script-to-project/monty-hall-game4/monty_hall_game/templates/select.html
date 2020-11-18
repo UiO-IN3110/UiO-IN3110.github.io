@@ -1,0 +1,23 @@
+{% extends "layout7.html" %}
+{% block body %}
+
+<form action="/reselect?game_id={{ game_id }}" method="POST">
+	<h1>The magic door game has started</h1>
+	Choose one of the 3 doors:
+
+	<br/>
+    <label><input type="radio" name="door" value="1" checked>
+	<img src="/static/door1.png"></input>
+    </label>
+    <label><input type="radio" name="door" value="2">
+	<img src="/static/door2.png"></input>
+    </label>
+    <label><input type="radio" name="door" value="3">
+	<img src="/static/door3.png"></input>
+    </label>
+	<br/>
+    <input class="btn" type="submit" value="Submit">
+
+</form>
+
+{% endblock %}

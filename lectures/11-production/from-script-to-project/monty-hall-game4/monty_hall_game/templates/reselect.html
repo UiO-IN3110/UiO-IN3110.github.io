@@ -1,0 +1,27 @@
+{% extends "layout7.html" %}
+{% block body %}
+
+<form action="/final?game_id={{ game_id }}" method="POST">
+    <h1>You have selected door {{ selected }}</h1>
+
+    <h2>The TV moderator opens door {{ opened }}.</h2>
+    <span>Guess what - nothing behind it!</span>
+
+    <h2>So... do you want to change your mind?</h2>
+	<br/>
+    {% for i in [1, 2, 3] %}
+        <label><input type="radio" name="door" value="{{ i }}"
+            {% if selected==i %} checked {% endif %}
+            {% if opened==i %} disabled {% endif %} >
+            {% if opened==i %}
+            <img src="/static/goat.jpg">
+            {% else %}
+            <img src="/static/door{{ i }}.png">
+            {% endif %}
+
+        </input></label>
+    {% endfor %}<br>
+    <input  class="btn" type="submit" value="Let's go">
+</form>
+
+{% endblock %}
