@@ -4,24 +4,50 @@
 #
 #    pip-compile
 #
-altair==4.1.0             # via -r requirements.in
-attrs==20.3.0             # via jsonschema
-click==7.1.2              # via flask
-entrypoints==0.3          # via altair
-flask==1.1.2              # via -r requirements.in
-itsdangerous==1.1.0       # via flask
-jinja2==2.11.2            # via altair, flask
-jsonschema==3.2.0         # via altair
-markupsafe==1.1.1         # via jinja2
-numpy==1.19.4             # via altair, pandas
-pandas==1.1.4             # via altair, vega-datasets
-pyrsistent==0.17.3        # via jsonschema
-python-dateutil==2.8.1    # via pandas
-pytz==2020.4              # via pandas
-six==1.15.0               # via jsonschema, python-dateutil
-toolz==0.11.1             # via altair
-vega-datasets==0.8.0      # via -r requirements.in
-werkzeug==1.0.1           # via flask
+altair==4.1.0
+    # via -r requirements.in
+attrs==20.3.0
+    # via jsonschema
+click==7.1.2
+    # via flask
+entrypoints==0.3
+    # via altair
+flask==1.1.2
+    # via -r requirements.in
+itsdangerous==1.1.0
+    # via flask
+jinja2==2.11.3
+    # via
+    #   altair
+    #   flask
+jsonschema==3.2.0
+    # via altair
+markupsafe==1.1.1
+    # via jinja2
+numpy==1.19.4
+    # via
+    #   altair
+    #   pandas
+pandas==1.1.4
+    # via
+    #   altair
+    #   vega-datasets
+pyrsistent==0.17.3
+    # via jsonschema
+python-dateutil==2.8.1
+    # via pandas
+pytz==2020.4
+    # via pandas
+six==1.15.0
+    # via
+    #   jsonschema
+    #   python-dateutil
+toolz==0.11.1
+    # via altair
+vega-datasets==0.8.0
+    # via -r requirements.in
+werkzeug==1.0.1
+    # via flask
 
 # The following packages are considered to be unsafe in a requirements file:
 # setuptools
