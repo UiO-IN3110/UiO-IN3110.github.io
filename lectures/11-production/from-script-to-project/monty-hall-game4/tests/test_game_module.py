@@ -1,4 +1,5 @@
 import random
+import pytest
 from monty_hall_game import MontyHallGame, InvalidGameInput
 
 
@@ -13,17 +14,14 @@ def test_that_game_wins_or_loses():
 
     won = game.open_door()
 
-    assert won or not won
+    assert won in {True, False}
 
 
 def test_that_selecting_invalid_door_raises_correct_exception():
     game = MontyHallGame()
 
-    try:
+    with pytest.raises(InvalidGameInput):
         game.select_door(4)
-        assert False
-    except InvalidGameInput:
-        pass
 
 
 def test_that_statistics_returns_str():
@@ -33,4 +31,4 @@ def test_that_statistics_returns_str():
         test_that_game_wins_or_loses()
 
     # Check that the statistics function produces a string
-    assert type(MontyHallGame.statistics()) == str
+    assert type(MontyHallGame.statistics()) is str
