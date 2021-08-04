@@ -1,4 +1,4 @@
-notebook
+jupyterlab>=3
 RISE
 numpy
 matplotlib
