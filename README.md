@@ -1,7 +1,7 @@
 Installation
 ============
 
-First make sure that you have conda installed (see for example [miniforge](https://github.com/conda-forge/miniforge#install))
+First make sure that you have Python installed (see for example [miniforge](https://github.com/conda-forge/miniforge#install))
 
 The dependencies for these slides can then be installed with the following commands:
 
