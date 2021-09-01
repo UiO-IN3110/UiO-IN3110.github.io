@@ -155,9 +155,10 @@ h2 a:hover, h3 a:hover {
 .main-content {
     padding-top: 1em;
 }
-    
+
 .main-content .topic-title {
     border-bottom: 1px solid black;
+    font-weight: bold;
     padding-left:  5%;
     margin-left:  -5%;
 }
@@ -224,7 +225,7 @@ h2.subtitle {
     text-align: center;
 }
 
-    
+
 /* --- Math ---------------------------------------------------------------- */
 span.formula {
     color: #955;
@@ -297,12 +298,12 @@ td, th {
     border: none;
 }
 th {
-    text-align: left; 
+    text-align: left;
     font-weight: 400; /* Make sure they're bold */
     border-bottom: 1px solid black;
 }
 td {
-    text-align: left; 
+    text-align: left;
     border: none;
 }
 tr:nth-child(even) td {
