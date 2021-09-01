@@ -13274,7 +13274,17 @@ a.anchor-link {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>On some supercomputers (e.g. SAGA), vim may be the only option for text editing</p>
+<p>On some supercomputers (e.g. SAGA), vim may be the only option for text editing.</p>
+<ul>
+<li>Open vim and a textfile hello_world.sh with $ vim hello_world.sh</li>
+<li>To edit text in vim we have to enter INSERT mode by typing "i"</li>
+<li>The cursor can not be moved with mouse clicks. Use arrows and "PgUp", "End" etc. </li>
+<li>Inside INSERT mode text can be edited as normal</li>
+<li>To exit INSERT mode press Esc</li>
+<li>To save changes type :w</li>
+<li>To exit vim (important!), type :q </li>
+<li>Save and exit :wq</li>
+</ul>
 
 </div>
 </div>
@@ -13293,7 +13303,7 @@ a.anchor-link {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Live-programming:-Oslo's-weather-forecast.">Live programming: Oslo's weather forecast.<a class="anchor-link" href="#Live-programming:-Oslo's-weather-forecast.">&#182;</a></h2>
+<h2 id="Live-programming:-Oslo's-weather-report.">Live programming: Oslo's weather report.<a class="anchor-link" href="#Live-programming:-Oslo's-weather-report.">&#182;</a></h2>
 </div>
 </div>
 </div><div class="fragment">
@@ -13316,10 +13326,11 @@ a.anchor-link {
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="Interactive-programming">Interactive programming<a class="anchor-link" href="#Interactive-programming">&#182;</a></h3><p>Solve the following exercises:</p>
-<p>1) Implement a weather forcast script that outputs the current weather in Bergen (i suggest using <a href="https://wttr.in/your_location">https://wttr.in/your_location</a> ). Feel free to vary the layout and amount of details in the output.</p>
+<p>1) Implement a weather forcast script that outputs the current weather in Bergen (i suggest using <a href="https://pent.no">https://pent.no</a> or <a href="https://wttr.in/your_location">https://wttr.in/your_location</a>). Feel free to vary the layout and amount of details in the output.</p>
 <p>2) (Optional) Implement a script that outputs headlines of nrk.no.</p>
 <p>3) (Optional) Implement a weather forecast script as in 1) using www.yr.no.</p>
-<p><strong>Time: 10 minutes</strong></p>
+<p>useful: curl, grep, head, cut, (cowsay)</p>
+<p><strong>Time: 15 minutes</strong></p>
 
 </div>
 </div>
@@ -13330,7 +13341,7 @@ a.anchor-link {
 <h2 id="More-pipe-examples">More pipe examples<a class="anchor-link" href="#More-pipe-examples">&#182;</a></h2>
 </div>
 </div>
-</div>
+</div><div class="fragment">
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -13349,28 +13360,21 @@ equip the output with paging functionality:</li>
 
 </div>
 </div>
-</div></section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="More-pipe-examples">More pipe examples<a class="anchor-link" href="#More-pipe-examples">&#182;</a></h2>
-</div>
-</div>
-</div><div class="fragment">
+</div></div></section><section>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <ul>
 <li>Save output to disk and display it on the console:</li>
 </ul>
-<div class="highlight"><pre><span></span>./compile_model.sh <span class="p">|</span> tee compile.log
+<div class="highlight"><pre><span></span>./weather.sh <span class="p">|</span> tee weather.log
 </pre></div>
 <p><font color='red'>⚠️ </font> <strong>tee</strong> writes <code>STDIN</code> to <code>STDOUT</code> and file
 <img src="figs/tee.png" style="width: 500px;"/></p>
 
 </div>
 </div>
-</div></div></section><section>
+</div></section><section>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -13438,9 +13442,10 @@ geturl <span class="s2">&quot;Oslo&quot;</span>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Interactive-programming">Interactive programming<a class="anchor-link" href="#Interactive-programming">&#182;</a></h3><p>Implement a "geturl" function that takes a city as input and stores the assoicated yr url as output.</p>
+<h3 id="Interactive-programming">Interactive programming<a class="anchor-link" href="#Interactive-programming">&#182;</a></h3><p>Implement a "geturl" function that takes a city as input and stores the assoicated weather report url as output.</p>
 <p>The function should work for Bergen, Oslo and Stavanger.</p>
 <p>If an invalid city is provided, the function should exit the script and print an error message.</p>
+<p>Optional: Print out the current weather instead of the link to the website</p>
 <p><strong>Time: 10 minutes</strong></p>
 
 </div>
@@ -13454,7 +13459,7 @@ geturl <span class="s2">&quot;Oslo&quot;</span>
 <div class="highlight"><pre><span></span><span class="ch">#!/bin/bash -x</span>
 </pre></div>
 <p>or on the command line:</p>
-<div class="highlight"><pre><span></span>bash -x scripts/backup.sh
+<div class="highlight"><pre><span></span>bash -x scripts/weather_functions.sh
 </pre></div>
 <p><strong>Live example</strong></p>
 
@@ -13466,7 +13471,7 @@ geturl <span class="s2">&quot;Oslo&quot;</span>
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>scripts/backup.sh
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>scripts/weather_functions.sh
 </pre></div>
 
     </div>
@@ -13533,15 +13538,16 @@ geturl <span class="s2">&quot;Oslo&quot;</span>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<div class="highlight"><pre><span></span><span class="nv">files</span><span class="o">=</span><span class="k">$(</span>ls *.ps *.gif<span class="k">)</span>
+<div class="highlight"><pre><span></span><span class="nv">files</span><span class="o">=</span><span class="k">$(</span>ls *.png *.eps<span class="k">)</span>
 
 <span class="c1"># compress and move the files:</span>
 gzip <span class="nv">$files</span>
 <span class="k">for</span> file in <span class="nv">$files</span><span class="p">;</span> <span class="k">do</span>
-  mv <span class="si">${</span><span class="nv">file</span><span class="si">}</span>.gz <span class="nv">$HOME</span>/images
+  cp <span class="si">${</span><span class="nv">file</span><span class="si">}</span>.gz <span class="nv">$HOME</span>/Pictures
+<span class="k">done</span>
 </pre></div>
 <p><font color='red'>⚠️ </font> <strong>gzip</strong> compresses a file,
-<strong>mv</strong> moves a file, <strong>$HOME</strong> is a string with the path to your home directory.</p>
+<strong>cp</strong> copies a file, <strong>$HOME</strong> is a string with the path to your home directory.</p>
 
 </div>
 </div>
@@ -13551,7 +13557,7 @@ gzip <span class="nv">$files</span>
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="The-find-command">The find command<a class="anchor-link" href="#The-find-command">&#182;</a></h2><p>Very useful command!</p>
 <p><font color='red'>⚠️ </font> <code>find</code> visits all files in a directory tree and can execute one or more commands for every file</p>
-<p>Basic example: find the <code>oscillator</code> codes</p>
+<p>Basic example: find the <code>weather</code> codes</p>
 
 </div>
 </div>
@@ -13559,7 +13565,7 @@ gzip <span class="nv">$files</span>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<div class="highlight"><pre><span></span>find <span class="nv">$scripting</span>/src -name <span class="s1">&#39;oscillator*&#39;</span> -print
+<div class="highlight"><pre><span></span>find $ /.../lectures find -name <span class="s1">&#39;weather*&#39;</span>
 </pre></div>
 
 </div>
@@ -13576,7 +13582,7 @@ gzip <span class="nv">$files</span>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<div class="highlight"><pre><span></span>find <span class="nv">$HOME</span> <span class="se">\(</span> -name <span class="s1">&#39;*.log&#39;</span> -o -name <span class="s1">&#39;*.pdf&#39;</span> <span class="se">\)</span> -print
+<div class="highlight"><pre><span></span>find <span class="nv">$HOME</span> -name <span class="s1">&#39;*.log&#39;</span> -o -name <span class="s1">&#39;*.pdf&#39;</span>
 </pre></div>
 
 </div>
