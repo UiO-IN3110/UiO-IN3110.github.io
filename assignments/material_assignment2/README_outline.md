@@ -21,13 +21,13 @@ Here you can name limitations.
 Here you can explain how to use the code, e.g.
 
 
-To do a the user needs to run the following command
+To do "A" the user needs to run the following command
 
 ```bash
 commmand1 arguments 
 ```
 
-To do b the user needs to run the following command
+To do "B" the user needs to run the following command
 
 ```bash
 commmand2 arguments 
