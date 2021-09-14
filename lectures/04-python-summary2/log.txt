@@ -1,4 +1,4 @@
-09.Sept 2019 14:30: New user enters webpage
-09.Sept 2019 14:31: Login email: simon@simula.no
-09.Sept 2019 14:31: User password: fisheatfish
-09.Sept 2019 14:35: User leaves webpage
+09.Sept 2021 14:30: New user enters webpage
+09.Sept 2021 14:31: Login email: vegard@simula.no
+09.Sept 2021 14:31: User password: fisheatfish
+09.Sept 2021 14:35: User leaves webpage
