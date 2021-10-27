@@ -31,7 +31,6 @@ new_trips_data = trips[trips['start_station_name'] == 'Stensgata']
 end_stations = new_trips_data['end_station_id'].value_counts()
 new_stations_data = station_data[station_data['start_station_name'] == 'Stensgata']
 
-
 start_pos = float(new_stations_data['start_station_latitude']), float(new_stations_data['start_station_longitude'])
 
 def add_lines(row):
