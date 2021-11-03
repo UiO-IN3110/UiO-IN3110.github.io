@@ -82,7 +82,7 @@ def final(request: Request, game_id: str, door: int = Form(...)):
     state["won"] = has_won
 
     return templates.TemplateResponse(
-        "final6.html",
+        "final5.html",
         {
             "request": request,
             "has_won": has_won,

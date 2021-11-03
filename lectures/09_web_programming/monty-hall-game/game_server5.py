@@ -75,7 +75,7 @@ def final(request: Request, game_id: str, door: int = Form(...)):
 
     has_won = door == winning
     return templates.TemplateResponse(
-        "final.html",
+        "final5.html",
         {
             "request": request,
             "has_won": has_won,
