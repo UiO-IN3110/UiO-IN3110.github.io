@@ -7,25 +7,32 @@ python game_server2.py
 
 
 Improvements to game_server1.py:
-- /select URL implemented and and rendered from a template. 
+- /select URL implemented and and rendered from a template.
 - The template contains a form with a POST request to the /reselect.
 """
 
 
-from flask import Flask
-from flask import render_template
+from fastapi import FastAPI, Request
+from fastapi.responses import HTMLResponse
+from fastapi.templating import Jinja2Templates
 
-app = Flask(__name__)
+app = FastAPI()
+templates = Jinja2Templates(directory="templates")
 
-@app.route("/")
+
+@app.get("/", response_class=HTMLResponse)
 def root():
     return """<h1>Welcome to the <b>magic door</b> game!</h1>
 <a href="/select">Launch game</a>
 """
 
-@app.route("/select")
-def new():
-    return render_template('select2.html')
+
+@app.get("/select", response_class=HTMLResponse)
+def new(request: Request):
+    return templates.TemplateResponse("select2.html", {"request": request})
+
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    import uvicorn
+
+    uvicorn.run(app)

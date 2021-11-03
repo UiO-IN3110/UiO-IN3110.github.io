@@ -1,0 +1,12 @@
+{% extends "layout7.html" %} {% block body %}
+<h1>Statistics</h1>
+<p>
+  Changed and won: {{ changed_and_won | sum }} out of {{ changed_and_won | count
+  }} ({{ changed_success_rate }}% success)
+</p>
+<p>
+  Not changed and won: {{ notchanged_and_won | sum }} out of {{ changed_and_won
+  | count }} ({{ notchanged_success_rate }}% success)
+</p>
+
+{% endblock %}

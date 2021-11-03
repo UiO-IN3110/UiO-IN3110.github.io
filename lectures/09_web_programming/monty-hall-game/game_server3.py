@@ -13,31 +13,44 @@ Improvements to game_server2.py:
 """
 
 
-from flask import Flask
-from flask import render_template
-from flask import request
 import random
 import uuid
 
-app = Flask(__name__)
+from fastapi import FastAPI, Form, Request
+from fastapi.responses import HTMLResponse
+from fastapi.templating import Jinja2Templates
 
-@app.route("/")
+app = FastAPI()
+templates = Jinja2Templates(directory="templates")
+
+
+@app.get("/", response_class=HTMLResponse)
 def root():
-        return """<h1>Welcome to the <b>magic door</b> game!</h1>
+    return """<h1>Welcome to the <b>magic door</b> game!</h1>
 <a href="/select">Launch game</a>
 """
 
-@app.route("/select")
-def new():
-    return render_template('select2.html')
 
-@app.route('/reselect', methods=['POST'])
-def reselect():
+@app.get("/select")
+def new(
+    request: Request,
+):
+    return templates.TemplateResponse(
+        "select2.html",
+        {
+            "request": request,
+        },
+    )
 
-    # request.form contains all form parameters, like the selected door
-    selected = int(request.form["door"])
-    return render_template("reselect3.html", selected=selected)
+
+@app.post("/reselect")
+def reselect(request: Request, door: int = Form(...)):
+    return templates.TemplateResponse(
+        "reselect3.html", {"request": request, "selected": door}
+    )
 
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    import uvicorn
+
+    uvicorn.run(app)

@@ -12,60 +12,79 @@ Implements the /final page. Shows the results of the game and a link to start
 a new game
 """
 
-from flask import Flask
-from flask import render_template
-from flask import request
 import random
 import uuid
 
-app = Flask(__name__)
+from fastapi import FastAPI, Form, Request
+from fastapi.responses import HTMLResponse
+from fastapi.templating import Jinja2Templates
+
+app = FastAPI()
+templates = Jinja2Templates(directory="templates")
 
 game_states = {}  # Maps game id to winner door
 
-@app.route("/")
+
+@app.get("/", response_class=HTMLResponse)
 def root():
-        return """<h1>Welcome to the <b>magic door</b> game!</h1>
+    return """<h1>Welcome to the <b>magic door</b> game!</h1>
 <a href="/select">Launch game</a>
 """
 
-@app.route("/select")
-def new():
-    game_id = str(uuid.uuid4())  # Creates a unique identifer for this game
+
+@app.get("/select")
+def new(request: Request):
+    game_id = str(uuid.uuid4())  # Create a unique identifier for this game
     winning = random.randint(1, 3)  # Define a winning door
     game_states[game_id] = winning
 
-    return render_template('select4.html', game_id=game_id)
+    return templates.TemplateResponse(
+        "select4.html",
+        {
+            "request": request,
+            "game_id": game_id,
+        },
+    )
 
-@app.route('/reselect', methods=['POST']) 
-def reselect():           
 
-    # request.form contains all form parameters, like the selected door
-    selected = int(request.form["door"])
-    
-    # request.args contains the URL parameters, like the game_id
-    game_id = request.args.get("game_id")
+@app.post("/reselect")
+def reselect(request: Request, game_id: str, door: int = Form(...)):
+
     winning = game_states[game_id]
 
     # Open a random door (but not the winning nor the user-chosen door)
     opened = set([1, 2, 3])
     opened.discard(winning)
-    opened.discard(selected)
+    opened.discard(door)
     opened = random.choice(list(opened))
 
-    return render_template("reselect4.html", game_id=game_id, selected=selected, opened=opened)
+    return templates.TemplateResponse(
+        "reselect4.html",
+        {
+            "request": request,
+            "game_id": game_id,
+            "selected": door,
+            "opened": opened,
+        },
+    )
 
-@app.route('/final', methods=['POST']) 
-def final():
 
-    # request.form contains all form parameters, like the selected door
-    selected = int(request.form["door"])
-
-    # request.args contains the URL parameters, like the game_id
-    game_id = request.args.get("game_id")
+@app.post("/final")
+def final(request: Request, game_id: str, door: int = Form(...)):
     winning = game_states[game_id]
 
-    has_won = selected == winning
-    return render_template("final.html", has_won=has_won, winning=winning)
+    has_won = door == winning
+    return templates.TemplateResponse(
+        "final.html",
+        {
+            "request": request,
+            "has_won": has_won,
+            "winning": winning,
+        },
+    )
+
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    import uvicorn
+
+    uvicorn.run(app)

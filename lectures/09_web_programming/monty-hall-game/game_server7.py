@@ -3,92 +3,142 @@ A Basic Monty Hall Game.
 ========================
 
 Run with
-python game_server7.py
+python game_server6.py
 
 
-Improvements to game_server6.py:
+Improvements to game_server5.py:
 
-Makes the game look prettier by:
-- Add layout template files
-- Use Bootstrap (bootstrap) 
-- Add images for doors and winning/loosing (using the /static folder)
+Implement a /statistics page that computes the win/loss chances of all played
+games. For that, I needed to extend the game_state to store all game
+information
 """
 
-from flask import Flask
-from flask import render_template
-from flask import request
+
 import random
 import uuid
 
-app = Flask(__name__)
+from fastapi import FastAPI, Form, Request
+from fastapi.responses import HTMLResponse
+from fastapi.staticfiles import StaticFiles
+from fastapi.templating import Jinja2Templates
+
+app = FastAPI()
+app.mount("/static", StaticFiles(directory="static"), name="static")
+templates = Jinja2Templates(directory="templates")
 
 game_states = {}  # Maps game id to winner door
 
-@app.route("/")
-def root():
-        return """<h1>Welcome to the <b>magic door</b> game!</h1>
-<a href="/select">Launch game</a>
-"""
 
-@app.route("/select")
-def new():
-    game_id = str(uuid.uuid4())
-    winning = random.randint(1, 3)
+@app.get("/", response_class=HTMLResponse)
+def root(request: Request):
+    return templates.TemplateResponse(
+        "index7.html",
+        {
+            "request": request,
+        })
+
+
+
+@app.get("/select")
+def new(request: Request):
+    game_id = str(uuid.uuid4())  # Create a unique identifier for this game
+    winning = random.randint(1, 3)  # Define a winning door
     game_states[game_id] = {"winning": winning}
 
-    return render_template('select7.html', game_id=game_id)
+    return templates.TemplateResponse(
+        "select7.html",
+        {
+            "request": request,
+            "game_id": game_id,
+        },
+    )
 
-@app.route('/reselect', methods=['POST'])
-def reselect():
 
-    # request.form contains all form parameters, like the selected door
-    selected = int(request.form["door"])
+@app.post("/reselect")
+def reselect(request: Request, game_id: str, door: int = Form(...)):
 
-    # request.args contains the URL parameters, like the game_id
-    game_id = request.args.get("game_id")
-
-    # Record some statistics
-    game_states[game_id]["first_choice"] = selected
-
-    winning = game_states[game_id]["winning"]
+    state = game_states[game_id]
+    state["first_choice"] = door
+    winning = state["winning"]
 
     # Open a random door (but not the winning nor the user-chosen door)
     opened = set([1, 2, 3])
     opened.discard(winning)
-    opened.discard(selected)
+    opened.discard(door)
     opened = random.choice(list(opened))
 
-    return render_template("reselect7.html", game_id=game_id, selected=selected, opened=opened)
+    return templates.TemplateResponse(
+        "reselect7.html",
+        {
+            "request": request,
+            "game_id": game_id,
+            "selected": door,
+            "opened": opened,
+        },
+    )
 
-@app.route('/final', methods=['POST'])
-def final():
 
-    # request.form contains all form parameters, like the selected door
-    selected = int(request.form["door"])
+@app.post("/final")
+def final(request: Request, game_id: str, door: int = Form(...)):
+    state = game_states[game_id]
+    state["changed_choice"] = door != state["first_choice"]
+    winning = state["winning"]
+    has_won = door == winning
+    state["won"] = has_won
 
-    # request.args contains the URL parameters, like the game_id
-    game_id = request.args.get("game_id")
-    winning = game_states[game_id]["winning"]
+    return templates.TemplateResponse(
+        "final7.html",
+        {
+            "request": request,
+            "has_won": has_won,
+            "winning": winning,
+        },
+    )
 
-    has_won = selected == winning
 
-    # Record some statistics
-    game_states[game_id]["changed_choice"] = selected != game_states[game_id]["first_choice"]
-    game_states[game_id]["won"] = has_won
+@app.get("/statistics", response_class=HTMLResponse)
+def statistics(request: Request):
+    # get only the finished games
+    games = [e for e in game_states.values() if "won" in e]
+    changed_and_won = [e["won"] for e in games if e["changed_choice"]]
+    notchanged_and_won = [
+        e["won"] for e in games if not e["changed_choice"]
+    ]
 
-    return render_template("final7.html", has_won=has_won, winning=winning)
+    changed_success_rate = (
+        100 * sum(changed_and_won) / len(changed_and_won)
+        if len(changed_and_won) > 0
+        else 0
+    )
+    notchanged_success_rate = (
+        100 * sum(notchanged_and_won) / len(notchanged_and_won)
+        if len(notchanged_and_won) > 0
+        else 0
+    )
 
-@app.route('/statistics')
-def statistics():
-    changed_and_won = [e["won"] for e in game_states.values() if "changed_choice" in e and e["changed_choice"]]
-    notchanged_and_won = [e["won"] for e in game_states.values() if "changed_choice" in e and not e["changed_choice"]]
+    # s1 = "Changed and won: {} out of {} ({}% success)".format(
+    #     sum(changed_and_won), len(changed_and_won), changed_success_rate
+    # )
+    # s2 = "Not changed and won: {} out of {} ({}% success)".format(
+    #     sum(notchanged_and_won), len(notchanged_and_won), notchanged_success_rate
+    # )
+    return templates.TemplateResponse(
+        "statistics7.html",
+        {
+            "request": request,
+            "notchanged_and_won": notchanged_and_won,
+            "notchanged_success_rate": notchanged_success_rate,
+            "changed_and_won": changed_and_won,
+            "changed_success_rate": changed_success_rate,
 
-    changed_sucess_rate = 100*sum(changed_and_won)/len(changed_and_won) if len(changed_and_won) > 0 else 0
-    notchanged_success_rate = 100*sum(notchanged_and_won)/len(notchanged_and_won) if len(notchanged_and_won) > 0 else 0
+        },
+    )
 
-    s1 = "Changed and won: {} out of {} ({}% success)".format(sum(changed_and_won), len(changed_and_won), changed_sucess_rate)
-    s2 = "Not changed and won: {} out of {} ({}% success)".format(sum(notchanged_and_won), len(notchanged_and_won), notchanged_success_rate)
+
     return "<h1>Statistics</h1>{}</br>{}".format(s1, s2)
 
+
 if __name__ == "__main__":
-    app.run(debug=True, host="0.0.0.0")
+    import uvicorn
+
+    uvicorn.run(app)
