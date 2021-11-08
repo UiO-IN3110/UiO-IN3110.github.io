@@ -12,10 +12,26 @@
 </head>
 <body>
   <div id="vis"></div>
-  <script>
-    (async function(vegaEmbed) {
+  <form action="javascript:refreshPlot()" id="fylke-form">
+    {% for fylke in fylker %}
+    <input type="checkbox" name="{{ fylke }}" value="{{ fylke }}" checked>
+    <label for="{{ fylke }}">{{ fylke }}</label>
+    <br/>
+    {% endfor %}
+    <button type="submit">Refresh</button>
+  </form>
 
-      var response = await fetch("norway_plot.json");
+  <script>
+    async function refreshPlot() {
+      // get selected checkboxes
+      var selected = [];
+      for (checkbox of document.getElementById("fylke-form").querySelectorAll("input[type=checkbox]")) {
+          if (checkbox.checked) {
+              selected.push(encodeURIComponent(checkbox.value));
+          }
+      };
+      // request the altair plot
+      var response = await fetch("norway_plot.json?fylker=" + selected.join(','));
       var spec = await response.json();
 
       var embedOpt = {"mode": "vega-lite"};
@@ -31,7 +47,8 @@
       const el = document.getElementById('vis');
       vegaEmbed("#vis", spec, embedOpt)
         .catch(error => showError(el, error));
-    })(vegaEmbed);
+    };
+    refreshPlot();
 
   </script>
 </body>
