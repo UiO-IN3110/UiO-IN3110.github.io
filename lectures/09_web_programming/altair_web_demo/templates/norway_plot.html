@@ -1,55 +1,84 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <style>
-    .error {
+  <head>
+    <style>
+      .error {
         color: red;
-    }
-  </style>
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm//vega@5"></script>
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm//vega-lite@4.8.1"></script>
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm//vega-embed@6"></script>
-</head>
-<body>
-  <div id="vis"></div>
-  <form action="javascript:refreshPlot()" id="fylke-form">
-    {% for fylke in fylker %}
-    <input type="checkbox" name="{{ fylke }}" value="{{ fylke }}" checked>
-    <label for="{{ fylke }}">{{ fylke }}</label>
-    <br/>
-    {% endfor %}
-    <button type="submit">Refresh</button>
-  </form>
-
-  <script>
-    async function refreshPlot() {
-      // get selected checkboxes
-      var selected = [];
-      for (checkbox of document.getElementById("fylke-form").querySelectorAll("input[type=checkbox]")) {
-          if (checkbox.checked) {
-              selected.push(encodeURIComponent(checkbox.value));
-          }
-      };
-      // request the altair plot
-      var response = await fetch("norway_plot.json?fylker=" + selected.join(','));
-      var spec = await response.json();
-
-      var embedOpt = {"mode": "vega-lite"};
-
-      function showError(el, error){
-          el.innerHTML = ('<div class="error" style="color:red;">'
-                          + '<p>JavaScript Error: ' + error.message + '</p>'
-                          + "<p>This usually means there's a typo in your chart specification. "
-                          + "See the javascript console for the full traceback.</p>"
-                          + '</div>');
-          throw error;
       }
-      const el = document.getElementById('vis');
-      vegaEmbed("#vis", spec, embedOpt)
-        .catch(error => showError(el, error));
-    };
-    refreshPlot();
+      #plots {
+        display: flex;
+      }
+    </style>
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/vega@5"
+    ></script>
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/vega-lite@4.8.1"
+    ></script>
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/vega-embed@6"
+    ></script>
+  </head>
+  <body>
+    <h1>Daily covid cases by fylke</h1>
+    <div id="plots">
+      <div id="altair-plot"></div>
+      <img id="mpl-plot" title="matplotlib plot" srcset="/norway_plot.png 2x" />
+    </div>
 
-  </script>
-</body>
+    <form action="javascript:refreshPlot()" id="fylke-form">
+      {% for fylke in fylker %}
+      <input type="checkbox" name="{{ fylke }}" value="{{ fylke }}" checked />
+      <label for="{{ fylke }}">{{ fylke }}</label>
+      <br />
+      {% endfor %}
+      <button type="submit">Refresh</button>
+    </form>
+
+    <script>
+      async function refreshPlot() {
+        // get selected checkboxes
+        var selected = [];
+        for (checkbox of document
+          .getElementById("fylke-form")
+          .querySelectorAll("input[type=checkbox]")) {
+          if (checkbox.checked) {
+            selected.push(checkbox.value);
+          }
+        }
+        var fylkeParam = "?fylker=" + encodeURIComponent(selected.join(","));
+
+        // update the matplotlib plot
+        document.getElementById("mpl-plot").srcset =
+          "/norway_plot.png" + fylkeParam + " 2x";
+
+        // update the altair plot
+        var response = await fetch("/norway_plot.json" + fylkeParam);
+        var spec = await response.json();
+
+        var embedOpt = { mode: "vega-lite" };
+
+        function showError(el, error) {
+          el.innerHTML =
+            '<div class="error" style="color:red;">' +
+            "<p>JavaScript Error: " +
+            error.message +
+            "</p>" +
+            "<p>This usually means there's a typo in your chart specification. " +
+            "See the javascript console for the full traceback.</p>" +
+            "</div>";
+          throw error;
+        }
+        const el = document.getElementById("vis");
+        vegaEmbed("#altair-plot", spec, embedOpt).catch((error) =>
+          showError(el, error)
+        );
+      }
+      // trigger a first refresh of the plots on page load
+      refreshPlot();
+    </script>
+  </body>
 </html>
