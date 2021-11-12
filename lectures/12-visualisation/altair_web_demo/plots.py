@@ -5,6 +5,12 @@ import altair as alt
 import pandas as pd
 import requests
 
+import matplotlib
+
+matplotlib.use("agg")
+
+import matplotlib.pyplot as plt
+
 data_url = "https://raw.githubusercontent.com/thohan88/covid19-nor-data/HEAD/data"
 
 
@@ -42,15 +48,21 @@ def fylke_data():
 
     # 'cases' is a cumulative sum
     # reverse that to calculate the daily new case count
-    cases["new cases"] = 0.0
+    cases["daily cases"] = 0
 
     for fylke in cases.fylke_name.unique():
         mask = cases.fylke_name == fylke
         fylke_cases = cases.loc[mask]
-        cases.loc[fylke_cases.index, "new cases"] = fylke_cases.cases.diff()
+        diff = fylke_cases.cases.diff()
+        # set first value from cases
+        diff.iloc[0] = fylke_cases.iloc[0].cases
+        cases.loc[fylke_cases.index, "daily cases"] = diff.astype(int)
+
 
     # per100k is "daily new cases per 100k population"
-    cases["per100k"] = cases["new cases"] * 1e5 / (cases["population"] + 1).astype(int)
+    cases["per100k"] = (
+        (cases["daily cases"] * 1e5 / (cases["population"] + 1))
+    )
 
     # limit data to 2021
     return cases[cases.date.dt.year >= 2021]
@@ -61,7 +73,7 @@ def get_fylker():
     return fylke_data().fylke_name.unique()
 
 
-def plot_daily_cases(fylker=None):
+def plot_daily_cases_altair(fylker=None):
     # get data
     cases = fylke_data()
     # if fylker specified, filter data
@@ -90,3 +102,36 @@ def plot_daily_cases(fylker=None):
         )
         .interactive()
     )
+
+
+def figure_to_png_bytes(figure):
+    """Convert a matplotlib figure to PNG bytes"""
+    buf = io.BytesIO()
+    # bbox_inches="tight" ensures nothing is cropped,
+    # but size can be variable
+    figure.savefig(buf, format="png", bbox_inches="tight")
+    return buf.getvalue()
+
+
+def plot_daily_cases_mpl(fylker=None):
+    # get data
+    cases = fylke_data()
+    # if fylker specified, filter data
+    if fylker:
+        # fylker specified, only display those
+        cases = cases[cases.fylke_name.isin(fylker)]
+
+    fig, ax = plt.subplots()
+    fig.set_size_inches(4, 3)
+    fig.set_dpi(200)
+
+    cases.set_index("date").groupby("fylke_name").per100k.plot(legend=True, ax=ax)
+    ax.set_ylim(0, 100)
+    # shift the legend to just outside the right edge
+    ax.legend(
+        loc="upper left",
+        bbox_to_anchor=(1.02, 1),
+        borderaxespad=0,
+    )
+    # return figure rendered as PNG bytes
+    return figure_to_png_bytes(fig)
