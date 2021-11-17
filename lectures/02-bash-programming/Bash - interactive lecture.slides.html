@@ -13385,7 +13385,7 @@ equip the output with paging functionality:</li>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<div class="highlight"><pre><span></span>ls &gt; files.txt <span class="p">;</span> grep <span class="m">2017</span> &lt; files.txt <span class="p">;</span> rm files.txt
+<div class="highlight"><pre><span></span>ls &gt; files.txt <span class="p">;</span> grep weather &lt; files.txt <span class="p">;</span> rm files.txt
 </pre></div>
 <p><font color='red'>⚠️ </font> <strong>CMD1 ; CMD2</strong> executes <code>CMD2</code> after <code>CMD1</code>.</p>
 
@@ -13397,7 +13397,7 @@ equip the output with paging functionality:</li>
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>The code above implements an (inefficient) pipe.</p>
 <p>Better:</p>
-<div class="highlight"><pre><span></span>ls <span class="p">|</span> grep <span class="m">2017</span>
+<div class="highlight"><pre><span></span>ls <span class="p">|</span> grep weather
 </pre></div>
 
 </div>
@@ -13565,7 +13565,7 @@ gzip <span class="nv">$files</span>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<div class="highlight"><pre><span></span>find $ /.../lectures find -name <span class="s1">&#39;weather*&#39;</span>
+<div class="highlight"><pre><span></span>find -name <span class="s1">&#39;weather*&#39;</span>
 </pre></div>
 
 </div>

@@ -10,7 +10,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 
 
-<title>Essentials for better Python programming slides</title>
+<title>Error handling in Python slides</title>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
@@ -13242,744 +13242,34 @@ a.anchor-link {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Essentials-to-better-Python">Essentials to better Python<a class="anchor-link" href="#Essentials-to-better-Python">&#182;</a></h1><p><strong>Overview</strong></p>
-<ul>
-<li>Packages and error-handling examples</li>
-<li>List comprehensions</li>
-<li>Decorators</li>
-</ul>
-
+<h1 id="Error-handling-in-Python">Error handling in Python<a class="anchor-link" href="#Error-handling-in-Python">&#182;</a></h1>
 </div>
 </div>
 </div></section><section>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Error-handling">Error handling<a class="anchor-link" href="#Error-handling">&#182;</a></h1><p>How to raise an Exception. Let's look at an example from the array class, here defined as a function for representation.</p>
-<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">array</span><span class="p">(</span><span class="n">shape</span><span class="p">,</span> <span class="o">*</span><span class="n">values</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Error example from the array class&quot;&quot;&quot;</span>
-    <span class="n">arr</span> <span class="o">=</span> <span class="p">[]</span>    
-    <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">values</span><span class="p">)</span>        
-    <span class="k">for</span> <span class="n">val</span> <span class="ow">in</span> <span class="n">values</span><span class="p">:</span>
-        <span class="n">arr</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">val</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">arr</span>
-
-<span class="n">A</span> <span class="o">=</span> <span class="n">array</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span><span class="mi">6</span><span class="p">),</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div></section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Self-made-packages">Self-made packages<a class="anchor-link" href="#Self-made-packages">&#182;</a></h1><p>You can make your own python packages with (several) subpackages:</p>
-<p>1) Create a new directory for your package (e.g. MyPackage)</p>
-<p>2) Create a new folder "MyPackage" within the folder MyPackage</p>
-<p>4) Create a module myModule.py located in MyPackage/MyPackage/myModule.py</p>
-<p>4) Create a setup.py file, located in (the first) MyPackage</p>
-<p>5) Create (empty)  __init__.py files in all folders.</p>
-<p>6) run "pip install ." from the (first) directory MyPackage</p>
-<p>7) See if you can import MyPackage in python when you are not located inside the MyPackage directory</p>
-<div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">distutils.core</span> <span class="kn">import</span> <span class="n">setup</span>
-<span class="kn">import</span> <span class="nn">setuptools</span>
-<span class="n">setup</span><span class="p">(</span>
-    <span class="n">name</span><span class="o">=</span><span class="s1">&#39;my_package&#39;</span><span class="p">,</span>
-    <span class="n">version</span><span class="o">=</span><span class="s1">&#39;1.0&#39;</span><span class="p">,</span>
-    <span class="n">author</span><span class="o">=</span><span class="s1">&#39;Vegard&#39;</span><span class="p">,</span>
-    <span class="n">author_email</span><span class="o">=</span><span class="s1">&#39;vegard@simula.no&#39;</span><span class="p">,</span>
-    <span class="n">packages</span><span class="o">=</span><span class="n">setuptools</span><span class="o">.</span><span class="n">find_packages</span><span class="p">(),</span>
-<span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div></section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Interactive-programming:-Make-your-own-package">Interactive programming: Make your own package<a class="anchor-link" href="#Interactive-programming:-Make-your-own-package">&#182;</a></h1><p>Follow the recipe below. Let myModule.py be a script containing one function my_name() that returns your name (10 minutes).</p>
-<p>1) Create a new directory for your package (e.g. MyPackage)</p>
-<p>2) Create a new folder "MyPackage" within the folder MyPackage</p>
-<p>4) Create a module myModule.py located in MyPackage/MyPackage/myModule.py</p>
-<p>4) Create a setup.py file, located in (the first) MyPackage</p>
-<p>5) Create (empty)  __init__.py files in all folders.</p>
-<p>6) run "pip install ." from the (first) directory MyPackage</p>
-<p>7) See if you can import and use MyPackage in python/ipython.</p>
-<div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">distutils.core</span> <span class="kn">import</span> <span class="n">setup</span>
-<span class="kn">import</span> <span class="nn">setuptools</span>
-<span class="n">setup</span><span class="p">(</span>
-    <span class="n">name</span><span class="o">=</span><span class="s1">&#39;my_package&#39;</span><span class="p">,</span>
-    <span class="n">version</span><span class="o">=</span><span class="s1">&#39;1.0&#39;</span><span class="p">,</span>
-    <span class="n">author</span><span class="o">=</span><span class="s1">&#39;Vegard&#39;</span><span class="p">,</span>
-    <span class="n">author_email</span><span class="o">=</span><span class="s1">&#39;vegard@simula.no&#39;</span><span class="p">,</span>
-    <span class="n">packages</span><span class="o">=</span><span class="n">setuptools</span><span class="o">.</span><span class="n">find_packages</span><span class="p">(),</span>
-<span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div></section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span>
-<span class="kn">import</span> <span class="nn">setuptools</span>
-<span class="kn">from</span> <span class="nn">setuptools.extension</span> <span class="kn">import</span> <span class="n">Extension</span>
-<span class="kn">from</span> <span class="nn">Cython.Build</span> <span class="kn">import</span> <span class="n">cythonize</span>
-<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;README.md&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fh</span><span class="p">:</span>
-    <span class="n">long_description</span> <span class="o">=</span> <span class="n">fh</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>   
-<span class="n">extensions</span><span class="o">=</span><span class="p">[</span>
-    <span class="n">Extension</span><span class="p">(</span><span class="s2">&quot;cython_color2gray&quot;</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;instapy/cython_color2gray.pyx&quot;</span><span class="p">],</span>
-    <span class="n">include_dirs</span><span class="o">=</span><span class="p">[</span><span class="n">numpy</span><span class="o">.</span><span class="n">get_include</span><span class="p">()],</span>
-    <span class="p">),</span> <span class="n">Extension</span><span class="p">(</span><span class="s2">&quot;cython_color2sepia&quot;</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;instapy/cython_color2sepia.pyx&quot;</span><span class="p">],</span>
-    <span class="n">include_dirs</span><span class="o">=</span><span class="p">[</span><span class="n">numpy</span><span class="o">.</span><span class="n">get_include</span><span class="p">()])</span>
-<span class="p">]</span>
-<span class="n">setuptools</span><span class="o">.</span><span class="n">setup</span><span class="p">(</span>
-    <span class="n">name</span><span class="o">=</span><span class="s2">&quot;instapy&quot;</span><span class="p">,</span>
-    <span class="n">version</span><span class="o">=</span><span class="s2">&quot;0.0.13&quot;</span><span class="p">,</span>
-    <span class="n">author</span><span class="o">=</span><span class="s2">&quot;Vegard Vinje&quot;</span><span class="p">,</span>
-    <span class="n">author_email</span><span class="o">=</span><span class="s2">&quot;vegarvi@ifi.uio.no&quot;</span><span class="p">,</span>
-    <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Instagram filters in Python&quot;</span><span class="p">,</span>
-    <span class="n">long_description</span><span class="o">=</span><span class="n">long_description</span><span class="p">,</span>
-    <span class="n">long_description_content_type</span><span class="o">=</span><span class="s2">&quot;text/markdown&quot;</span><span class="p">,</span>
-    <span class="n">url</span><span class="o">=</span><span class="s2">&quot;https://github.uio.no/IN3110/IN3110-vegarvi/&quot;</span><span class="p">,</span>
-    <span class="n">packages</span><span class="o">=</span><span class="n">setuptools</span><span class="o">.</span><span class="n">find_packages</span><span class="p">(),</span>
-    <span class="n">scripts</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;bin/instapy&quot;</span><span class="p">],</span>
-    <span class="n">ext_modules</span><span class="o">=</span><span class="n">cythonize</span><span class="p">(</span><span class="n">extensions</span><span class="p">),</span>
-    <span class="n">setup_requires</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;cython&quot;</span><span class="p">,</span> <span class="s2">&quot;numpy&quot;</span><span class="p">,</span> <span class="s2">&quot;setuptools&gt;=18.0&quot;</span><span class="p">],</span>
-    <span class="n">install_requires</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;numpy&quot;</span><span class="p">,</span> <span class="s2">&quot;numba&quot;</span><span class="p">,</span> <span class="s2">&quot;opencv-python&quot;</span><span class="p">],</span>
-    <span class="n">classifiers</span><span class="o">=</span><span class="p">[</span>
-        <span class="s2">&quot;Programming Language :: Python :: 3&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;License :: OSI Approved :: MIT License&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;Operating System :: OS Independent&quot;</span><span class="p">,</span>
-    <span class="p">],</span>
-    <span class="n">python_requires</span><span class="o">=</span><span class="s1">&#39;&gt;=3.6&#39;</span><span class="p">,</span>
-<span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div></section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="List-comprehensions">List comprehensions<a class="anchor-link" href="#List-comprehensions">&#182;</a></h1><p>List comprehensions provide a compact and readible way to create lists.</p>
-<p><strong>Syntax</strong>:</p>
-<p>Create a list without list comprehension:</p>
-<div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">sin</span>
-<span class="n">old_list</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.4</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">]</span>
-<span class="k">def</span> <span class="nf">filter</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-    <span class="k">if</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
-        <span class="k">return</span> <span class="bp">True</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="k">return</span> <span class="bp">False</span>
-
-<span class="n">new_list</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">old_list</span><span class="p">:</span>
-    <span class="k">if</span> <span class="nb">filter</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-        <span class="n">new_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
-</pre></div>
-<p>the same task with list comprehension</p>
-<div class="highlight"><pre><span></span><span class="n">new_list</span> <span class="o">=</span> <span class="p">[</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">old_list</span> <span class="k">if</span> <span class="nb">filter</span><span class="p">(</span><span class="n">x</span><span class="p">)]</span>
-</pre></div>
-
-</div>
-</div>
-</div></section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Example-1:-List-of-even-numbers">Example 1: List of even numbers<a class="anchor-link" href="#Example-1:-List-of-even-numbers">&#182;</a></h3><p><strong>Task</strong>: Create a list of even numbers.</p>
-<p><strong>Solution</strong> without list comprehension:</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[34]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">is_even</span><span class="p">(</span><span class="n">i</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">i</span><span class="o">%</span><span class="k">2</span>==0
-
-<span class="n">even_numbers</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">20</span><span class="p">):</span>
-    <span class="k">if</span> <span class="n">is_even</span><span class="p">(</span><span class="n">i</span><span class="p">):</span>
-        <span class="n">even_numbers</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">even_numbers</span><span class="p">)</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>[0, 2, 4, 6, 8, 10, 12, 14, 16, 18]
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div></section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p><strong>Solution</strong> with list comprehension:</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[35]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">even_numbers</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span> <span class="k">if</span> <span class="n">i</span><span class="o">%</span><span class="k">2</span>==0]
-<span class="n">even_numbers</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt output_prompt">Out[35]:</div>
-
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>[0, 2, 4, 6, 8, 10, 12, 14, 16, 18]</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div></section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Example-2:-Remove-sensitive-information-from-log-data">Example 2: Remove sensitive information from log data<a class="anchor-link" href="#Example-2:-Remove-sensitive-information-from-log-data">&#182;</a></h3><p><strong>Task</strong>: Remove all strings in a logfile that contain passwords</p>
-<p><strong>Solution</strong> without list comprehension:</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[36]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">fp</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;log.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span>
-
-<span class="n">log</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">fp</span><span class="p">:</span>
-    <span class="k">if</span> <span class="s2">&quot;password&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">line</span><span class="p">:</span>
-        <span class="n">log</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">())</span>
-<span class="n">fp</span><span class="o">.</span><span class="n">close</span><span class="p">()</span> 
-
-<span class="n">log</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt output_prompt">Out[36]:</div>
-
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>[&#39;09.Sept 2021 14:30: New user enters webpage&#39;,
- &#39;09.Sept 2021 14:31: Login email: vegard@simula.no&#39;,
- &#39;09.Sept 2021 14:35: User leaves webpage&#39;]</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div></section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p><strong>Solution</strong> with list comprehension:</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[37]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;log.txt&#39;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fp</span><span class="p">:</span>
-    <span class="n">log</span> <span class="o">=</span> <span class="p">[</span><span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">fp</span> <span class="k">if</span> <span class="s2">&quot;password&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">line</span><span class="p">]</span>
-    
-<span class="n">log</span>    
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt output_prompt">Out[37]:</div>
-
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>[&#39;09.Sept 2021 14:30: New user enters webpage&#39;,
- &#39;09.Sept 2021 14:31: Login email: vegard@simula.no&#39;,
- &#39;09.Sept 2021 14:35: User leaves webpage&#39;]</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div></section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Functions-as-arguments">Functions as arguments<a class="anchor-link" href="#Functions-as-arguments">&#182;</a></h2>
+<h2 id="Exceptions">Exceptions<a class="anchor-link" href="#Exceptions">&#182;</a></h2>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Like all objects, functions can be arguments to functions</p>
+<p>Python throws exceptions of various kinds if an invalid operation is performed:</p>
 
 </div>
 </div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[8]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">add</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">x</span><span class="o">+</span><span class="n">y</span>
-
-<span class="k">def</span> <span class="nf">sub</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">x</span><span class="o">-</span><span class="n">y</span>
-
-<span class="k">def</span> <span class="nf">apply</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">func</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[9]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">apply</span><span class="p">(</span><span class="n">add</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt output_prompt">Out[9]:</div>
-
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>3</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[10]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">apply</span><span class="p">(</span><span class="n">sub</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
-</pre></div>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">invert</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="mi">1</span><span class="o">/</span><span class="nb">float</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt output_prompt">Out[10]:</div>
-
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>2</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div></section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Functions-inside-functions">Functions inside functions<a class="anchor-link" href="#Functions-inside-functions">&#182;</a></h2>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Python allows nested function definitions:</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[11]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">g</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
-    
-    <span class="k">def</span> <span class="nf">cube</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-        <span class="k">return</span> <span class="n">x</span><span class="o">*</span><span class="n">x</span><span class="o">*</span><span class="n">x</span>
-    
-    <span class="k">return</span> <span class="n">y</span><span class="o">*</span><span class="n">cube</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-
-<span class="n">g</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span> 
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt output_prompt">Out[11]:</div>
-
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>384</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div></section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Function-returning-functions">Function returning functions<a class="anchor-link" href="#Function-returning-functions">&#182;</a></h2>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[12]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">h</span><span class="p">():</span>
-    <span class="n">pi</span> <span class="o">=</span> <span class="mf">0.13</span>
-    <span class="k">def</span> <span class="nf">inner_h</span><span class="p">():</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Inside inner_h but can access pi=</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">pi</span><span class="p">))</span>
-        
-    <span class="k">return</span> <span class="n">inner_h</span>
-
-<span class="n">foo</span> <span class="o">=</span> <span class="n">h</span><span class="p">()</span>
-<span class="n">foo</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt output_prompt">Out[12]:</div>
-
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>&lt;function __main__.h.&lt;locals&gt;.inner_h&gt;</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[13]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">foo</span><span class="p">()</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>Inside inner_h but can access pi=0.13
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div></section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="More-functions-returning-functions:-decorators">More functions returning functions: <em>decorators</em><a class="anchor-link" href="#More-functions-returning-functions:-decorators">&#182;</a></h2>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>A toy example</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[16]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">foo</span><span class="p">():</span>
-    <span class="k">return</span> <span class="mi">1</span>
-
-<span class="k">def</span> <span class="nf">outer</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
-    <span class="k">def</span> <span class="nf">inner</span><span class="p">():</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;before calling function&quot;</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">func</span><span class="p">()</span> <span class="o">+</span> <span class="mi">100</span>
-    <span class="k">return</span> <span class="n">inner</span>
-
-<span class="n">decorated</span> <span class="o">=</span> <span class="n">outer</span><span class="p">(</span><span class="n">foo</span><span class="p">)</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>The function <code>decorated</code> is a decorated version of function <code>foo</code>.
-It is <code>foo</code> plus something more:</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[17]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">decorated</span><span class="p">()</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>before calling function
-</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt output_prompt">Out[17]:</div>
-
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>101</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>To simplify, we could just write</p>
-<div class="highlight"><pre><span></span><span class="n">foo</span> <span class="o">=</span> <span class="n">outer</span><span class="p">(</span><span class="n">foo</span><span class="p">)</span>
-</pre></div>
-<p>to replace foo with its decorated version each time it is called</p>
-
-</div>
-</div>
-</div></section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="A-(slightly)-more-useful-decorator">A (slightly) more useful decorator<a class="anchor-link" href="#A-(slightly)-more-useful-decorator">&#182;</a></h2>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Suppose we have been given a function that only works for some numerical inputs:</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[17]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">math</span> <span class="k">import</span> <span class="n">log</span>
-<span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">log</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">-</span> <span class="mi">2</span>  <span class="c1"># Not defined for x&lt;=0</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[18]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">f</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt output_prompt">Out[18]:</div>
-
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>-0.3905620875658997</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[19]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">f</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">invert</span><span class="p">(</span><span class="s2">&quot;s&quot;</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -13999,371 +13289,448 @@ It is <code>foo</code> plus something more:</p>
 <pre>
 <span class="ansi-red-fg">---------------------------------------------------------------------------</span>
 <span class="ansi-red-fg">ValueError</span>                                Traceback (most recent call last)
-<span class="ansi-green-fg">&lt;ipython-input-19-8e6746a6b70d&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-fg">()</span>
-<span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> </span>f<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">-</span><span class="ansi-cyan-fg">1</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-fg">&lt;ipython-input-10-4122677360b5&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
+<span class="ansi-green-intense-fg ansi-bold">      2</span>     <span class="ansi-green-fg">return</span> <span class="ansi-cyan-fg">1</span><span class="ansi-blue-fg">/</span>float<span class="ansi-blue-fg">(</span>x<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">      3</span> 
+<span class="ansi-green-fg">----&gt; 4</span><span class="ansi-red-fg"> </span>invert<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#34;s&#34;</span><span class="ansi-blue-fg">)</span>
 
-<span class="ansi-green-fg">&lt;ipython-input-17-10a365a4c7a8&gt;</span> in <span class="ansi-cyan-fg">f</span><span class="ansi-blue-fg">(x)</span>
-<span class="ansi-green-intense-fg ansi-bold">      1</span> <span class="ansi-green-fg">from</span> math <span class="ansi-green-fg">import</span> log
-<span class="ansi-green-intense-fg ansi-bold">      2</span> <span class="ansi-green-fg">def</span> f<span class="ansi-blue-fg">(</span>x<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
-<span class="ansi-green-fg">----&gt; 3</span><span class="ansi-red-fg">     </span><span class="ansi-green-fg">return</span> log<span class="ansi-blue-fg">(</span>x<span class="ansi-blue-fg">)</span> <span class="ansi-blue-fg">-</span> <span class="ansi-cyan-fg">2</span>  <span class="ansi-red-fg"># Not defined for x&lt;=0</span>
+<span class="ansi-green-fg">&lt;ipython-input-10-4122677360b5&gt;</span> in <span class="ansi-cyan-fg">invert</span><span class="ansi-blue-fg">(x)</span>
+<span class="ansi-green-intense-fg ansi-bold">      1</span> <span class="ansi-green-fg">def</span> invert<span class="ansi-blue-fg">(</span>x<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-fg">----&gt; 2</span><span class="ansi-red-fg">     </span><span class="ansi-green-fg">return</span> <span class="ansi-cyan-fg">1</span><span class="ansi-blue-fg">/</span>float<span class="ansi-blue-fg">(</span>x<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">      3</span> 
+<span class="ansi-green-intense-fg ansi-bold">      4</span> invert<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#34;s&#34;</span><span class="ansi-blue-fg">)</span>
 
-<span class="ansi-red-fg">ValueError</span>: math domain error</pre>
+<span class="ansi-red-fg">ValueError</span>: could not convert string to float: &#39;s&#39;</pre>
 </div>
 </div>
-
-</div>
-</div>
-
-</div></section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Suppose we want to limit the range of values sent to this function:</p>
 
 </div>
 </div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>The idea is that we <strong>wrap</strong> the function inside another function:</p>
 
-</div>
-</div>
-</div></section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Interactive-programming-(15-minutes)">Interactive programming (15 minutes)<a class="anchor-link" href="#Interactive-programming-(15-minutes)">&#182;</a></h2>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>1) Implement the normal function f(x) in a python script</p>
-<p>2) Create a decorator-function checkrange that calls f, but prints a custom message to the user if x &lt;= 0. Hint: The decorator function chekcrange should return a function, and not a function call.</p>
-<p>3) Optional: Perform a test using a test function (with assert) checking that your function works as intended</p>
-
-</div>
-</div>
-</div>
+</div><div class="fragment">
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[5]:</div>
+<div class="prompt input_prompt">In&nbsp;[11]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">math</span> <span class="k">import</span> <span class="n">log</span>
-
-<span class="k">def</span> <span class="nf">checkrange</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Provides a safe version of f. Avoids math domain error.&quot;&quot;&quot;</span>
-    <span class="c1">#def inner</span>
-        <span class="c1">#...</span>
-        <span class="c1"># return ...</span>
-    <span class="c1">#return inner</span>
-
-<span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">log</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">-</span> <span class="mi">2</span>  <span class="c1"># Not defined for x&lt;=0</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">open</span><span class="p">(</span><span class="s2">&quot;hallo.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span>
 </pre></div>
 
     </div>
 </div>
 </div>
 
-</div></section><section>
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_text output_error">
+<pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">FileNotFoundError</span>                         Traceback (most recent call last)
+<span class="ansi-green-fg">&lt;ipython-input-11-0dfb9831253e&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
+<span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> </span>open<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#34;hallo.txt&#34;</span><span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">&#34;r&#34;</span><span class="ansi-blue-fg">)</span>
+
+<span class="ansi-red-fg">FileNotFoundError</span>: [Errno 2] No such file or directory: &#39;hallo.txt&#39;</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div></div><div class="fragment">
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[6]:</div>
+<div class="prompt input_prompt">In&nbsp;[13]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">checkrange</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
-    <span class="k">def</span> <span class="nf">inner</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-        <span class="k">if</span> <span class="n">x</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
-            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Error: x must be larger than zero&quot;</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">x</span><span class="p">[</span><span class="mi">13</span><span class="p">]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_text output_error">
+<pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">IndexError</span>                                Traceback (most recent call last)
+<span class="ansi-green-fg">&lt;ipython-input-13-096ad189bdbc&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
+<span class="ansi-green-intense-fg ansi-bold">      1</span> x <span class="ansi-blue-fg">=</span> range<span class="ansi-blue-fg">(</span><span class="ansi-cyan-fg">12</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-fg">----&gt; 2</span><span class="ansi-red-fg"> </span>x<span class="ansi-blue-fg">[</span><span class="ansi-cyan-fg">13</span><span class="ansi-blue-fg">]</span>
+
+<span class="ansi-red-fg">IndexError</span>: range object index out of range</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div></div><div class="fragment">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Another error you will often have seen are syntax errors:</p>
+
+</div>
+</div>
+</div></div><div class="fragment">
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[14]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="nb">print</span> <span class="s2">&quot;Hallo&quot;</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_text output_error">
+<pre>
+<span class="ansi-cyan-fg">  File </span><span class="ansi-green-fg">&#34;&lt;ipython-input-14-c6e7411ce17c&gt;&#34;</span><span class="ansi-cyan-fg">, line </span><span class="ansi-green-fg">2</span>
+<span class="ansi-red-fg">    print &#34;Hallo&#34;</span>
+          ^
+<span class="ansi-red-fg">SyntaxError</span><span class="ansi-red-fg">:</span> Missing parentheses in call to &#39;print&#39;. Did you mean print(&#34;Hallo&#34;)?
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div></div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Error-handling-for-the-invert-function:-A-sub-optimal-solution">Error handling for the invert function: A sub-optimal solution<a class="anchor-link" href="#Error-handling-for-the-invert-function:-A-sub-optimal-solution">&#182;</a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>A classical way of catching errors would be to use if statements. For example</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[28]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">invert</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="mi">1</span><span class="o">/</span><span class="nb">float</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="mf">2.0</span>
+
+<span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="nb">float</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">invert</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">x</span><span class="o">.</span><span class="n">isnumeric</span><span class="p">():</span>
+        <span class="k">if</span> <span class="nb">float</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">!=</span><span class="mi">0</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="n">invert</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="k">return</span> <span class="n">func</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">inner</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Division by zero&quot;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Input is not a number&quot;</span><span class="p">)</span>
 </pre></div>
 
     </div>
 </div>
 </div>
 
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>0.5
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div><div class="fragment">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Problems with this approach:</p>
+<ul>
+<li>All exceptional cases must be handled explicitly</li>
+<li>Code size increases significantely (<strong>Live coding</strong>: extend the code above to test for string types)</li>
+<li>The code becomes difficult to read</li>
+</ul>
+
+</div>
+</div>
+</div></div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Handling-Exceptions-in-Python">Handling Exceptions in Python<a class="anchor-link" href="#Handling-Exceptions-in-Python">&#182;</a></h2><p>A more flexible way of handling errors: try to execute and if something goes wrong handle it.</p>
+<p>The Python syntax is:</p>
+<div class="highlight"><pre><span></span><span class="k">try</span><span class="p">:</span>
+   <span class="o">&lt;</span><span class="n">statement</span><span class="o">&gt;</span>
+<span class="k">except</span><span class="p">:</span>
+   <span class="o">&lt;</span><span class="n">statement</span><span class="o">&gt;</span>
+<span class="k">finally</span><span class="p">:</span>
+   <span class="o">&lt;</span><span class="n">statement</span><span class="o">&gt;</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The try statment does:</p>
+<ol>
+<li>Executes the try statements</li>
+<li>If no exception is caused, skip except block and continue</li>
+<li>If an exception occurs execute the except statements.</li>
+<li>The optional finally block is always executed</li>
+</ol>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Error-handling-for-the-invert-function:-The-Python-way">Error handling for the invert function: The Python way<a class="anchor-link" href="#Error-handling-for-the-invert-function:-The-Python-way">&#182;</a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[4]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">invert</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="mi">1</span><span class="o">/</span><span class="nb">float</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="s2">&quot;s&quot;</span>
+
+<span class="k">try</span><span class="p">:</span> 
+    <span class="n">invx</span> <span class="o">=</span> <span class="n">invert</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="s2">&quot;Error when inverting input: </span><span class="si">{e}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="n">invx</span> <span class="o">=</span> <span class="kc">None</span>
+        
+<span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="s2">&quot;invx = </span><span class="si">{invx}</span><span class="s2">&quot;</span><span class="p">)</span>     
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Error when inverting input: could not convert string to float: &#39;s&#39;
+invx = None
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Note</strong>: We obtained the exception as an object <strong>e</strong>. It's string representation contains the error message.</p>
+<p>Here the <code>except</code> case will trigger for <strong>any type of error</strong>.</p>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Handling-errors-in-nested-functions">Handling errors in nested functions<a class="anchor-link" href="#Handling-errors-in-nested-functions">&#182;</a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Exceptions are passed up the call stack when they are not handled:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[23]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Call stack: invert_string -&gt; invert_float</span>
+
+<span class="k">def</span> <span class="nf">invert_float</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="mf">1.</span><span class="o">/</span><span class="n">x</span>
+
+<span class="k">def</span> <span class="nf">invert_string</span><span class="p">(</span><span class="n">s</span><span class="p">):</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">invert_float</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+<span class="n">invert_string</span><span class="p">(</span><span class="s2">&quot;0.0&quot;</span><span class="p">)</span>  <span class="c1"># This will break for &quot;0.0&quot; as input.</span>
+                      <span class="c1"># Where should we handle the exception?</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_text output_error">
+<pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">ZeroDivisionError</span>                         Traceback (most recent call last)
+<span class="ansi-green-fg">&lt;ipython-input-23-ef723af96ac8&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
+<span class="ansi-green-intense-fg ansi-bold">      8</span>     <span class="ansi-green-fg">return</span> invert_float<span class="ansi-blue-fg">(</span>x<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">      9</span> 
+<span class="ansi-green-fg">---&gt; 10</span><span class="ansi-red-fg"> </span>invert_string<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#34;0.0&#34;</span><span class="ansi-blue-fg">)</span>  <span class="ansi-red-fg"># This will break for &#34;0.0&#34; as input.</span>
+<span class="ansi-green-intense-fg ansi-bold">     11</span>                       <span class="ansi-red-fg"># Where should we handle the exception?</span>
+
+<span class="ansi-green-fg">&lt;ipython-input-23-ef723af96ac8&gt;</span> in <span class="ansi-cyan-fg">invert_string</span><span class="ansi-blue-fg">(s)</span>
+<span class="ansi-green-intense-fg ansi-bold">      6</span> <span class="ansi-green-fg">def</span> invert_string<span class="ansi-blue-fg">(</span>s<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-intense-fg ansi-bold">      7</span>     x <span class="ansi-blue-fg">=</span> float<span class="ansi-blue-fg">(</span>s<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-fg">----&gt; 8</span><span class="ansi-red-fg">     </span><span class="ansi-green-fg">return</span> invert_float<span class="ansi-blue-fg">(</span>x<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">      9</span> 
+<span class="ansi-green-intense-fg ansi-bold">     10</span> invert_string<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#34;0.0&#34;</span><span class="ansi-blue-fg">)</span>  <span class="ansi-red-fg"># This will break for &#34;0.0&#34; as input.</span>
+
+<span class="ansi-green-fg">&lt;ipython-input-23-ef723af96ac8&gt;</span> in <span class="ansi-cyan-fg">invert_float</span><span class="ansi-blue-fg">(x)</span>
+<span class="ansi-green-intense-fg ansi-bold">      2</span> 
+<span class="ansi-green-intense-fg ansi-bold">      3</span> <span class="ansi-green-fg">def</span> invert_float<span class="ansi-blue-fg">(</span>x<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-fg">----&gt; 4</span><span class="ansi-red-fg">     </span><span class="ansi-green-fg">return</span> <span class="ansi-cyan-fg">1.</span><span class="ansi-blue-fg">/</span>x
+<span class="ansi-green-intense-fg ansi-bold">      5</span> 
+<span class="ansi-green-intense-fg ansi-bold">      6</span> <span class="ansi-green-fg">def</span> invert_string<span class="ansi-blue-fg">(</span>s<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+
+<span class="ansi-red-fg">ZeroDivisionError</span>: float division by zero</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div><div class="fragment">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>It is up to the programmer to decide where and if an exception should be handeled.</p>
+
+</div>
+</div>
+</div></div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Testing-for-specific-exceptions">Testing for specific exceptions<a class="anchor-link" href="#Testing-for-specific-exceptions">&#182;</a></h3><p>We can be more granual with error handling by specifying the type of exceptions to catch:</p>
+
+</div>
+</div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[7]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">f_safe</span> <span class="o">=</span> <span class="n">checkrange</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
-<span class="n">f_safe</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
-</pre></div>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">math</span>
 
-    </div>
-</div>
-</div>
+<span class="n">x</span> <span class="o">=</span> <span class="s2">&quot;0&quot;</span>
 
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt output_prompt">Out[7]:</div>
-
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>-0.3905620875658997</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[8]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">f_safe</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>Error: x must be larger than zero
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Voilà!!</p>
-
-</div>
-</div>
-</div></section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="The-@decorator-syntax">The <code>@decorator</code> syntax<a class="anchor-link" href="#The-@decorator-syntax">&#182;</a></h2>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Python provides a short notation for decorating a function with
-another function:</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[26]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nd">@checkrange</span>
-<span class="k">def</span> <span class="nf">g</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">log</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">-</span> <span class="mi">2</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[27]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">g</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>Error: x must be larger than zero
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>This is essentially the same as writing <code>g = checkrange(g)</code>.</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>A decorator is simply a function taking a function as input
-and returning another function.</p>
-<p>The syntax <code>@decorator</code> is a
-short-cut for the more explicit <code>f = decorator(f)</code>.</p>
-
-</div>
-</div>
-</div></section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="A-(much)-more-useful-decorator:-memoization">A (much) more useful decorator: memoization<a class="anchor-link" href="#A-(much)-more-useful-decorator:-memoization">&#182;</a></h2>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>The first time we learned multiplication, our strategy might to add cumulatively: e.g. 3x3 = 3 + 3 + 3 = 6 + 3 = 9</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[1]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">time</span> <span class="k">import</span> <span class="n">sleep</span>
-
-<span class="k">def</span> <span class="nf">slow_mult</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">):</span>
-    <span class="n">res</span> <span class="o">=</span> <span class="mi">0</span>
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">y</span><span class="p">):</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Thinking...&quot;</span><span class="p">)</span>
-        <span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-        <span class="n">res</span> <span class="o">+=</span> <span class="n">x</span>
-    <span class="k">return</span> <span class="n">res</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="n">slow_mult</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">slow_mult</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>Thinking...
-Thinking...
-Thinking...
-9
-Thinking...
-Thinking...
-Thinking...
-9
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>We call the function with the same input arguments, and hence perform the same (slow) calculations multiple times.</p>
-
-</div>
-</div>
-</div></section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>The idea of memoization (or buffering) is to buffer the input-output pairs for which the function was called.
-If the function is called twice with same input arguments, we return the buffer value.</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>The implementation of a memoization with a <code>decorator</code> could look like:</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[2]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">memoize</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
-    <span class="sd">&#39;&#39;&#39; Caches a function&#39;s return value each time it is called.</span>
-<span class="sd">        If called later with the same arguments, the cached value is returned</span>
-<span class="sd">        (not reevaluated). &#39;&#39;&#39;</span>
-    <span class="n">cache</span> <span class="o">=</span> <span class="p">{}</span>  <span class="c1"># Stores all input-output pairs</span>
-
-    <span class="k">def</span> <span class="nf">inner</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
-        <span class="k">if</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span> <span class="ow">in</span> <span class="n">cache</span><span class="p">:</span>
-            <span class="k">return</span> <span class="n">cache</span><span class="p">[(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)]</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="n">result</span> <span class="o">=</span> <span class="n">func</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
-            <span class="n">cache</span><span class="p">[(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)]</span> <span class="o">=</span> <span class="n">result</span>
-            <span class="k">return</span> <span class="n">result</span>
+<span class="k">try</span><span class="p">:</span> 
+    <span class="n">invx</span> <span class="o">=</span> <span class="n">invert</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    
+<span class="k">except</span> <span class="ne">ZeroDivisionError</span><span class="p">:</span>
+    <span class="n">invx</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">inf</span>  <span class="c1"># inf = infinity</span>
+    
+<span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span> 
+    <span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="s2">&quot;Error when inverting input: </span><span class="si">{e}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="n">invx</span> <span class="o">=</span> <span class="kc">None</span>    
         
-    <span class="k">return</span> <span class="n">inner</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="s2">&quot;invx = </span><span class="si">{invx}</span><span class="s2">&quot;</span><span class="p">)</span> 
 </pre></div>
 
     </div>
 </div>
 </div>
 
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>invx = inf
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Now we can apply the decorator to our slow function. Demo:</p>
+<p>All build-in exceptions in Python are listed here: <a href="https://docs.python.org/3/library/exceptions.html#exception-hierarchy">https://docs.python.org/3/library/exceptions.html#exception-hierarchy</a></p>
 
 </div>
 </div>
@@ -14371,123 +13738,268 @@ If the function is called twice with same input arguments, we return the buffer 
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Decorator-summary">Decorator summary<a class="anchor-link" href="#Decorator-summary">&#182;</a></h2>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<ul>
-<li>A function that takes a function as argument and returns a modified function</li>
-<li><code>@decorator</code> syntax simply a short cut for the standard function call <code>f = decorator(f)</code>.</li>
-</ul>
+<h2 id="Raising-exceptions-(i):-assert">Raising exceptions (i): assert<a class="anchor-link" href="#Raising-exceptions-(i):-assert">&#182;</a></h2><p>The easiest way to assert an exception is to add an assertion to your code:</p>
 
 </div>
 </div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[9]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">invert</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="nb">float</span><span class="p">)</span>
+    <span class="k">return</span> <span class="mf">1.</span><span class="o">/</span><span class="n">x</span>
+
+<span class="n">invert</span><span class="p">(</span><span class="s2">&quot;s&quot;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_text output_error">
+<pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">AssertionError</span>                            Traceback (most recent call last)
+<span class="ansi-green-fg">&lt;ipython-input-9-d2cc64fa0eff&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
+<span class="ansi-green-intense-fg ansi-bold">      3</span>     <span class="ansi-green-fg">return</span> <span class="ansi-cyan-fg">1.</span><span class="ansi-blue-fg">/</span>x
+<span class="ansi-green-intense-fg ansi-bold">      4</span> 
+<span class="ansi-green-fg">----&gt; 5</span><span class="ansi-red-fg"> </span>invert<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#34;s&#34;</span><span class="ansi-blue-fg">)</span>
+
+<span class="ansi-green-fg">&lt;ipython-input-9-d2cc64fa0eff&gt;</span> in <span class="ansi-cyan-fg">invert</span><span class="ansi-blue-fg">(x)</span>
+<span class="ansi-green-intense-fg ansi-bold">      1</span> <span class="ansi-green-fg">def</span> invert<span class="ansi-blue-fg">(</span>x<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-fg">----&gt; 2</span><span class="ansi-red-fg">     </span><span class="ansi-green-fg">assert</span> isinstance<span class="ansi-blue-fg">(</span>x<span class="ansi-blue-fg">,</span> float<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">      3</span>     <span class="ansi-green-fg">return</span> <span class="ansi-cyan-fg">1.</span><span class="ansi-blue-fg">/</span>x
+<span class="ansi-green-intense-fg ansi-bold">      4</span> 
+<span class="ansi-green-intense-fg ansi-bold">      5</span> invert<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#34;s&#34;</span><span class="ansi-blue-fg">)</span>
+
+<span class="ansi-red-fg">AssertionError</span>: </pre>
+</div>
+</div>
+
+</div>
+</div>
+
 </div></section><section>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="PEP8:-How-to-write-more-Pythonic-code">PEP8: How to write more Pythonic code<a class="anchor-link" href="#PEP8:-How-to-write-more-Pythonic-code">&#182;</a></h2><p>Clear and consistent style is critical for writing "good code".</p>
-<ul>
-<li>Python comes with an extensive programming style guidline: <strong>PEP8</strong>.</li>
-<li>It consists of a list of do's and dont's for writing Python.</li>
-<li>Get familiar with the conventions once, and you will automatically start using them.</li>
-<li>I will give you some examples below</li>
-</ul>
-
-</div>
-</div>
-</div></section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Guide-to-Pythonic-code:-Bindary-operations">Guide to Pythonic code: Bindary operations<a class="anchor-link" href="#Guide-to-Pythonic-code:-Bindary-operations">&#182;</a></h3><ul>
-<li>Add whitespaces around bindary mathematical operations:</li>
-</ul>
-<div class="highlight"><pre><span></span><span class="c1"># Do:</span>
-<span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">1</span>
-
-<span class="c1"># Don&#39;t:</span>
-<span class="n">x</span><span class="o">=</span><span class="n">x</span><span class="o">+</span><span class="mi">1</span>
-</pre></div>
-
-</div>
-</div>
-</div></section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Guide-to-Pythonic-code:-Naming-conventions">Guide to Pythonic code: Naming conventions<a class="anchor-link" href="#Guide-to-Pythonic-code:-Naming-conventions">&#182;</a></h3><ul>
-<li>For <strong>variables</strong>:</li>
-</ul>
-<div class="highlight"><pre><span></span><span class="c1"># Do</span>
-<span class="n">shopping_list</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Bananas&quot;</span><span class="p">,</span> <span class="s2">&quot;Apples&quot;</span><span class="p">]</span>
-<span class="n">gravity_acceleration</span> <span class="o">=</span> <span class="mf">9.81</span>
-<span class="c1"># Don&#39;t</span>
-<span class="n">ListOfStudents</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Bananas&quot;</span><span class="p">,</span> <span class="s2">&quot;Apples&quot;</span><span class="p">]</span>
-<span class="n">GRAVITYACCELERATION</span> <span class="o">=</span> <span class="mf">9.91</span>
-</pre></div>
-<ul>
-<li>For <strong>functions</strong>:</li>
-</ul>
-<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">order_items</span><span class="p">(</span><span class="n">image</span><span class="p">):</span>
-    <span class="k">pass</span>
-</pre></div>
-<ul>
-<li>For <strong>classes</strong>:</li>
-</ul>
-<div class="highlight"><pre><span></span><span class="c1"># Do:</span>
-<span class="k">class</span> <span class="nc">ElectricCar</span><span class="p">:</span>
-    <span class="k">pass</span>
-
-<span class="c1"># Don&#39;t:</span>
-<span class="k">class</span> <span class="nc">electriccar</span><span class="p">:</span>
-    <span class="k">pass</span>
-</pre></div>
-
-</div>
-</div>
-</div></section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Guide-to-Pythonic-code:-Indentations-and-spacing">Guide to Pythonic code: Indentations and spacing<a class="anchor-link" href="#Guide-to-Pythonic-code:-Indentations-and-spacing">&#182;</a></h3><ul>
-<li>Aways use <strong>four</strong> white spaces when indenting (set your editor accordingly):</li>
-</ul>
-<div class="highlight"><pre><span></span><span class="c1"># Do</span>
-<span class="k">def</span> <span class="nf">order_items</span><span class="p">(</span><span class="n">image</span><span class="p">):</span>
-    <span class="k">pass</span>  <span class="c1"># Four whitespaces</span>
-
-
-<span class="c1"># Don&#39;t </span>
-<span class="k">def</span> <span class="nf">order_items</span><span class="p">(</span><span class="n">image</span><span class="p">):</span>
-  <span class="k">pass</span>    <span class="c1"># Not four whitespaces</span>
-</pre></div>
-<ul>
-<li>Break long lines "nicely":</li>
-</ul>
-<div class="highlight"><pre><span></span><span class="c1"># Do:</span>
-<span class="n">shopping_list</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;Apple&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s2">&quot;Banana&quot;</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span> <span class="s2">&quot;Chocolate&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
-                 <span class="s2">&quot;Toothpaste&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;Shampoo&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">}</span>
-
-<span class="c1"># Don&#39;t: second line is under-indented</span>
-<span class="n">shopping_list</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;Apple&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s2">&quot;Banana&quot;</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span> <span class="s2">&quot;Chocolate&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;Toothpaste&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;Shampoo&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">}</span>
-</pre></div>
-
+<h2 id="Raising-exceptions-(ii):-raise">Raising exceptions (ii): raise<a class="anchor-link" href="#Raising-exceptions-(ii):-raise">&#182;</a></h2>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Guide-to-Pythonic-code:-flake8">Guide to Pythonic code: flake8<a class="anchor-link" href="#Guide-to-Pythonic-code:-flake8">&#182;</a></h3><p>You can use the flake8 command to verify that your code follows the PEP convention.</p>
-<p><strong>Demo</strong> on shopping.py</p>
+<p>You can raise an exception with:</p>
 
 </div>
 </div>
-</div></section></section>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[11]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">raise</span> <span class="ne">IndexError</span><span class="p">(</span><span class="s2">&quot;Message&quot;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_text output_error">
+<pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">IndexError</span>                                Traceback (most recent call last)
+<span class="ansi-green-fg">&lt;ipython-input-11-bb4be734a4ce&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
+<span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> </span><span class="ansi-green-fg">raise</span> IndexError<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#34;Message&#34;</span><span class="ansi-blue-fg">)</span>
+
+<span class="ansi-red-fg">IndexError</span>: Message</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div><div class="fragment">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>How to add custom error messages:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[12]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">double_invert</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mf">1.</span><span class="o">/</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="mf">1.</span><span class="o">/</span><span class="p">(</span><span class="n">x</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">ZeroDivisionError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ZeroDivisionError</span><span class="p">(</span><span class="s2">&quot;Invalid argument (1 or -1) for double_invert&quot;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div></div><div class="fragment">
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[15]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">double_invert</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_text output_error">
+<pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">ZeroDivisionError</span>                         Traceback (most recent call last)
+<span class="ansi-green-fg">&lt;ipython-input-12-30bc26176c1b&gt;</span> in <span class="ansi-cyan-fg">double_invert</span><span class="ansi-blue-fg">(x)</span>
+<span class="ansi-green-intense-fg ansi-bold">      2</span>     <span class="ansi-green-fg">try</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-fg">----&gt; 3</span><span class="ansi-red-fg">         </span><span class="ansi-green-fg">return</span> <span class="ansi-cyan-fg">1.</span><span class="ansi-blue-fg">/</span><span class="ansi-blue-fg">(</span>x<span class="ansi-blue-fg">-</span><span class="ansi-cyan-fg">1</span><span class="ansi-blue-fg">)</span> <span class="ansi-blue-fg">+</span> <span class="ansi-cyan-fg">1.</span><span class="ansi-blue-fg">/</span><span class="ansi-blue-fg">(</span>x<span class="ansi-blue-fg">+</span><span class="ansi-cyan-fg">1</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">      4</span>     <span class="ansi-green-fg">except</span> ZeroDivisionError <span class="ansi-green-fg">as</span> e<span class="ansi-blue-fg">:</span>
+
+<span class="ansi-red-fg">ZeroDivisionError</span>: float division by zero
+
+During handling of the above exception, another exception occurred:
+
+<span class="ansi-red-fg">ZeroDivisionError</span>                         Traceback (most recent call last)
+<span class="ansi-green-fg">&lt;ipython-input-15-5a03cac098b8&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
+<span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> </span>double_invert<span class="ansi-blue-fg">(</span><span class="ansi-cyan-fg">1</span><span class="ansi-blue-fg">)</span>
+
+<span class="ansi-green-fg">&lt;ipython-input-12-30bc26176c1b&gt;</span> in <span class="ansi-cyan-fg">double_invert</span><span class="ansi-blue-fg">(x)</span>
+<span class="ansi-green-intense-fg ansi-bold">      3</span>         <span class="ansi-green-fg">return</span> <span class="ansi-cyan-fg">1.</span><span class="ansi-blue-fg">/</span><span class="ansi-blue-fg">(</span>x<span class="ansi-blue-fg">-</span><span class="ansi-cyan-fg">1</span><span class="ansi-blue-fg">)</span> <span class="ansi-blue-fg">+</span> <span class="ansi-cyan-fg">1.</span><span class="ansi-blue-fg">/</span><span class="ansi-blue-fg">(</span>x<span class="ansi-blue-fg">+</span><span class="ansi-cyan-fg">1</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">      4</span>     <span class="ansi-green-fg">except</span> ZeroDivisionError <span class="ansi-green-fg">as</span> e<span class="ansi-blue-fg">:</span>
+<span class="ansi-green-fg">----&gt; 5</span><span class="ansi-red-fg">         </span><span class="ansi-green-fg">raise</span> ZeroDivisionError<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#34;Invalid argument (1 or -1) for double_invert&#34;</span><span class="ansi-blue-fg">)</span>
+
+<span class="ansi-red-fg">ZeroDivisionError</span>: Invalid argument (1 or -1) for double_invert</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div></div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="User-defined-Exceptions">User defined <code>Exceptions</code><a class="anchor-link" href="#User-defined-Exceptions">&#182;</a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Program can define their own exceptions by creating a new exception class, which inherits from the standard Python <code>Exception</code> class</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[17]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">class</span> <span class="nc">MyError</span><span class="p">(</span><span class="ne">BaseException</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">msg</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">msg</span> <span class="o">=</span> <span class="n">msg</span>
+        
+    <span class="k">def</span> <span class="nf">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s2">&quot;MyError occured with error message </span><span class="se">\&quot;</span><span class="si">{}</span><span class="se">\&quot;</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">msg</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div><div class="fragment">
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[19]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">try</span><span class="p">:</span>
+    <span class="k">raise</span> <span class="n">MyError</span><span class="p">(</span><span class="s2">&quot;something went wrong&quot;</span><span class="p">)</span>
+<span class="k">except</span> <span class="n">MyError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+    
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>MyError occured with error message &#34;something went wrong&#34;
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span> 
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div></div></section></section>
 </div>
 </div>
 

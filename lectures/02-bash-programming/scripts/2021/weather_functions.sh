@@ -13,7 +13,7 @@ function geturl {
     fi   
 }
 
-geturl Oslo
+geturl $1
 
 echo $url
     
