@@ -1,6 +1,0 @@
-a = 1.2
-no of iterations = 100
-solution strategy = 'implicit'
-c1 = 0
-c2 = 0.1
-A = 4
