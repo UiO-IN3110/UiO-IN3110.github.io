@@ -15,18 +15,28 @@ def norway_plot_html(request: Request):
         "norway_plot.html",
         {
             "request": request,
+            "fylker": plots.get_fylker(),
         },
     )
 
 
 @app.get("/norway_plot.json")
-def norway_plot_json():
+def norway_plot_json(fylker: Optional[str] = None):
+    if fylker:
+        fylker = fylker.split(",")
     print("requesting json chart")
+    chart = plots.plot_daily_cases_altair(fylker)
+    return chart.to_dict()
 
 
 @app.get("/norway_plot.png")
-def norway_plot_png():
-    print("requesting png ploot")
+def norway_plot_png(fylker: Optional[str] = None):
+    print("requesting png plot")
+    if fylker:
+        fylker = fylker.split(",")
+    png_bytes = plots.plot_daily_cases_mpl(fylker)
+    return Response(content=png_bytes, media_type="image/png")
+
 
 
 if __name__ == "__main__":
