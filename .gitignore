@@ -9,3 +9,8 @@ _build
 build
 *.egg-info
 *.py[oc]
+_site
+.sass-cache
+.jekyll-cache
+.jekyll-metadata
+vendor
