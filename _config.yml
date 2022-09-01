@@ -20,7 +20,7 @@
 
 title: Higher Level Programming 2022
 email: in3110@simula.no
-description: >- # this means to ignore newlines until "baseurl:"
+description: >-
   A course taught at the University of Oslo
 baseurl: ""
 url: "https://uio-in3110.github.io"
@@ -32,7 +32,7 @@ theme: minima
 
 header_pages:
   - index.html
-  - assignments/index.md
+  # - assignments/index.md
 # Exclude from processing.
 # The following items will not be processed, by default.
 # Any item listed under the `exclude:` key here will be automatically added to
