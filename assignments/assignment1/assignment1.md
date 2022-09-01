@@ -208,7 +208,7 @@ works if Bill does not have write access to Sarah's repository.
     <img src="Selection_001.png" width="700">
 
     This could open up a dialogue window asking where to fork your
-    repository to. Make sure you choose your personal \"UiOUser name\".
+    repository to. Make sure you choose your personal UiO User name.
 
     <img src="Selection_002.png" width="400">
 
@@ -220,38 +220,38 @@ works if Bill does not have write access to Sarah's repository.
     You can [clone]( <https://docs.github.com/en/github/creating-cloning-and-archiving-repositories/cloning-a-repository-from-github/cloning-a-repository>) this repository as usual to your computer.
 
 3.  Modify the textfile `myfirstcommit.txt` in your forked repository by
-    adding a line to it saying \"I edited this file.\". Commit and push
+    adding a line to it saying "I edited this file." Commit and push
     these changes to your forked repository. **Note:** Don't forget to
     write a commit message mentioning what you changed. Your modified
     file in your forked repository will look like this.
 
     <img src="Selection_004.png" width="700">
 
-4.  It is time to create a 'pull request'. Click on the flag \"Pull
-    requests\" in your forked repository and click on the green button
-    \"New pull request\".
+4.  It is time to create a 'pull request'. Click on the flag "Pull
+    request" in your forked repository and click on the green button
+    "New pull request".
 
     <img src="Selection_005.png" width="700">
 
-    Make sure that the base repository is the \"IN3110/IN3110-UioUser\"
+    Make sure that the base repository is the "IN3110/IN3110-UioUser"
     repository. Merge your modifications from your fork into that
     repository.
 
     <img src="Selection_006.png" width="800">
 
     Leave a short descriptive message with the pull request as well as a
-    short comment describing what you did (see image below). Push the button \"Create pull request\".
+    short comment describing what you did (see image below). Push the button "Create pull request".
 
     <img src="Selection_007.png" width="800">
 
-5.  You will now see an open \"Pull request\" at the
-    \"IN3110/IN3110-UioUser\" repository. To close the pull request, you
+5.  You will now see an open "Pull request" at the
+    "IN3110/IN3110-UioUser" repository. To close the pull request, you
     can merge it. Finish the pull request by confirming the merge.
 
     <img src="Selection_010.png" width="800">
 
     Congrats! You finished your first pull request! You should be able
-    to see a \"closed\" pull request under the flag \"Pull requests\" as
+    to see a "closed" pull request under the flag "Pull requests" as
     below.
 
     ![image](Selection_010.png)
