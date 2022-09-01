@@ -1,4 +1,9 @@
-# Assignment 1
+---
+name: assignment1
+layout: page
+kind: assignment
+title: Assignment 1
+---
 
 ## Setting up
 
@@ -56,12 +61,12 @@ With this task, you will learn how to recover old versions of a file.
 
 4. To fetch the old version, first use
 
-    ` git log`
+    `git log`
 
     to get a list of the commits, and identify the commit containing the old version of the greeting. Note down its commit hash (the string of letters/numbers after "commit ").
     Then use
 
-    ` git checkout COMMITHASH -- friendly_greeting.txt`
+    `git checkout COMMITHASH -- friendly_greeting.txt`
 
     where `COMMITHASH` is the commit hash you found using `git log`. This
     will recover the friendly version `friendly_greeting.txt` from the
