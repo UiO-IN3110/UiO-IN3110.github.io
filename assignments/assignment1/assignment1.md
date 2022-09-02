@@ -1,8 +1,7 @@
 ---
 name: assignment1
 layout: page
-kind: assignment
-title: Assignment 1
+title: "Assignment 1: init with git"
 ---
 
 ## Setting up
