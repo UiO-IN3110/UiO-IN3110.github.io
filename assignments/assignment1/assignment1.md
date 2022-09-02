@@ -13,7 +13,7 @@ It will be listed as `in3110-yourusername` at [https://github.uio.no/IN3110](htt
 You should have received an invitation to this repo over the weekend.
 If you don't have a repo by Monday, let us know at [in3110@simula.no](mailto:in3110@simula.no).
 
-Clone this repository. Now, create an `assignment1` folder in your git repository. The deliveries for Assignment 1 should be commited there.
+Clone this repository. Now, create an `assignment1` folder in your git repository. The deliveries for Assignment 1 should be committed there.
 
 ## Your First Git Repository
 
@@ -259,3 +259,11 @@ works if Bill does not have write access to Sarah's repository.
     below.
 
     ![image](Selection_010.png)
+
+
+## Checklist before submitting
+
+In order for your code to be automatically gradable, please note:
+
+- [ ] Assignment is in your `assignment1` folder
+- [ ] Don't forget to push! _Committing is not turning it in_, make sure your work can be seen at https://github.uio.no/IN3110/in3110-yourname
