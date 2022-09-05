@@ -76,7 +76,7 @@ A 1D array can be defined with shape (4,), that is, 4 elements in the first (and
 a = Array((4,), 1, 2, 3, 4)
 ```
 
-The values should be stored as a class-variable in a python-list.
+The values should be stored as an instance attribute in a python list.
 
 The arrays you create should be homogeneous, meaning all elements have
 the same datatype. You only need to consider numeric types. There are

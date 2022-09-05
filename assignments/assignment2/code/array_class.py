@@ -29,7 +29,7 @@ class Array:
 
         # Check that the amount of values corresponds to the shape
 
-        # Set class-variables
+        # Set instance attributes
 
         pass
 
