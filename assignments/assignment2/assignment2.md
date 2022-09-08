@@ -13,6 +13,12 @@ The assignment requires knowledge of python types, functions, classes, unit test
 
 **Tip:** If a task asks for something that has not yet been covered in class, you can make a comment saying e.g. `# TODO: Raise TypeError` and return at a later point.
 
+## Errata
+
+- The phrase "class variable" was previously used to describe "instance attributes" (i.e. assigning members (`self.x = x`) on your Array instance in `__init__`)
+- Task 3 suggested returning NotImplemented for arithmetic methods with arrays of mismatched shapes.
+  This will not be penalized, but raising an informative ValueError about the shape mismatch is more appropriate.
+
 ## Introduction
 
 In this assignment you are going to implement a class `Array` in python. Arrays are data structures that represent a grid of values. These structures allow for storing a single data type - which makes them homogeneous. They are not only pretty neat, but also the most frequently used data structure in data science. Thus it is well worth spending some time on them.
@@ -83,7 +89,7 @@ the same datatype. You only need to consider numeric types. There are
 three distinct numeric types: integers, floating point numbers, and
 complex numbers. In addition, booleans are a subtype of integers.
 
-We will only consider the types integers, floats and booleans. If a combination of integers, floats and booleans are given, you should return an informative `ValueError`.
+We will only consider the types integers, floats and booleans. If a combination of integers, floats and booleans are given, you should raise an informative `ValueError`.
 
 Additionally, if _shape_ or _values_ do not have the right type, you should raise an informative `TypeError`. _shape_ should be of type tuple, and _values_ should consists of either ints, floats or booleans.
 
@@ -92,7 +98,13 @@ Additionally, if _shape_ or _values_ do not have the right type, you should rais
 **Task 3:** Implement the methods outlined in the `array_class.py` template for 1D arrays. (4 points)
 
 The mathematical methods, `__add__`, `__sub__`,`__mul__`,
-`__radd__`, `__rsub__`, `__rmul__`, `min_element` and `mean_element` only need to be implemented for arrays containing ints and floats. If these methods are called for a boolean array you can return `NotImplemented`. For addition, subtraction and multiplication you want to check if the argument is a scalar or an array with the same shape. If it is something else you can similarly return `NotImplemented`.
+`__radd__`, `__rsub__`, `__rmul__`, `min_element` and `mean_element` __only need to be implemented for arrays containing ints and floats__. If these methods are called for a boolean array you can return `NotImplemented`.
+For addition, subtraction, and multiplication you want to check if the argument is a scalar or an Array with the same shape.
+If it is another type, you can return `NotImplemented`.
+If it is an Array and the shape does not match,
+raising an informative ValueError is appropriate.
+
+**EDIT:** earlier forms of the assignment suggested returning `NotImplemented` for a shape mismatch. This will be accepted, but is not a best practice.
 
 The methods `__radd__`, `__rsub__` and `__rmul__` are called to
 implement the arithmetic operations `__add__`, `__sub__`,`__mul__` with
