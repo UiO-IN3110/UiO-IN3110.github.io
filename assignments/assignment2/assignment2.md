@@ -18,6 +18,9 @@ The assignment requires knowledge of python types, functions, classes, unit test
 - The phrase "class variable" was previously used to describe "instance attributes" (i.e. assigning members (`self.x = x`) on your Array instance in `__init__`)
 - Task 3 suggested returning NotImplemented for arithmetic methods with arrays of mismatched shapes.
   This will not be penalized, but raising an informative ValueError about the shape mismatch is more appropriate.
+- Requirements for the type of 2D and ND array `__getitem__` has not been specified, and will not be evaluated.
+  Scalar access `array2d[1][0]` will be checked.
+  The ideal return would be a new Array with dimension N-1 (so a 1D Array for 2D).
 
 ## Introduction
 
@@ -190,7 +193,15 @@ defining a 2D array with shape $(3, 2)$.
 my_array = Array((3, 2), 8, 3, 4, 1, 6, 1)
 # accessing values should work as follows
 assert my_array[1][0] == 4
+# Getting one element of a 2D array should return a 1D array
+# (note: we only _require_ the above `array[1][0]` access works)
+assert isinstance(my_array[1], Array)
 ```
+
+__note:__ because we did not specify that `array2d[i]`
+should return a 1D array, we will not evaluate that.
+We will check that `array2d[1][0]` returns the right scalar.
+
 
 Start with modifying your class constructor `__init__` to handle both 1D and 2D. The values should now be stored in _nested list_ (a list of list).
 
