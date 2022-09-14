@@ -1,5 +1,6 @@
-
-# Assignment 3: Python for the gram
+---
+title: "Assignment 3: Python for the gram"
+---
 
 ## General information
 
@@ -344,7 +345,7 @@ print(f"Average time over 3 runs: {runtime}s")
 
 ### More profiling  (IN4110 only)
 
-> **Task 15** (IN4110 only, 4 points) Use profiling to understand the difference in performance between the different implementations.
+> **Task 15** (IN4110 only, 3 points) Use profiling to understand the difference in performance between the different implementations.
 
 Here we will use two profilers:
 
@@ -353,10 +354,10 @@ Here we will use two profilers:
 
 We will be working in `instapy/profiling.py`.
 
-1. implement the function `profile_with_cprofile` to profile a given filter function with cProfile, and print the top 10 calls, by cumulative time (1pt)
-1. implement the function `profile_with_line_profiler` to profile a given filter function with line_profiler and print the line profile (1pt)
-1. implement the function `run_profiles` to profile all of our implementations using one of the two above `profile_with` functions for comparison. (1pt)
-1. In the file `profile-report.md`, paste the output of the two different runs of `run_profiles` (now executable as `python -m instapy.profiling`), and answer the three questions based on the profile reports (1pt)
+1. implement the function `profile_with_cprofile` to profile a given filter function with cProfile, and print the top 10 calls, by cumulative time
+1. implement the function `profile_with_line_profiler` to profile a given filter function with line_profiler and print the line profile
+1. implement the function `run_profiles` to profile all of our implementations using one of the two above `profile_with` functions for comparison.
+1. In the file `profile-report.md`, paste the output of the two different runs of `run_profiles` (now executable as `python -m instapy.profiling`), and answer the three questions based on the profile reports
 
 ## Turning it in
 
