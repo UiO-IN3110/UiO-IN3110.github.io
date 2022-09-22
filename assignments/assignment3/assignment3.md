@@ -29,12 +29,13 @@ You are free to perform the tasks in a different order if you so prefer. The cod
 
 > **Task 1** (1 point) Make the `instapy` package pip installable.
 
+
 **Hint:** Complete the file `pyproject.toml`.
 Documentation on pyproject.toml can be found [in the setuptools documentation](https://setuptools.pypa.io/en/latest/userguide/pyproject_config.html).
 
 You should at least fill out:
 
-- the package name
+- the package name (typically matches the `import` name of the package)
 - description
 - load the readme (to fill out at the end)
 - specify dependencies used in your package. We are going to use at least `numpy`, `numba`, `pillow`, and `line-profiler`. You can add more, if you choose to use them.
@@ -42,13 +43,28 @@ You should at least fill out:
 Once the package is pip installable you can install it using
 
 ```bash
-pip install .
+python3 -m pip install .
 ```
 
-If this succeeded, you should be able to pass the `package` tests:
+> **Note:** if you encounter weird output like `Successfully built UNKNOWN`,
+> this could be due to out-of-date setuptools and/or a bug in pip's build isolation.
+> First, make sure to update pip:
+
+> ```
+> python3 -m pip install --upgrade setuptools pip # you may want to add --user
+> ```
+
+> Then, if that still doesn't work you may need to add `--no-build-isolation` to your pip install command:
+>
+> ```
+> python3 -m pip install --no-build-isolation .
+> ```
+
+
+If this succeeded, you should be able to pass the `package` tests (pytest can be installed with `pip install pytest`):
 
 ```bash
-pytest -v test/test_package.py
+python3 -m pytest -v test/test_package.py
 ```
 
 Installing the package ensures that its functions and modules are added to the python path, allowing you to run:
