@@ -37,7 +37,7 @@ You should at least fill out:
 - the package name
 - description
 - load the readme (to fill out at the end)
-- specify dependencies used in your package
+- specify dependencies used in your package. We are going to use at least `numpy`, `numba`, `pillow`, and `line-profiler`. You can add more, if you choose to use them.
 
 Once the package is pip installable you can install it using
 
