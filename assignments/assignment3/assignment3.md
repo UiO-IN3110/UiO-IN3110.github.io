@@ -181,7 +181,8 @@ now  using `Numba` to speed things up.
 now  using `Cython` to speed things up.
 
 Once you are working on Cython,
-you will need to set `use_cython = True` in `setup.py`.
+you will need to set `use_cython = True` in `setup.py`,
+and (if you haven't already) uncomment the lines adding numpy and cython to your build requirements in pyproject.toml.
 
 Because Cython files require compilation,
 your changes won't be reflected automatically.
