@@ -369,6 +369,11 @@ Here we will use two profilers:
 - The built-in [cProfile](https://docs.python.org/3/library/profile.html), and
 - [line-profiler](https://github.com/pyutils/line_profiler#id4), installable with: `pip install line-profiler`
 
+**Hint:** you will likely want to use [profiler.runcall][] or [profiler.runctx][] (both cProfile and line-profiler provide these methods).
+
+[profiler.runcall]: https://docs.python.org/3/library/profile.html#profile.Profile.runcall
+[profiler.runctx]: https://docs.python.org/3/library/profile.html#profile.Profile.runctx
+
 We will be working in `instapy/profiling.py`.
 
 1. implement the function `profile_with_cprofile` to profile a given filter function with cProfile, and print the top 10 calls, by cumulative time
