@@ -42,14 +42,16 @@ your forked repository.
 More information about pull requests can be found on https://help.github.com/articles/about-pull-requests.
 
 ##  Guidelines
-For each (coding) exercise, you should try to address and implement improvements to the following points:
+
+For each (coding) exercise, you should try to address and implement some improvements, such as:
+
 1. Add docstrings where missing and where appropriate.
 2.  Is the code working as expected? For non-internal functions (in particular for scripts that are run
 from the command-line), does the program handle invalid inputs sensibly? Can you make the code
 more reliable? Does the code need to handle further exceptions that are not yet captured?
 3.  Is part of the code unreadable or difficult to understand? Simplify the code, add comments where
 required and use classes/functions to avoid duplicate code.
-4. Do not commit suggestions on how to improve code quality to the code - you have to actually implement these changes.
+4. Do not comment suggestions on how to improve code quality to the code - you have to actually implement these changes.
 Again: You should implement improvements in a pull-request and not just add suggestions into the code!
 5. Is there a potential to improve readability by refactoring and choosing more descriptive variable names?
 6. You can try and run the pep8 tool (https://www.python.org/dev/peps/pep-0008/). It automatically checks if standard Python syntax guidelines are followed.
@@ -59,8 +61,12 @@ Again: You should implement improvements in a pull-request and not just add sugg
 
 **Note 2:** You need to leave a comment when sending the pull request, where you summarize the changes you made and give general feedback. There will be 2 points withdrawn if no comment is left.
 
+**Note 3:** You do not need to address every problem you find. If you find _one_ problem and fix it in an exercise, that is enough.
+The goal is to show us that you have read and understood the code enough to find some improvement.
+
 ## Q&A
-- *Should we implement missing parts?* Yes, if that improves the code, you should definitely implement it.
+
+- *Should we implement missing parts?* Yes, if that improves the code, you should definitely implement it. But that does _not_ mean you need to complete the whole assignment! Just fixing _some_ missing functionality is enough.
 - *I haven’t gotten my repo to review yet, what happened?* If you asked for an extension, you will be assigned a repository after your extension deadline.
 - *Are we expected to review the tasks given for IN4110, even if we have not done them ourselves?* We recommend that you review all tasks that the student did (even if it is a IN4110 only task and you are a IN3110 student), but we will not be strict about it if you skip it.
 - *What do we do if the code we are reviewing is well documented, work as expected, handle invalid inputs, is easy to read, uses utilities functions to avoid duplicate code and (at least seem to) apply all good
