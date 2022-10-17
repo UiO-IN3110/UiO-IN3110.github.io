@@ -67,6 +67,7 @@ def find_img_src(html: str):
     # first, find all the img tags
     for img_tag in img_pat.findall(html):
         # then, find the src attribute of the img, if any
-        src = src_pat.find(img_tag)
-        src_set.add(src)
+        match = src_pat.search(img_tag)
+        if match:
+            src_set.add(match.group(1))
     return src_set

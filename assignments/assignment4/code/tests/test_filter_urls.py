@@ -1,5 +1,5 @@
 import pytest
-from filter_urls import find_articles, find_urls
+from filter_urls import find_articles, find_img_src, find_urls
 from requesting_urls import get_html
 
 # Test some random urls
@@ -74,3 +74,16 @@ def test_find_articles(url, expected):
     # check expected articles are present
     # for article in expected:
     #     assert article in articles
+
+
+def test_find_img_src():
+    html = """
+    <img src="https://some.jpg">
+    <img title="abc" src="/foo.png">
+    <img nosrc>
+    """
+    src_set = find_img_src(html)
+    assert src_set == {
+        "https://some.jpg",
+        "/foo.png",
+    }
