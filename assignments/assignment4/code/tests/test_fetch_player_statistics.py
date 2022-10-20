@@ -63,23 +63,31 @@ def test_get_teams():
     "team_url, n_players, expected_players",
     [
         (
-            "https://en.wikipedia.org/wiki/2021%E2%80%9322_Golden_State_Warriors_season",
-            16,
+            "https://en.wikipedia.org/wiki/2021–22_Golden_State_Warriors_season",
+            17,
             [
                 {
-                    "name": "Curry, Stephen",
-                    "url": "https://en.wikipedia.org/wiki/Stephen_Curry",
-                }
+                    "name": "Bjelica, Nemanja",
+                    "url": "https://en.wikipedia.org/wiki/Nemanja_Bjelica",
+                },
+                {
+                    "name": "Wiseman, James",
+                    "url": "https://en.wikipedia.org/wiki/James_Wiseman",
+                },
             ],
         ),
         (
-            "https://en.wikipedia.org/wiki/2021%E2%80%9322_Philadelphia_76ers_season",
-            16,
+            "https://en.wikipedia.org/wiki/2021–22_Philadelphia_76ers_season",
+            17,
             [
+                {
+                    "name": "Bassey, Charles",
+                    "url": "https://en.wikipedia.org/wiki/Charles_Bassey",
+                },
                 {
                     "name": "Thybulle, Matisse",
                     "url": "https://en.wikipedia.org/wiki/Matisse_Thybulle",
-                }
+                },
             ],
         ),
     ],
