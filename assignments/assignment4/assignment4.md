@@ -282,6 +282,26 @@ if month.lower().startswith("dec"):
     # Your Code
 ```
 
+If you find yourself iterating over the whole document multiple times,
+it may be useful to track [`match.start()`](https://docs.python.org/3/library/re.html#re.Match.start),
+which is the location in the document of the match as an integer
+in order to return a properly sorted list of dates.
+
+Here's an example of sorting strings by an associated index,
+after storing them in tuples:
+
+```python
+from operator import itemgetter
+
+unsorted_list = [(100, "second"), (10, "first")]
+# sort list by the first element in each tuple
+sorted_list = sorted(unsorted_list, key=itemgetter(0))
+# [(10, "first"), (100, "second")]
+# extract items after sorting
+sorted_items = [item[1] for item in sorted_list]
+# sorted_items = ["first", "second"]
+```
+
 **Note:** You should not use Beautiful Soup or any HTML parser in this
 task, only regular expressions.
 
