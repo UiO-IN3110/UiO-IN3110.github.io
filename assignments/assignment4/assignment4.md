@@ -2,6 +2,13 @@
 title: "Assignment 4: Web scraping"
 ---
 
+## Updates
+
+- 2022-10-26 - add tip for sorting dates with `match.start()`
+- 2022-11-01 - noted that `plot_best` should create the `NBA_player_statistics` folder if it does not exist
+
+---
+
 In this assignment you will be using `python`, regular expressions (`re`) and `beautifulsoup` for data mining. You will learn how to get the html code that makes up a website, parse through it for relevant information and display the results. At the end there is a bonus task for playing wikipedia golf.
 
 Before you start, please note the following:
@@ -282,6 +289,26 @@ if month.lower().startswith("dec"):
     # Your Code
 ```
 
+If you find yourself iterating over the whole document multiple times,
+it may be useful to track [`match.start()`](https://docs.python.org/3/library/re.html#re.Match.start),
+which is the location in the document of the match as an integer
+in order to return a properly sorted list of dates.
+
+Here's an example of sorting strings by an associated index,
+after storing them in tuples:
+
+```python
+from operator import itemgetter
+
+unsorted_list = [(100, "second"), (10, "first")]
+# sort list by the first element in each tuple
+sorted_list = sorted(unsorted_list, key=itemgetter(0))
+# [(10, "first"), (100, "second")]
+# extract items after sorting
+sorted_items = [item[1] for item in sorted_list]
+# sorted_items = ["first", "second"]
+```
+
 **Note:** You should not use Beautiful Soup or any HTML parser in this
 task, only regular expressions.
 
@@ -464,8 +491,9 @@ Therefore, we will plot the players over the points/assists/rebounds. You can ch
 > 2. call `get_players` for each team, to get the list > of players for each team
 > 3. call `get_player_stats` for each player, to get the statistics dictionary for each player
 > 4. filter the players for each team to select the top 3 points-scorers
-> 5. plot the top 3 players for each team (24 players total) in each of 3 statistics (points, assists, rebounds)
-> 6. save the (3) plots in appropriate file format for your plotting tool, e.g. `points.png`.
+> 5. create the `NBA_player_statistics` folder if it does not exist (the current working directory, not an absolute path).
+> 6. plot the top 3 players for each team (24 players total) in each of 3 statistics (points, assists, rebounds)
+> 7. save the (3) plots in appropriate file format for your plotting tool, e.g. `NBA_player_statistics/points.png`
 
 Visualization goals:
 
@@ -480,8 +508,7 @@ We have provided a sample plotting function in `example-plot.py`, which uses mat
 You can use this for a reference.
 
 **Files to Deliver in this Subtask** Create a folder
-`assignment4/NBA_player_statistics` where you store all the plots created in this
-task.
+`assignment4/NBA_player_statistics` where you store all the plots created in this task.
 
 _Files Required in this Subtask_
 
