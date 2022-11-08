@@ -2,7 +2,7 @@
 
 
 ## Introduction
-Well done on finishing assignment 3! Now you will be asked to perform a *peer review* of another student's code.
+Well done on finishing another assignment! Now you will be asked to perform a *peer review* of another student's code.
 
 The peer review assignment is written to reflect how professional software development is organized.  Consider the following example. Sarah owns a project repository and Bill would like to suggest an improvement or new feature to that project. 
 
