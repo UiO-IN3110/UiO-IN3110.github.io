@@ -81,6 +81,10 @@ def plot_daily_cases_altair(fylker=None):
         # fylker specified, only display those
         cases = cases[cases.fylke_name.isin(fylker)]
 
+    # altair limits to 5k rows
+    if len(cases) > 5000:
+        cases = cases[-5000:]
+
     # return altair Chart
     return (
         alt.Chart(cases)

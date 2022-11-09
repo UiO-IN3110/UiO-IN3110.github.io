@@ -27,51 +27,52 @@
     <h1>Daily covid cases by fylke {{ date }}</h1>
     <div id="plots">
       <div id="altair-plot"></div>
-<!--       <img id="mpl-plot" title="matplotlib plot" srcset="/norway_plot.png 2x" /> -->
+      <div>
+      <img id="mpl-plot" title="matplotlib plot" srcset="/norway_plot.png"/>
+      </div>
     </div>
 
-    <form action="/" id="fylke-form", method="POST">
-          <label for="fylker">Choose a car:</label>
-  <select name="fylker" id="fylker" multiple>
+    <form action="javascript:refreshPlot()" id="fylke-form">
       {% for fylke in fylker %}
-    <option value="{{ fylke }}">{{ fylke }}</option>
-    {% endfor %}
-  </select>
+      <input type="checkbox" name="{{ fylke }}" value="{{ fylke }}" />
+      <label for="{{ fylke }}">{{ fylke }}</label>
+      <br />
+      {% endfor %}
       <button type="submit">Refresh</button>
     </form>
-      <pre>
-      form unsafe:
-      {{ chart_json }}
-      </pre>
-
-      <pre>
-      form safe:
-      {{ safe(chart_json) }}
-      </pre>
-
 
     <script>
       async function refreshPlot() {
-        var chart_data = {{ chart_json | safe }};
 
-        // get selected checkboxes
-//         var selected = [];
-//         for (checkbox of document
-//           .getElementById("fylke-form")
-//           .querySelectorAll("input[type=checkbox]")) {
-//           if (checkbox.checked) {
-//             selected.push(checkbox.value);
-//           }
-//         }
-//         var fylkeParam = "?fylker=" + encodeURIComponent(selected.join(","));
+        // begin constructing URL to request the plot JSON
+        const plotUrl = new URL(
+          `${document.location.protocol}//${document.location.host}/norway_plot.json`
+        );
 
-//         // // update the matplotlib plot
-//         // document.getElementById("mpl-plot").srcset =
-//         //   "/norway_plot.png" + fylkeParam + " 2x";
+        // get inputs from the form
 
-//         // update the altair plot
-//         var response = await fetch("/norway_plot.json" + fylkeParam);
-//         var spec = await response.json();
+        // get selected location checkboxes
+        var selected = [];
+        for (checkbox of document
+          .getElementById("fylke-form")
+          .querySelectorAll("input[type=checkbox]")) {
+          if (checkbox.checked) {
+            selected.push(encodeURIComponent(checkbox.value));
+          }
+        }
+        if (selected.length > 0) {
+          plotUrl.searchParams.append("fylker", selected.join(","));
+        }
+        console.log(plotUrl.href);
+        var response = await fetch(plotUrl.href);
+        var spec = await response.json();
+
+        // // update the matplotlib plot
+        document.getElementById("mpl-plot").srcset = `/norway_plot.png?fylker=${selected.join(',')}`;
+
+        // update the altair plot
+        var response = await fetch(plotUrl.href);
+        var spec = await response.json();
 
         var embedOpt = { mode: "vega-lite" };
 
@@ -87,7 +88,7 @@
           throw error;
         }
         const el = document.getElementById("vis");
-        vegaEmbed("#altair-plot", chart_data, embedOpt).catch((error) =>
+        vegaEmbed("#altair-plot", spec, embedOpt).catch((error) =>
           showError(el, error)
         );
       }

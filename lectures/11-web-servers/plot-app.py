@@ -4,8 +4,11 @@ via dropdowns
 
 html template is templates/plot.html
 """
+
 import json
+
 import altair as alt
+
 from flask import Flask, render_template, request
 from vega_datasets import data
 
