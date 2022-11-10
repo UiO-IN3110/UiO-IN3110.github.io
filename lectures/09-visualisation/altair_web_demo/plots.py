@@ -73,6 +73,9 @@ def get_fylker():
     return fylke_data().fylke_name.unique()
 
 
+ymax = 200
+
+
 def plot_daily_cases_altair(fylker=None):
     # get data
     cases = fylke_data()
@@ -93,7 +96,7 @@ def plot_daily_cases_altair(fylker=None):
             x="date",
             y=alt.Y(
                 "per100k",
-                scale=alt.Scale(domain=(0, 100)),
+                scale=alt.Scale(domain=(0, ymax)),
             ),
             color="fylke_name",
             tooltip=[
@@ -126,11 +129,11 @@ def plot_daily_cases_mpl(fylker=None):
         cases = cases[cases.fylke_name.isin(fylker)]
 
     fig, ax = plt.subplots()
-    fig.set_size_inches(4, 3)
-    fig.set_dpi(200)
+    fig.set_size_inches(10, 8)
+    fig.set_dpi(400)
 
     cases.set_index("date").groupby("fylke_name").per100k.plot(legend=True, ax=ax)
-    ax.set_ylim(0, 100)
+    ax.set_ylim(0, ymax)
     # shift the legend to just outside the right edge
     ax.legend(
         loc="upper left",

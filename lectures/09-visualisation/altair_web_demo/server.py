@@ -1,7 +1,6 @@
-from typing import Optional
-import json
+from typing import List, Optional
 
-from fastapi import FastAPI, Request, Form
+from fastapi import FastAPI, Request, Query
 from fastapi.responses import Response
 from fastapi.templating import Jinja2Templates
 import plots
@@ -24,21 +23,14 @@ def norway_plot_html(request: Request):
 
 
 @app.get("/norway_plot.json")
-def norway_plot_json(fylker: Optional[str] = None):
-    # fylker is a query param, a comma-separated list
-    if fylker:
-        fylker = fylker.split(",")
+def norway_plot_json(fylker: Optional[List[str]] = Query(default=None)):
     # altair Chart.to_dict() is a JSONable vega-lite structure
-    print(f"{fylker=}")
     fig = plots.plot_daily_cases_altair(fylker)
     return fig.to_dict()
 
 
 @app.get("/norway_plot.png")
-def norway_plot_png(fylker: Optional[str] = None):
-    # fylker is a query param, a comma-separated list
-    if fylker:
-        fylker = fylker.split(",")
+def norway_plot_png(fylker: Optional[List[str]] = Query(default=None)):
     png_bytes = plots.plot_daily_cases_mpl(fylker)
     return Response(
         content=png_bytes,

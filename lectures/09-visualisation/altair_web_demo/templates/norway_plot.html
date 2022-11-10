@@ -48,27 +48,25 @@
         const plotUrl = new URL(
           `${document.location.protocol}//${document.location.host}/norway_plot.json`
         );
+        const mplUrl = new URL(`${document.location.protocol}//${document.location.host}/norway_plot.png`)
 
         // get inputs from the form
 
         // get selected location checkboxes
-        var selected = [];
         for (checkbox of document
           .getElementById("fylke-form")
           .querySelectorAll("input[type=checkbox]")) {
           if (checkbox.checked) {
-            selected.push(encodeURIComponent(checkbox.value));
+            plotUrl.searchParams.append("fylker", checkbox.value);
+            mplUrl.searchParams.append("fylker", checkbox.value);
           }
-        }
-        if (selected.length > 0) {
-          plotUrl.searchParams.append("fylker", selected.join(","));
         }
         console.log(plotUrl.href);
         var response = await fetch(plotUrl.href);
         var spec = await response.json();
 
-        // // update the matplotlib plot
-        document.getElementById("mpl-plot").srcset = `/norway_plot.png?fylker=${selected.join(',')}`;
+        // update the matplotlib plot
+        document.getElementById("mpl-plot").srcset = `${mplUrl} 2x`;
 
         // update the altair plot
         var response = await fetch(plotUrl.href);
@@ -87,7 +85,7 @@
             "</div>";
           throw error;
         }
-        const el = document.getElementById("vis");
+        const el = document.getElementById("altair-plot");
         vegaEmbed("#altair-plot", spec, embedOpt).catch((error) =>
           showError(el, error)
         );
