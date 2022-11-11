@@ -1,0 +1,9 @@
+altair
+altair-viewer
+beautifulsoup4
+fastapi[all]
+pandas
+pytest
+requests
+requests-cache
+uvicorn
