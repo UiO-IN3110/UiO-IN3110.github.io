@@ -204,7 +204,7 @@ _Files Required in this Subtask_
 
 <img src="example_option_plot.png" alt="drawing" width="400"/>
 
-> **(5 points)** Modify your solution from Task 6 and 7 so that the user can select a time range for the plot.
+> **(5 points)** Modify your solution so far, so that the user can select a time range for the plot.
 
 In order for this to integrate easily with the functions you have already defined, you can e.g. let the user select (i) an end date and (ii) the number of (preceding) days they want to plot for.
 
