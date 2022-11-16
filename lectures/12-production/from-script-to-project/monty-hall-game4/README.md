@@ -1,25 +1,24 @@
-# Monty Hall Game
+Monty Hall Game
+===============
 
-This repository contains a simple implemenation of the Monty Hall Game with
+This repository contains a simple implementation of the Monty Hall Game with
 a command line and web interface.
 
 
-## Installation
-
-Install dependencies with
-
-    pip install -r requirements.txt
+Installation
+------------
 
 Install the game with
 
     pip install .
 
-## Running the game
+Running the game
+----------------
 
 The command line interface is started with:
 
-    play_monty_hall_cli.py
+    monty-hall-cli
 
 The web server is started with:
 
-    play_monty_hall_web.py
+    monty-hall-web

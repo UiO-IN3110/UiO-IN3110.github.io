@@ -5,7 +5,7 @@ requires = [
 build-backend = "setuptools.build_meta"
 
 [project]
-version = "0.1.0"
+version = "2022.11.16"
 requires-python = ">=3.7"
 license = {text = "MIT License"}
 
