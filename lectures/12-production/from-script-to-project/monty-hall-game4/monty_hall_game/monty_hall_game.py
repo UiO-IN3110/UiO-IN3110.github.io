@@ -6,7 +6,7 @@ from .game_exceptions import InvalidGameInput
 class MontyHallGame:
     """Instantiates a new Monty Hall Game object.
 
-    Example usage::
+    Example::
 
         game = MontyHallGame()
 
@@ -17,7 +17,6 @@ class MontyHallGame:
         game.select_door(to_open)
 
         won = game.open_door()
-
     """
 
     stats = {"changed": {"won": 0, "lost": 0}, "not_changed": {"won": 0, "lost": 0}}
@@ -54,10 +53,14 @@ class MontyHallGame:
 
     def select_door(self, door):
         """Use this function to let the play select a door. This function
-        should be called twice: Once at the beginning of the game for the initial
-        door choice. And once after calling :func:`MontyHallGame.let_host_open_door`.
 
-        :ivar door: The door to be selected. Valid values: [1, 2, 3]
+        should be called twice: Once at the beginning of the game for the initial
+        door choice. And once after calling :meth:`MontyHallGame.let_host_open_door`.
+
+        Arguments:
+
+            door (int):
+                The door to be selected. Valid values: [1, 2, 3]
         """
 
         if not 1 <= door <= 3:
@@ -74,7 +77,7 @@ class MontyHallGame:
             self.reselected_door = door
 
     def available_doors(self):
-        """ Returns a list of doors that are still available for selection """
+        """Returns a list of doors that are still available for selection"""
 
         a = set([1, 2, 3])
         a.discard(self.opened_door)

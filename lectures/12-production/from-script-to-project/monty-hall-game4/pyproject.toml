@@ -19,5 +19,5 @@ dynamic = ["dependencies"]
 dependencies = {file = ["requirements.txt"]}
 
 [project.scripts]
-monty-hall-cli = "monty_call_game.cli:main"
-monty-hall-web = "monty_call_game.web:main"
+monty-hall-cli = "monty_hall_game.cli:main"
+monty-hall-web = "monty_hall_game.web:main"
