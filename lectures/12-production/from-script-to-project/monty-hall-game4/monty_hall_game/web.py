@@ -2,16 +2,20 @@
 
 import os
 import uuid
+from pathlib import Path
 
 from flask import Flask
 from flask import render_template
 from flask import request
-import monty_hall_game
 from monty_hall_game import MontyHallGame
 
-templates = os.path.join(os.path.dirname(monty_hall_game.__file__), "templates")
+pkg_dir = Path(__file__).resolve().parent
 
-app = Flask("MontyHallGame", template_folder=templates)
+app = Flask(
+    "MontyHallGame",
+    template_folder=pkg_dir.joinpath("templates"),
+    static_folder=pkg_dir.joinpath("static"),
+)
 
 
 @app.route("/")
@@ -73,6 +77,10 @@ def statistics():
     return "<h1>Statistics</h1>{}".format(stats)
 
 
-if __name__ == "__main__":
-    port = int(os.environ.get("PORT", 5000))
+def main():
+    port = int(os.environ.get("PORT", 8000))
     app.run(host="0.0.0.0", port=port)
+
+
+if __name__ == "__main__":
+    main()
