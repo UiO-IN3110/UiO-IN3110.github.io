@@ -189,7 +189,7 @@ The default time frame should be for the preceding 7 days
 
 An outline of your app can be found in `app.py`. We also added an html template you can use in the directory `templates` named `strompris.html`.
 
-For information on `FastAPI` we recommend taking a look at the [lecture notes.](https://nbviewer.org/github/UiO-IN3110/UiO-IN3110.github.io/blob/HEAD/lectures/07-web-programming/Introduction%20to%20webservers.ipynb)
+For information on `FastAPI` we recommend taking a look at the [lecture notes.](https://nbviewer.org/github/UiO-IN3110/UiO-IN3110.github.io/blob/HEAD/lectures/11-web-servers/Introduction%20to%20webservers.ipynb)
 
 _Files Required in this Subtask_
 
