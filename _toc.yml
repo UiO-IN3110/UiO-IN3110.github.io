@@ -1,0 +1,8 @@
+format: jb-book
+root: index
+parts:
+  - caption: About the course
+    chapters:
+      - file: lectures/01-about-course/About the course
+      - file: lectures/01-about-course/Introduction to git
+      - file: lectures/01-about-course/Scripting vs regular programming
