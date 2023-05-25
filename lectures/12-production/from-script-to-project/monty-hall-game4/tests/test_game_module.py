@@ -1,6 +1,7 @@
 import random
+
 import pytest
-from monty_hall_game import MontyHallGame, InvalidGameInput
+from monty_hall_game import InvalidGameInput, MontyHallGame
 
 
 def test_that_game_wins_or_loses():
@@ -25,7 +26,6 @@ def test_that_selecting_invalid_door_raises_correct_exception():
 
 
 def test_that_statistics_returns_str():
-
     # Produce some test data first
     for i in range(10):
         test_that_game_wins_or_loses()

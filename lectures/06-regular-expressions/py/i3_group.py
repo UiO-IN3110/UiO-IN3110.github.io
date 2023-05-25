@@ -13,4 +13,3 @@ source_text = "prefix, infix, postfix, quickfix, fix, prefixfix"
 
 substituted_text = re.sub(regex_in, regex_out, source_text)
 print(substituted_text)
-

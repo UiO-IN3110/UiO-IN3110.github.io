@@ -1,7 +1,8 @@
 import numpy
-cimport numpy
 
+cimport numpy
 from libc.math cimport sin
+
 
 cpdef numpy.ndarray[numpy.double_t, ndim=1] apply_sin(numpy.ndarray[numpy.double_t, ndim=1] a):
     cdef int i

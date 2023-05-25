@@ -6,4 +6,4 @@ class InvalidGameInput(Exception):
         self.message = message
 
     def __str__(self):
-        return "A InvalidGameInput Exception occurred: {}".format(self.message)
+        return f"A InvalidGameInput Exception occurred: {self.message}"

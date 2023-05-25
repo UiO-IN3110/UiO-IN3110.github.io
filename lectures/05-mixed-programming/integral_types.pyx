@@ -1,5 +1,6 @@
 from math import sin
 
+
 cpdef double f(double x):
     return sin(x**2)
 

@@ -1,1 +1,1 @@
-from .printing import print_red, print_blue, print_green
+from .printing import print_blue, print_green, print_red

@@ -1,18 +1,13 @@
-{% extends "layout7.html" %}
-{% block body %}
-
-
-{% if has_won %}
+{% extends "layout7.html" %} {% block body %} {% if has_won %}
 <h1>Congratulations, you have won!</h1>
-<img src="/static/car.jpg">
+<img src="/static/car.jpg" />
 {% else %}
 <h1>You have lost!</h1>
-<img src="/static/goat_lost.jpg">
-<br>
-The winning door would have been {{ winning }}.
-{% endif %}
+<img src="/static/goat_lost.jpg" />
+<br />
+The winning door would have been {{ winning }}. {% endif %}
 
-<br>
+<br />
 <a href="./select">Play again</a>
 
 {% endblock %}

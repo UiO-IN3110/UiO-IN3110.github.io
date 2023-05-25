@@ -2,9 +2,8 @@
 
 # File: game_server.py
 import uuid
-from flask import Flask
-from flask import render_template
-from flask import request
+
+from flask import Flask, render_template, request
 from monty_hall_game import MontyHallGame
 
 app = Flask("MontyHallGame")
@@ -31,7 +30,6 @@ def new():
 
 @app.route("/reselect", methods=["POST"])
 def reselect():
-
     # request.args contains the URL parameters, like the game_id
     game_id = request.args.get("game_id")
     game = games[game_id]
@@ -66,7 +64,7 @@ def final():
 def statistics():
     stats = MontyHallGame.statistics().replace("\n", "</br>")
 
-    return "<h1>Statistics</h1>{}".format(stats)
+    return f"<h1>Statistics</h1>{stats}"
 
 
 if __name__ == "__main__":

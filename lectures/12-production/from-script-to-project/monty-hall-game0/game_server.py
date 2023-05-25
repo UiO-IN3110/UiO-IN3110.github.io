@@ -1,9 +1,8 @@
 # File: game_server.py
-from flask import Flask
-from flask import render_template
-from flask import request
 import random
 import uuid
+
+from flask import Flask, render_template, request
 
 app = Flask(__name__)
 
@@ -28,7 +27,6 @@ def new():
 
 @app.route("/reselect", methods=["POST"])
 def reselect():
-
     # request.form contains all form parameters, like the selected door
     selected = int(request.form["door"])
 
@@ -41,7 +39,7 @@ def reselect():
     winning = game_states[game_id]["winning"]
 
     # Open a random door (but not the winning nor the user-chosen door)
-    opened = set([1, 2, 3])
+    opened = {1, 2, 3}
     opened.discard(winning)
     opened.discard(selected)
     opened = random.choice(list(opened))
@@ -53,7 +51,6 @@ def reselect():
 
 @app.route("/final", methods=["POST"])
 def final():
-
     # request.form contains all form parameters, like the selected door
     selected = int(request.form["door"])
 
@@ -91,7 +88,7 @@ def statistics():
     s2 = "Not changed and won: {} out of {}".format(
         sum(notchanged_and_won), len(notchanged_and_won)
     )
-    return "<h1>Statistics</h1>{}</br>{}".format(s1, s2)
+    return f"<h1>Statistics</h1>{s1}</br>{s2}"
 
 
 if __name__ == "__main__":

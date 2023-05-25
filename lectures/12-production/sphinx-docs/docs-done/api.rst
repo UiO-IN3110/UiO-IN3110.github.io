@@ -8,4 +8,3 @@ My Array API
 .. autoclass:: Array
     :members:
     :special-members:
-

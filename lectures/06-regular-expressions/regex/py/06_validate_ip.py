@@ -23,8 +23,8 @@ def is_valid_ip(addresses):
         >>> print(is_valid_ip(addresses))
         [True, False, True, False, False]
     """
-    
-    #regex = r"^(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])(?:\.\1){3}$"
+
+    # regex = r"^(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])(?:\.\1){3}$"
     regex = r"(\d*)((?:\.\1)){3}"
 
     matches = [re.findall(regex, address) for address in addresses]
@@ -34,4 +34,5 @@ def is_valid_ip(addresses):
 
 if __name__ == "__main__":
     import doctest
+
     doctest.testmod()

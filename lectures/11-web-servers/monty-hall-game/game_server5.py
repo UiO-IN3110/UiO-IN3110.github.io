@@ -49,11 +49,10 @@ def new(request: Request):
 
 @app.post("/reselect")
 def reselect(request: Request, game_id: str, door: int = Form(...)):
-
     winning = game_states[game_id]
 
     # Open a random door (but not the winning nor the user-chosen door)
-    opened = set([1, 2, 3])
+    opened = {1, 2, 3}
     opened.discard(winning)
     opened.discard(door)
     opened = random.choice(list(opened))

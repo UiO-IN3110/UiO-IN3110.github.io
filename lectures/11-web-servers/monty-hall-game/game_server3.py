@@ -13,9 +13,6 @@ Improvements to game_server2.py:
 """
 
 
-import random
-import uuid
-
 from fastapi import FastAPI, Form, Request
 from fastapi.responses import HTMLResponse
 from fastapi.templating import Jinja2Templates

@@ -9,4 +9,4 @@ EDITOR_OPTIONS = [
     "pycharm",
 ]
 
-#%s/\v(e)(m)(a)(c)(s)/\3 \2\1\5\5
+# %s/\v(e)(m)(a)(c)(s)/\3 \2\1\5\5

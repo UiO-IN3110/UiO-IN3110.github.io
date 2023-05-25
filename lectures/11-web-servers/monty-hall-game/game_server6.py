@@ -51,13 +51,12 @@ def new(request: Request):
 
 @app.post("/reselect")
 def reselect(request: Request, game_id: str, door: int = Form(...)):
-
     state = game_states[game_id]
     state["first_choice"] = door
     winning = state["winning"]
 
     # Open a random door (but not the winning nor the user-chosen door)
-    opened = set([1, 2, 3])
+    opened = {1, 2, 3}
     opened.discard(winning)
     opened.discard(door)
     opened = random.choice(list(opened))
@@ -96,9 +95,7 @@ def statistics():
     games = [e for e in game_states.values() if "won" in e]
 
     changed_and_won = [e["won"] for e in games if e["changed_choice"]]
-    notchanged_and_won = [
-        e["won"] for e in games if not e["changed_choice"]
-    ]
+    notchanged_and_won = [e["won"] for e in games if not e["changed_choice"]]
 
     changed_sucess_rate = (
         100 * sum(changed_and_won) / len(changed_and_won)
@@ -117,7 +114,7 @@ def statistics():
     s2 = "Not changed and won: {} out of {} ({}% success)".format(
         sum(notchanged_and_won), len(notchanged_and_won), notchanged_success_rate
     )
-    return "<h1>Statistics</h1>{}</br>{}".format(s1, s2)
+    return f"<h1>Statistics</h1>{s1}</br>{s2}"
 
 
 if __name__ == "__main__":

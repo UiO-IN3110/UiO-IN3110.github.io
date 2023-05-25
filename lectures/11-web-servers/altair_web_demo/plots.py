@@ -2,10 +2,9 @@ import io
 from functools import lru_cache
 
 import altair as alt
+import matplotlib
 import pandas as pd
 import requests
-
-import matplotlib
 
 matplotlib.use("agg")
 
@@ -58,11 +57,8 @@ def fylke_data():
         diff.iloc[0] = fylke_cases.iloc[0].cases
         cases.loc[fylke_cases.index, "daily cases"] = diff.astype(int)
 
-
     # per100k is "daily new cases per 100k population"
-    cases["per100k"] = (
-        (cases["daily cases"] * 1e5 / (cases["population"] + 1))
-    )
+    cases["per100k"] = cases["daily cases"] * 1e5 / (cases["population"] + 1)
 
     # limit data to 2021
     return cases[cases.date.dt.year >= 2021]

@@ -1,5 +1,5 @@
-import uuid
 import random
+import uuid
 
 
 class MontyHallGame:
@@ -43,7 +43,7 @@ class MontyHallGame:
             stats["not_changed"]["won"] + stats["not_changed"]["lost"],
         )
 
-        return "{}\n{}".format(s1, s2)
+        return f"{s1}\n{s2}"
 
     def __init__(self):
         self.game_id = str(uuid.uuid4())
@@ -72,7 +72,7 @@ class MontyHallGame:
         :returns: List of available doors.
         """
 
-        a = set([1, 2, 3])
+        a = {1, 2, 3}
         a.discard(self.opened_door)
         return list(a)
 
@@ -81,7 +81,7 @@ class MontyHallGame:
 
         :returns: The newly opened door number as an `int`."""
 
-        opened = set([1, 2, 3])
+        opened = {1, 2, 3}
         opened.discard(self.__winning_door)
         opened.discard(self.selected_door)
         self.opened_door = random.choice(list(opened))

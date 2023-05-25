@@ -1,5 +1,6 @@
-import uuid
 import random
+import uuid
+
 from .game_exceptions import InvalidGameInput
 
 
@@ -38,7 +39,7 @@ class MontyHallGame:
             stats["not_changed"]["won"] + stats["not_changed"]["lost"],
         )
 
-        return "{}\n{}".format(s1, s2)
+        return f"{s1}\n{s2}"
 
     def __init__(self):
         self.game_id = str(uuid.uuid4())
@@ -65,7 +66,7 @@ class MontyHallGame:
 
         if not 1 <= door <= 3:
             raise InvalidGameInput(
-                "Door must be an integer between 1 and 3, you provided {}.".format(door)
+                f"Door must be an integer between 1 and 3, you provided {door}."
             )
 
         if door == self.opened_door:
@@ -79,7 +80,7 @@ class MontyHallGame:
     def available_doors(self):
         """Returns a list of doors that are still available for selection"""
 
-        a = set([1, 2, 3])
+        a = {1, 2, 3}
         a.discard(self.opened_door)
         return list(a)
 
@@ -94,7 +95,7 @@ class MontyHallGame:
         if self.opened_door is not None:
             raise InvalidGameInput("The host has already opened a door")
 
-        opened = set([1, 2, 3])
+        opened = {1, 2, 3}
         opened.discard(self.__winning_door)
         opened.discard(self.selected_door)
         self.opened_door = random.choice(list(opened))

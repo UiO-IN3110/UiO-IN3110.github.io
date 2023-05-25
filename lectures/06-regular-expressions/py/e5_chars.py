@@ -1,12 +1,10 @@
+"""
+Find the numbers
+"""
 
-Brackets allows for the construction of custom character classes.
+import re
 
-------  -----------------------------
-Key     Description
-------  -----------------------------
-[abc]   Range (a or b or c)
-[^abc]  Not (a or b or c)
-[a-q]   Lower case letter from a to q
-[A-Q]   Upper case letter from A to Q
-[0-7]   Digit from 0 to 7
-------  -----------------------------
+search_text = "The bar is open between 18:04 and 02:00 every friday."
+regex = r"[0-9]"
+search_results = re.findall(regex, search_text)
+print(search_results)

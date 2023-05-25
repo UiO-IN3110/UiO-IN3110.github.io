@@ -1,7 +1,0 @@
-CardiacCycle.png
-Equations.png
-file.txt
-Forces.png
-frog.eps
-steadypulsatileflow.png
-Traction.png

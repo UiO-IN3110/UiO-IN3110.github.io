@@ -11,5 +11,3 @@ source_text = "Hello funnybunny!"
 
 substituted_text = re.sub(regex_in, regex_out, source_text)
 print(substituted_text)
-
-
