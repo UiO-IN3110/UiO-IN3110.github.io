@@ -1,0 +1,52 @@
+on:
+  workflow_dispatch:
+  workflow_call:
+  pull_request:
+    branches: ["main"]
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+defaults:
+  run:
+    shell: bash -el {0}
+
+jobs:
+  build-book:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-python@v4
+        with:
+          python-version: "3.10"
+          cache: pip
+      - run: pip install -r book/requirements.txt
+      - run: pip freeze
+
+      - name: cache executed notebooks
+        uses: actions/cache@v3
+        with:
+          path: _build/.jupyter_cache
+          key: jupyter-cache-${{ hashFiles('book/requirements.txt') }}
+
+      - name: Build the book
+        # TODO: add -W when we can be strict about builds
+        # for now, allow publishing with warnings
+        run: jupyter-book build . # -W
+
+      - uses: actions/upload-artifact@v3
+        # always upload artifact, which can include error messages
+        if: always()
+        with:
+          name: documentation
+          path: ./_build/html
+          retention-days: 2
+          if-no-files-found: error
+
+      - name: Show error reports
+        if: failure()
+        run: |
+          find _build/html/reports -type f -print -exec cat {} \;

@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
   <head>
     <title>Altair plot</title>
@@ -25,7 +25,7 @@
     <form onsubmit="return submitForm();" id="form">
       <label for="x-axis">X-axis</label>
 
-<!--  select gives a dropdown. The selected option can be accessed with `selectedOptions[0]` on the select element -->
+      <!--  select gives a dropdown. The selected option can be accessed with `selectedOptions[0]` on the select element -->
       <select name="x" id="x-axis">
         <option value="Miles_per_Gallon">Miles per Gallon</option>
         <option value="Cylinders">Cylinders</option>
@@ -91,7 +91,7 @@
         }
         const el = document.getElementById("vis");
         vegaEmbed("#vis", spec, embedOpt).catch((error) =>
-          showError(el, error)
+          showError(el, error),
         );
       }
 

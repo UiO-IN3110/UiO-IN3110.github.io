@@ -19,10 +19,7 @@ import uuid
 from functools import partial
 from typing import Optional
 
-from fastapi import FastAPI, Form, Request
-from fastapi.responses import HTMLResponse
-from fastapi.staticfiles import StaticFiles
-from fastapi.templating import Jinja2Templates
+from fastapi import FastAPI
 from pydantic import BaseModel, Field
 
 app = FastAPI()
@@ -45,7 +42,7 @@ class MontyHallGame(BaseModel):
 
     def reveal(self):
         """The second step: host reveals a door that definitely has a goat."""
-        choices = set([1, 2, 3])
+        choices = {1, 2, 3}
         # don't open the winning door
         choices.discard(self.winning)
         # don't open the door they've already chosen
@@ -58,7 +55,7 @@ class MontyHallGame(BaseModel):
     def choose_again(self, switch: bool):
         """Guest can either switch to the other door, or stay with their first choice"""
         if switch:
-            choices = set([1, 2, 3])
+            choices = {1, 2, 3}
             choices.discard(self.first_choice)
             choices.discard(self.opened)
             self.second_choice = choices.pop()

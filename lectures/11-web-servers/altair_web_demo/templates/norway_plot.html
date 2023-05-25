@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
   <head>
     <style>
@@ -21,14 +21,17 @@
       type="text/javascript"
       src="https://cdn.jsdelivr.net/npm/vega-embed@6"
     ></script>
-
   </head>
   <body>
     <h1>Daily covid cases by fylke {{ date }}</h1>
     <div id="plots">
       <div id="altair-plot"></div>
       <div>
-      <img id="mpl-plot" title="matplotlib plot" srcset="/norway_plot.png 2x"/>
+        <img
+          id="mpl-plot"
+          title="matplotlib plot"
+          srcset="/norway_plot.png 2x"
+        />
       </div>
     </div>
 
@@ -43,12 +46,13 @@
 
     <script>
       async function refreshPlot() {
-
         // begin constructing URL to request the plot JSON
         const plotUrl = new URL(
-          `${document.location.protocol}//${document.location.host}/norway_plot.json`
+          `${document.location.protocol}//${document.location.host}/norway_plot.json`,
         );
-        const mplUrl = new URL(`${document.location.protocol}//${document.location.host}/norway_plot.png`)
+        const mplUrl = new URL(
+          `${document.location.protocol}//${document.location.host}/norway_plot.png`,
+        );
 
         // get inputs from the form
 
@@ -87,7 +91,7 @@
         }
         const el = document.getElementById("altair-plot");
         vegaEmbed("#altair-plot", spec, embedOpt).catch((error) =>
-          showError(el, error)
+          showError(el, error),
         );
       }
       // trigger a first refresh of the plots on page load

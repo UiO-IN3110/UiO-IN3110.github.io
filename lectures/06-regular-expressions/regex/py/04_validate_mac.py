@@ -19,7 +19,7 @@ def is_valid_mac(addresses):
         [True, False, False, False]
     """
     char = r"[0-9a-fA-F]"
-    regex = ":".join([char*2]*6)
+    regex = ":".join([char * 2] * 6)
     regex = "^" + regex + "$"
     matches = [re.findall(regex, address) for address in addresses]
     matches = [match != [] for match in matches]
@@ -28,4 +28,5 @@ def is_valid_mac(addresses):
 
 if __name__ == "__main__":
     import doctest
+
     doctest.testmod()

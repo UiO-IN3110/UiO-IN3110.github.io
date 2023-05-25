@@ -1,39 +1,11 @@
 from bs4 import BeautifulSoup as soup
-import re
 from IPython import embed
 
-src = open('hello_world.html')
-document = soup(src, 'lxml')
-headers = document.find_all('head')
+src = open("hello_world.html")
+document = soup(src, "lxml")
+headers = document.find_all("head")
 
 embed()
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 """

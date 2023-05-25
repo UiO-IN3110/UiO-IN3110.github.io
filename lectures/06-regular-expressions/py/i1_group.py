@@ -6,7 +6,7 @@ For when you are not interested in everything in the regex string.
 
 import re
 
-regex = "(\w*f)ix"
+regex = r"(\w*f)ix"
 
 search_text = "prefix, infix, postfix, quickfix, fix"
 

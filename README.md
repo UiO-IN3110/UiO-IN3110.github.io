@@ -1,5 +1,4 @@
-Installation
-============
+# Installation
 
 First make sure that you have Python installed (see for example [miniforge](https://github.com/conda-forge/miniforge#install))
 

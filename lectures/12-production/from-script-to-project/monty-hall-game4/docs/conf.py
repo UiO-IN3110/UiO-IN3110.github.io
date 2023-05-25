@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 #
 # Monty Hall Game documentation build configuration file, created by
 # sphinx-quickstart on Tue Nov 15 20:05:41 2016.

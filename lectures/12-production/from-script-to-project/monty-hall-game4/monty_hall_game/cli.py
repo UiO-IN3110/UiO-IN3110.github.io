@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-from monty_hall_game import MontyHallGame, InvalidGameInput
+from monty_hall_game import InvalidGameInput, MontyHallGame
 
 
 def main():
@@ -15,12 +15,10 @@ def main():
             game.select_door(door)
 
             door = game.let_host_open_door()
-            print("The host opens door {}.".format(door))
+            print(f"The host opens door {door}.")
 
             a = game.available_doors()
-            door = int(
-                input("Which door would you like to open (choose from {}): ".format(a))
-            )
+            door = int(input(f"Which door would you like to open (choose from {a}): "))
 
             game.select_door(door)
             won = game.open_door()

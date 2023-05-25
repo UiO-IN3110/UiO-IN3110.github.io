@@ -1,5 +1,5 @@
-import uuid
 import random
+import uuid
 
 
 class MontyHallGame:
@@ -7,7 +7,6 @@ class MontyHallGame:
 
     @staticmethod
     def statistics():
-
         # Get statistics class variable
         stats = MontyHallGame.stats
 
@@ -20,7 +19,7 @@ class MontyHallGame:
             stats["not_changed"]["won"] + stats["not_changed"]["lost"],
         )
 
-        return "{}\n{}".format(s1, s2)
+        return f"{s1}\n{s2}"
 
     def __init__(self):
         self.game_id = str(uuid.uuid4())
@@ -37,13 +36,12 @@ class MontyHallGame:
             self.reselected_door = door
 
     def available_doors(self):
-
-        a = set([1, 2, 3])
+        a = {1, 2, 3}
         a.discard(self.opened_door)
         return list(a)
 
     def let_host_open_door(self):
-        opened = set([1, 2, 3])
+        opened = {1, 2, 3}
         opened.discard(self.__winning_door)
         opened.discard(self.selected_door)
         self.opened_door = random.choice(list(opened))
@@ -51,7 +49,6 @@ class MontyHallGame:
         return self.opened_door
 
     def open_door(self):
-
         changed = self.selected_door != self.reselected_door
         game_won = self.reselected_door == self.__winning_door
 
@@ -71,7 +68,6 @@ class MontyHallGame:
 
 
 if __name__ == "__main__":
-
     game = MontyHallGame()
 
     game.select_door(1)

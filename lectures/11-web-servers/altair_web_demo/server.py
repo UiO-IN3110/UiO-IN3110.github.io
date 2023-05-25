@@ -1,10 +1,10 @@
+import datetime
 from typing import List, Optional
 
-from fastapi import FastAPI, Request, Query
+import plots
+from fastapi import FastAPI, Query, Request
 from fastapi.responses import Response
 from fastapi.templating import Jinja2Templates
-import plots
-import datetime
 
 app = FastAPI()
 templates = Jinja2Templates(directory="templates")

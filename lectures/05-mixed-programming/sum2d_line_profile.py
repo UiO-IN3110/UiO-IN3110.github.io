@@ -1,19 +1,23 @@
-from numpy import arange
+from cProfile import profile
 from time import time
 
-@profile
+from numpy import arange
+
+
+@profile  # noqa: F821
 def sum2d(arr):
     M, N = arr.shape
     result = 0.0
-    
+
     for i in range(M):
         for j in range(N):
-            result += arr[i,j]
-            
+            result += arr[i, j]
+
     return result
 
+
 N = 1000
-a = arange(N**2).reshape(N,N)
+a = arange(N**2).reshape(N, N)
 
 t0 = time()
 sum2d(a)

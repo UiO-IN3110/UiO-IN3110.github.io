@@ -1,7 +1,7 @@
 class MyNumber:
     def __init__(self, n):
         self.n = n
-    
+
     def __repr__(self):
         return f"MyNumber({self.n})"
 
@@ -9,14 +9,11 @@ class MyNumber:
         if not isinstance(other, MyNumber):
             raise TypeError("Can only add MyNumbers together")
         return MyNumber(self.n + other.n)
-    
+
     def __mul__(self, other):
         if not isinstance(other, MyNumber):
             raise TypeError("Can only multiply MyNumbers together")
         return MyNumber(self.n * other.n)
-
-
-
 
 
 def test_MyNumberClass():
@@ -26,6 +23,5 @@ def test_MyNumberClass():
         for n2 in b:
             A = MyNumber(n1)
             B = MyNumber(n2)
-            assert n1+n2 == (A+B).n
-            assert n1*n2 == (A*B).n
-    
+            assert n1 + n2 == (A + B).n
+            assert n1 * n2 == (A * B).n

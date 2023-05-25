@@ -1,5 +1,6 @@
 from math import sin
 
+
 def f(x):
     return sin(x**2)
 

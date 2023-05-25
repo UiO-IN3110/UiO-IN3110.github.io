@@ -12,7 +12,9 @@ multiple lines."""
 
 search_string = r"^(ERROR [0-9.]+ [0-9:]+ \w+\.\w+: )"
 simplified_logging_file = re.sub(
-    search_string, r"@\1", more_complex_logging_file, flags=re.M)
+    search_string, r"@\1", more_complex_logging_file, flags=re.M
+)
 
 for line in simplified_logging_file.split("@"):
-    if line: print(line)
+    if line:
+        print(line)

@@ -1,9 +1,0 @@
-total 292
--rw-rw-r-- 1 vegard vegard  20516 april 18  2020 CardiacCycle.png
--rw-r--r-- 1 vegard vegard  38678 april 23  2020 Equations.png
--rw-rw-r-- 1 vegard vegard     97 aug.  30 15:42 file.txt
--rw-r--r-- 1 vegard vegard   7466 jan.   5  2021 Forces.png
--rw-r--r-- 1 vegard vegard  45880 mai    4  2020 frog.eps
--rw-rw-r-- 1 vegard vegard      0 aug.  30 15:42 numbers.txt
--rw-rw-r-- 1 vegard vegard 156452 april 18  2020 steadypulsatileflow.png
--rw-r--r-- 1 vegard vegard   8950 jan.   5  2021 Traction.png

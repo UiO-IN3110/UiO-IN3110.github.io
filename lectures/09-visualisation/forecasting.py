@@ -1,5 +1,5 @@
-import requests
 import pandas as pd
+import requests
 
 
 def tidy_format(record):
@@ -46,7 +46,9 @@ def city_forecast(city, country="Norway"):
     df["time"] = pd.to_datetime(df["time"])
     # clean symbols
     for n in (1, 6, 12):
-        df[f"next_{n}_hours_symbol_code"] = df[f"next_{n}_hours_symbol_code"].str.split("_", n=1, expand=True)[0]
+        df[f"next_{n}_hours_symbol_code"] = df[f"next_{n}_hours_symbol_code"].str.split(
+            "_", n=1, expand=True
+        )[0]
     # df = df.set_index("time")
     df["city"] = city
     return df

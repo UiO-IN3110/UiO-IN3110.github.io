@@ -35,8 +35,8 @@ def root(request: Request):
         "index7.html",
         {
             "request": request,
-        })
-
+        },
+    )
 
 
 @app.get("/select")
@@ -56,13 +56,12 @@ def new(request: Request):
 
 @app.post("/reselect")
 def reselect(request: Request, game_id: str, door: int = Form(...)):
-
     state = game_states[game_id]
     state["first_choice"] = door
     winning = state["winning"]
 
     # Open a random door (but not the winning nor the user-chosen door)
-    opened = set([1, 2, 3])
+    opened = {1, 2, 3}
     opened.discard(winning)
     opened.discard(door)
     opened = random.choice(list(opened))
@@ -101,9 +100,7 @@ def statistics(request: Request):
     # get only the finished games
     games = [e for e in game_states.values() if "won" in e]
     changed_and_won = [e["won"] for e in games if e["changed_choice"]]
-    notchanged_and_won = [
-        e["won"] for e in games if not e["changed_choice"]
-    ]
+    notchanged_and_won = [e["won"] for e in games if not e["changed_choice"]]
 
     changed_success_rate = (
         100 * sum(changed_and_won) / len(changed_and_won)
@@ -116,12 +113,12 @@ def statistics(request: Request):
         else 0
     )
 
-    # s1 = "Changed and won: {} out of {} ({}% success)".format(
-    #     sum(changed_and_won), len(changed_and_won), changed_success_rate
-    # )
-    # s2 = "Not changed and won: {} out of {} ({}% success)".format(
-    #     sum(notchanged_and_won), len(notchanged_and_won), notchanged_success_rate
-    # )
+    s1 = "Changed and won: {} out of {} ({}% success)".format(
+        sum(changed_and_won), len(changed_and_won), changed_success_rate
+    )
+    s2 = "Not changed and won: {} out of {} ({}% success)".format(
+        sum(notchanged_and_won), len(notchanged_and_won), notchanged_success_rate
+    )
     return templates.TemplateResponse(
         "statistics7.html",
         {
@@ -130,12 +127,10 @@ def statistics(request: Request):
             "notchanged_success_rate": notchanged_success_rate,
             "changed_and_won": changed_and_won,
             "changed_success_rate": changed_success_rate,
-
         },
     )
 
-
-    return "<h1>Statistics</h1>{}</br>{}".format(s1, s2)
+    return f"<h1>Statistics</h1>{s1}</br>{s2}"
 
 
 if __name__ == "__main__":

@@ -13,4 +13,3 @@ CORNER_CASES: 1-2 4.- -E1- C++ .
 """
 
 print(re.findall(regex, all_the_numbers))
-

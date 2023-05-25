@@ -1,4 +1,4 @@
-"""
+r"""
 Lets make things more challenging.
 
 .   any char

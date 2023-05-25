@@ -1,53 +1,14 @@
-# Welcome to Jekyll!
-#
-# This config file is meant for settings that affect your whole blog, values
-# which you are expected to set up once and rarely edit after that. If you find
-# yourself editing this file very often, consider using Jekyll's data files
-# feature for the data you need to update frequently.
-#
-# For technical reasons, this file is *NOT* reloaded automatically when you use
-# 'bundle exec jekyll serve'. If you change this file, please restart the server process.
-#
-# If you need help with YAML syntax, here are some quick references for you:
-# https://learn-the-web.algonquindesign.ca/topics/markdown-yaml-cheat-sheet/#yaml
-# https://learnxinyminutes.com/docs/yaml/
-#
-# Site settings
-# These are used to personalize your new site. If you look in the HTML files,
-# you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
-# You can create any custom variable you would like, and they will be accessible
-# in the templates via {{ site.myvariable }}.
+# In _config.yml
+title: Higher Level Programming 2023
+root: index
+author: |
+  Hans Petter Langtangen,
+  Joakim Sundnes, Ola Skavhaug, Jonathan Feinberg, Karl-Erik Holter,
+  Vidar Tonaas Fauske, Benjamin Ragan-Kelley, Lisa Pankewitz,
+  Sebastian Mitusch, Simon Funke, Ingeborg Gjerde, Vegard Vinje,
+  and Miroslav Kuchta
 
-title: Higher Level Programming 2022
-email: in3110@simula.no
-description: >-
-  A course taught at the University of Oslo
-baseurl: ""
-url: "https://uio-in3110.github.io"
-
-# Build settings
-theme: minima
-# plugins:
-  # - jekyll-feed
-
-header_pages:
-  - index.html
-  # - assignments/index.md
-# Exclude from processing.
-# The following items will not be processed, by default.
-# Any item listed under the `exclude:` key here will be automatically added to
-# the internal "default list".
-#
-# Excluded items can be processed by explicitly listing the directories or
-# their entries' file path in the `include:` list.
-#
-exclude:
-  - lectures
-  - old-assignments
-  - .sass-cache/
-  - .jekyll-cache/
-  - gemfiles/
-  - Gemfile
-  - Gemfile.lock
-  - node_modules/
-  - vendor
+# disable execution to start
+execute:
+  execute_notebooks: "off"
+only_build_toc_files: true

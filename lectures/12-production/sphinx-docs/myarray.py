@@ -4,6 +4,7 @@ Defines an Array class.
 Class template for Arrays, IN 3110 assignment 3
 """
 
+
 class Array:
     """A class defining an API for arrays"""
 
@@ -20,7 +21,6 @@ class Array:
             ValueError: If the values are not all of the same type.
             ValueError: If the number of values does not fit with the shape.
         """
-        pass
 
     def __str__(self):
         """Returns a nicely printable string representation of the array.
@@ -29,7 +29,6 @@ class Array:
             str: A string representation of the array.
 
         """
-        pass
 
     def __add__(self, other):
         """Element-wise adds Array with another Array or number.
@@ -44,7 +43,6 @@ class Array:
             Array: the sum as a new array.
 
         """
-        pass
 
     def __radd__(self, other):
         """Element-wise adds Array with another Array or number.
@@ -59,7 +57,6 @@ class Array:
             Array: the sum as a new array.
 
         """
-        pass
 
     def __sub__(self, other):
         """Element-wise subtracts an Array or number from this Array.
@@ -74,7 +71,6 @@ class Array:
             Array: the difference as a new array.
 
         """
-        pass
 
     def __rsub__(self, other):
         """Element-wise subtracts this Array from a number or Array.
@@ -89,7 +85,6 @@ class Array:
             Array: the difference as a new array.
 
         """
-        pass
 
     def __mul__(self, other):
         """Element-wise multiplies this Array with a number or array.
@@ -104,7 +99,6 @@ class Array:
             Array: a new array with every element multiplied with `other`.
 
         """
-        pass
 
     def __rmul__(self, other):
         """Element-wise multiplies this Array with a number or array.
@@ -119,7 +113,6 @@ class Array:
             Array: a new array with every element multiplied with `other`.
 
         """
-        pass
 
     def __eq__(self, other):
         """Compares an Array with another Array.
@@ -134,7 +127,6 @@ class Array:
             bool: True if the two arrays are equal. False otherwise.
 
         """
-        pass
 
     def is_equal(self, other):
         """Compares an Array element-wise with another Array or number.
@@ -153,7 +145,6 @@ class Array:
             ValueError: if the shape of self and other are not equal.
 
         """
-        pass
 
     def mean(self):
         """Computes the mean of the array
@@ -164,7 +155,6 @@ class Array:
             float: The mean of the array values.
 
         """
-        pass
 
     def variance(self):
         """Computes the variance of the array
@@ -176,7 +166,6 @@ class Array:
             float: The mean of the array values.
 
         """
-        pass
 
     def min_element(self):
         """Returns the smallest value of the array.
@@ -187,7 +176,6 @@ class Array:
             float: The value of the smallest element in the array.
 
         """
-        pass
 
 
 def asarray(a):

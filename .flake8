@@ -1,0 +1,10 @@
+[flake8]
+# Ignore style and complexity
+# E: style errors
+# W: style warnings
+# C: complexity
+# D: docstring warnings (unused pydocstyle extension)
+# F401: Unused imports
+# F841: local variable assigned but never used
+# FIXME: F405,F403 needed because of some old pylab * imports
+ignore = E, C, W, D, F401, F841, F405, F403
