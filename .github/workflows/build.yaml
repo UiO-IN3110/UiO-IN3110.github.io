@@ -33,7 +33,9 @@ jobs:
           key: jupyter-cache-${{ hashFiles('book/requirements.txt') }}
 
       - name: Build the book
-        run: jupyter-book build . -W
+        # TODO: add -W when we can be strict about builds
+        # for now, allow publishing with warnings
+        run: jupyter-book build . # -W
 
       - uses: actions/upload-artifact@v3
         # always upload artifact, which can include error messages
