@@ -20,3 +20,5 @@ sphinx:
       semester: h23
       course_page: https://www.uio.no/studier/emner/matnat/ifi/IN3110/h23
       course_link: "[UiO course website](https://www.uio.no/studier/emner/matnat/ifi/IN3110/h23)"
+    linkcheck_ignore:
+      - https://mattermost.uio.no/.*
