@@ -6,3 +6,11 @@ parts:
       - file: lectures/about/About the course
       - file: lectures/about/Introduction to git
       - file: lectures/about/Scripting vs regular programming
+  - caption: Refresher on Python syntax and tools
+    chapters:
+      - file: lectures/python/python_summary
+      - file: lectures/python/python_summary-classes
+      - file: lectures/python/ipython
+      - file: lectures/python/more_python
+      - file: lectures/python/packages_and_testing
+      - file: lectures/python/exercises
