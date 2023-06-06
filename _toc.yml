@@ -1,8 +1,8 @@
 format: jb-book
 root: index
 parts:
-  - caption: About the course
+  - caption: About the course, intro to git
     chapters:
-      - file: lectures/01-about-course/About the course
-      - file: lectures/01-about-course/Introduction to git
-      - file: lectures/01-about-course/Scripting vs regular programming
+      - file: lectures/about/About the course
+      - file: lectures/about/Introduction to git
+      - file: lectures/about/Scripting vs regular programming

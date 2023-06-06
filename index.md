@@ -8,8 +8,7 @@ This lecture series introduces concepts of higher level programming. The
 lecture introduces essential tools to quickly and efficiently implement
 programming problems.
 
-The assignments are available on the [University course
-website](https://www.uio.no/studier/emner/matnat/ifi/IN3110/h23).
+The assignments are available on the {{ course_link }}.
 Video recordings of past lectures are available on this [YouTube
 channel ![play
 video](play.png "Play video")](https://youtube.com/channel/UCpOB3OcVNTqnIiXcageiv_A).
@@ -23,8 +22,7 @@ name [IN3110/IN4110](http://www.uio.no/studier/emner/matnat/ifi/IN3110/).
 
 Useful links for current students
 
-- [UiO Course
-  page](https://www.uio.no/studier/emner/matnat/ifi/IN3110/h23/) for
+- {{ course_link }} for
   assignments, timeplan, etc.
 - [Fall 2021 video playlist on
   YouTube](https://www.youtube.com/playlist?list=PL9youHjz4_yyQ6uCWQ5Jibkam6az9CMzp)
