@@ -6,5 +6,8 @@
 # D: docstring warnings (unused pydocstyle extension)
 # F401: Unused imports
 # F841: local variable assigned but never used
+# F811: redefinition of unused
 # FIXME: F405,F403 needed because of some old pylab * imports
-ignore = E, C, W, D, F401, F841, F405, F403
+ignore = E, C, W, D, F401, F841, F811
+# add some magics to builtins for nbqa-flake8
+builtins = _, ls, cd

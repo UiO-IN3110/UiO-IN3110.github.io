@@ -73,4 +73,4 @@ repos:
           - --py37-plus
       - id: nbqa-isort
       - id: nbqa-black
-      # - id: nbqa-flake8
+      - id: nbqa-flake8
