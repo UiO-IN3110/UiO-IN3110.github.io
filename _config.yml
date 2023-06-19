@@ -22,3 +22,4 @@ sphinx:
       course_link: "[UiO course website](https://www.uio.no/studier/emner/matnat/ifi/IN3110/h23)"
     linkcheck_ignore:
       - https://mattermost.uio.no/.*
+    suppress_warnings: ["mystnb.unknown_mime_type"]
