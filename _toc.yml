@@ -14,3 +14,8 @@ parts:
       - file: lectures/python/more_python
       - file: lectures/python/packages_and_testing
       - file: lectures/python/exercises
+  - caption: Numerical Python
+    chapters:
+      - file: lectures/numerical-python/numerical_python
+      - file: lectures/numerical-python/python_profiling
+      - file: lectures/numerical-python/exercises
