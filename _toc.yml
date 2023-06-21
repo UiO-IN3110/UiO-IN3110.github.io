@@ -14,3 +14,14 @@ parts:
       - file: lectures/python/more_python
       - file: lectures/python/packages_and_testing
       - file: lectures/python/exercises
+  - caption: Numerical Python
+    chapters:
+      - file: lectures/numerical-python/numerical_python
+      - file: lectures/numerical-python/python_profiling
+      - file: lectures/numerical-python/exercises
+  - caption: Mixed programming (Python + C)
+    chapters:
+      - file: lectures/mixed-programming/mixed_programming_introduction
+      - file: lectures/mixed-programming/mixed_programming_cython
+      - file: lectures/mixed-programming/Numba
+      - file: lectures/mixed-programming/Profiling and Optimizing with IPython
