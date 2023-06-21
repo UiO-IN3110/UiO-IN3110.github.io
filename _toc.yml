@@ -19,3 +19,9 @@ parts:
       - file: lectures/numerical-python/numerical_python
       - file: lectures/numerical-python/python_profiling
       - file: lectures/numerical-python/exercises
+  - caption: Mixed programming (Python + C)
+    chapters:
+      - file: lectures/mixed-programming/mixed_programming_introduction
+      - file: lectures/mixed-programming/mixed_programming_cython
+      - file: lectures/mixed-programming/Numba
+      - file: lectures/mixed-programming/Profiling and Optimizing with IPython
