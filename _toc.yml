@@ -25,3 +25,6 @@ parts:
       - file: lectures/mixed-programming/mixed_programming_cython
       - file: lectures/mixed-programming/Numba
       - file: lectures/mixed-programming/Profiling and Optimizing with IPython
+  - caption: Regular expressions
+    chapters:
+      - file: lectures/regular-expressions/regular-expressions
