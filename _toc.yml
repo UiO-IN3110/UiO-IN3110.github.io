@@ -32,3 +32,8 @@ parts:
     chapters:
       - file: lectures/web/Introduction to HTML
       - file: lectures/web/Web scraping
+  - caption: Data analysis with pandas
+    chapters:
+      - file: lectures/pandas/Pandas
+      - file: lectures/pandas/Pandas_exercises
+      - file: lectures/pandas/API-exercises
