@@ -28,3 +28,7 @@ parts:
   - caption: Regular expressions
     chapters:
       - file: lectures/regular-expressions/regular-expressions
+  - caption: Web programming
+    chapters:
+      - file: lectures/web/Introduction to HTML
+      - file: lectures/web/Web scraping
