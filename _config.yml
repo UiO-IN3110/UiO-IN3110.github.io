@@ -13,7 +13,19 @@ execute:
   execute_notebooks: "off"
 only_build_toc_files: true
 
+parse:
+  myst_enable_extensions:
+    - amsmath
+    - colon_fence
+    - dollarmath
+    - html_image
+    - linkify
+    - substitution
+    - tasklist
+
 sphinx:
+  extra_extensions:
+    - copy_files
   config:
     myst_substitutions:
       course: IN3110/IN4110
@@ -23,3 +35,7 @@ sphinx:
     linkcheck_ignore:
       - https://mattermost.uio.no/.*
     suppress_warnings: ["mystnb.unknown_mime_type"]
+    copy_files:
+      - "lectures/**/figs"
+  local_extensions:
+    copy_files: sphinxext
