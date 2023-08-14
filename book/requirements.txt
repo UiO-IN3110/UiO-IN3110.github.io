@@ -482,7 +482,7 @@ tinycss2==1.2.1
     # via nbconvert
 toolz==0.12.0
     # via altair
-tornado==6.3.2
+tornado==6.3.3
     # via
     #   altair-data-server
     #   ipykernel
