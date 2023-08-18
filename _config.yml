@@ -8,6 +8,10 @@ author: |
   Sebastian Mitusch, Simon Funke, Ingeborg Gjerde, Vegard Vinje,
   and Miroslav Kuchta
 
+exclude_patterns:
+  - .nox
+  - .pytest_cache
+
 # disable execution to start
 execute:
   execute_notebooks: "off"
@@ -24,8 +28,6 @@ parse:
     - tasklist
 
 sphinx:
-  extra_extensions:
-    - copy_files
   config:
     myst_substitutions:
       course: IN3110/IN4110
@@ -37,5 +39,3 @@ sphinx:
     suppress_warnings: ["mystnb.unknown_mime_type"]
     copy_files:
       - "lectures/**/figs"
-  local_extensions:
-    copy_files: sphinxext
