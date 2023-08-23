@@ -27,8 +27,9 @@ Useful links for current students
 - [Fall 2021 video playlist on
   YouTube](https://www.youtube.com/playlist?list=PL9youHjz4_yyQ6uCWQ5Jibkam6az9CMzp)
   (past lectures)
+- [Assignments](https://pages.github.uio.no/IN3110/assignments/assignments/)
 - [Mattermost](https://mattermost.uio.no/ifi-undervisning/channels/in3110%0A)
-  for course discussion
+  for student discussion
 - [Course on UiO GitHub](https://github.uio.no/IN3110) where
   assignments will be done
 - [Form for requesting
