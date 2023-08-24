@@ -10,6 +10,7 @@ parts:
     chapters:
       - file: lectures/python/python_summary
       - file: lectures/python/python_summary-classes
+      - file: lectures/python/python_summary-typing
       - file: lectures/python/ipython
       - file: lectures/python/more_python
       - file: lectures/python/packages_and_testing
