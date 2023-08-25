@@ -39,3 +39,7 @@ sphinx:
     suppress_warnings: ["mystnb.unknown_mime_type"]
     copy_files:
       - "lectures/**/figs"
+  extra_extensions:
+    - copy_files
+  local_extensions:
+    copy_files: sphinxext
