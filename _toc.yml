@@ -42,3 +42,8 @@ parts:
     chapters:
       - file: lectures/visualisation/altair-demo
       - file: lectures/visualisation/corona-data
+  - caption: HTTP and web servers
+    chapters:
+      - file: lectures/web-servers/Introduction to webservers
+      - file: lectures/web-servers/Introduction to HTML - Forms
+      - file: lectures/web-servers/monty-hall-game
