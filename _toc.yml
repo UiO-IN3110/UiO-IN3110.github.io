@@ -51,3 +51,8 @@ parts:
     chapters:
       - file: lectures/command-line/cmdline_bash
       - file: lectures/command-line/Bash - interactive lecture
+  - caption: From script to production
+    chapters:
+      - file: lectures/production/environments
+      - file: lectures/production/sphinx-docs
+      - file: lectures/production/from-script-to-project/From Script to Project
