@@ -38,3 +38,7 @@ parts:
       - file: lectures/pandas/Pandas
       - file: lectures/pandas/Pandas_exercises
       - file: lectures/pandas/API-exercises
+  - caption: Visualisation
+    chapters:
+      - file: lectures/visualisation/altair-demo
+      - file: lectures/visualisation/corona-data
