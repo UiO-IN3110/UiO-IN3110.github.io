@@ -47,3 +47,7 @@ parts:
       - file: lectures/web-servers/Introduction to webservers
       - file: lectures/web-servers/Introduction to HTML - Forms
       - file: lectures/web-servers/monty-hall-game
+  - caption: Command-line tools
+    chapters:
+      - file: lectures/command-line/cmdline_bash
+      - file: lectures/command-line/Bash - interactive lecture
