@@ -16,3 +16,5 @@ _site
 vendor
 *.c
 *.o
+
+lectures/command-line/results
