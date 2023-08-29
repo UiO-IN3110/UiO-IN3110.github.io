@@ -28,7 +28,7 @@ Useful links for current students
   YouTube](https://www.youtube.com/playlist?list=PL9youHjz4_yyQ6uCWQ5Jibkam6az9CMzp)
   (past lectures)
 - [Assignments](https://pages.github.uio.no/IN3110/assignments/assignments/)
-- [Mattermost](https://mattermost.uio.no/ifi-undervisning/channels/in3110%0A)
+- [Mattermost](https://mattermost.uio.no/ifi-undervisning/channels/in3110)
   for student discussion
 - [Course on UiO GitHub](https://github.uio.no/IN3110) where
   assignments will be done
