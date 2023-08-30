@@ -23,7 +23,7 @@ name [IN3110/IN4110](http://www.uio.no/studier/emner/matnat/ifi/IN3110/).
 Useful links for current students
 
 - {{ course_link }} for
-  assignments, timeplan, etc.
+  announcements, timeplan, lecture recordings, etc.
 - [Fall 2021 video playlist on
   YouTube](https://www.youtube.com/playlist?list=PL9youHjz4_yyQ6uCWQ5Jibkam6az9CMzp)
   (past lectures)
