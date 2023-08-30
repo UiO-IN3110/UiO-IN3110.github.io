@@ -206,7 +206,7 @@ jupyter-events==0.6.3
     # via jupyter-server
 jupyter-lsp==2.1.0
     # via jupyterlab
-jupyter-server==2.5.0
+jupyter-server==2.7.2
     # via
     #   jupyter-lsp
     #   jupyterlab
@@ -278,6 +278,8 @@ numpy==1.24.3
     #   pandas
 orjson==3.8.13
     # via fastapi
+overrides==7.4.0
+    # via jupyter-server
 packaging==23.1
     # via
     #   ipykernel
@@ -355,6 +357,7 @@ pytest==7.3.1
     # via -r ../requirements.txt
 python-dateutil==2.8.2
     # via
+    #   arrow
     #   jupyter-client
     #   matplotlib
     #   pandas
