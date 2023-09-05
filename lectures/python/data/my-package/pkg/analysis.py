@@ -23,7 +23,7 @@ def prime_factors(n: int) -> Vector:
         return [n]
 
     for m in range(2, n):
-        if is_prime(m) and n % m == 0:
+        if n % m == 0 and is_prime(m):
             return [m] + prime_factors(n // m)
 
 
