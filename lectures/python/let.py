@@ -8,12 +8,13 @@ def let(**bindings):
     # 2 because first frame in `contextmanager` is the decorator      
     frame = getouterframes(currentframe(), 2)[-1][0] 
     locals_ = frame.f_locals
+    old_vars = set(locals_)
     original = {var: locals_.get(var) for var in bindings}
     locals_.update(bindings)
     yield
     locals_.update(original)
     # Cleanup
-    for var in set(bindings).difference(locals_):
+    for var in set(bindings).difference(old_vars):
         del locals_[var]
         
 # --------------------------------------------------------------------
@@ -25,6 +26,9 @@ if __name__ == '__main__':
         ans = np.zeros((x, y))
 
     print(ans)
-    print(b)
-    print(np, x, y)
+    print('b is as before let', b)
+    try:
+        print(np, x, y)
+    except NameError:
+        print('np x y not visible in this scope')
     
