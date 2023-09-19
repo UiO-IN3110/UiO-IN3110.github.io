@@ -81,7 +81,7 @@ contourpy==1.0.7
     # via matplotlib
 cycler==0.11.0
     # via matplotlib
-cython==0.29.35
+cython==3.0.2
     # via -r ../requirements.txt
 debugpy==1.6.7
     # via ipykernel
@@ -224,8 +224,12 @@ kiwisolver==1.4.4
     # via matplotlib
 latexcodec==2.0.1
     # via pybtex
+line-profiler==4.1.1
+    # via -r ../requirements.txt
 linkify-it-py==2.0.2
     # via jupyter-book
+llvmlite==0.40.1
+    # via numba
 markdown-it-py==2.2.0
     # via
     #   mdit-py-plugins
@@ -269,13 +273,17 @@ nest-asyncio==1.5.6
     # via ipykernel
 notebook-shim==0.2.3
     # via jupyterlab
+numba==0.57.1
+    # via -r ../requirements.txt
 numpy==1.24.3
     # via
     #   -r ../requirements.txt
     #   altair
     #   contourpy
     #   matplotlib
+    #   numba
     #   pandas
+    #   scipy
 orjson==3.8.13
     # via fastapi
 overrides==7.4.0
@@ -357,7 +365,6 @@ pytest==7.3.1
     # via -r ../requirements.txt
 python-dateutil==2.8.2
     # via
-    #   arrow
     #   jupyter-client
     #   matplotlib
     #   pandas
@@ -401,6 +408,8 @@ rfc3986-validator==0.1.1
     # via
     #   jsonschema
     #   jupyter-events
+scipy==1.11.2
+    # via -r ../requirements.txt
 send2trash==1.8.2
     # via jupyter-server
 six==1.16.0
@@ -412,6 +421,8 @@ six==1.16.0
     #   python-dateutil
     #   rfc3339-validator
     #   url-normalize
+snakeviz==2.2.0
+    # via -r ../requirements.txt
 sniffio==1.3.0
     # via
     #   anyio
@@ -492,6 +503,7 @@ tornado==6.3.3
     #   jupyter-client
     #   jupyter-server
     #   jupyterlab
+    #   snakeviz
     #   terminado
 traitlets==5.9.0
     # via
