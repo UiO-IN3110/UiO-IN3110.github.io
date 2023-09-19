@@ -9,6 +9,7 @@ gunicorn
 ipykernel
 jupyterlab>=3
 matplotlib
+numba
 numpy
 pandas
 pytest
