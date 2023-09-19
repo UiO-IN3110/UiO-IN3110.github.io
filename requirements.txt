@@ -2,7 +2,7 @@ altair
 altair-viewer
 bash_kernel
 beautifulsoup4
-cython
+cython>=3
 fastapi[all]
 flask
 gunicorn
