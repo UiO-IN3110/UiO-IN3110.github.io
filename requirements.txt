@@ -8,6 +8,7 @@ flask
 gunicorn
 ipykernel
 jupyterlab>=3
+line_profiler
 matplotlib
 numba
 numpy
@@ -15,5 +16,7 @@ pandas
 pytest
 requests
 requests-cache
+scipy
+snakeviz
 uvicorn
 vega_datasets
