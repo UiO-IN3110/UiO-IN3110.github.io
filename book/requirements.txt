@@ -365,6 +365,7 @@ pytest==7.3.1
     # via -r ../requirements.txt
 python-dateutil==2.8.2
     # via
+    #   arrow
     #   jupyter-client
     #   matplotlib
     #   pandas
@@ -537,7 +538,7 @@ uri-template==1.2.0
     # via jsonschema
 url-normalize==1.4.3
     # via requests-cache
-urllib3==2.0.2
+urllib3==2.0.6
     # via
     #   requests
     #   requests-cache
