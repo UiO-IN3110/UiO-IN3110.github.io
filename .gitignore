@@ -18,3 +18,4 @@ vendor
 *.o
 
 lectures/command-line/results
+lectures/mixed-programming/*.html
