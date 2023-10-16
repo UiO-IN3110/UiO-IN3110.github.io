@@ -31,6 +31,7 @@ parts:
       - file: lectures/regular-expressions/regular-expressions
   - caption: Web programming
     chapters:
+      - file: lectures/web/web
       - file: lectures/web/Introduction to HTML
       - file: lectures/web/Web scraping
   - caption: Data analysis with pandas
