@@ -314,7 +314,7 @@ pexpect==4.8.0
     #   ipython
 pickleshare==0.7.5
     # via ipython
-pillow==9.5.0
+pillow==10.0.1
     # via matplotlib
 platformdirs==3.5.1
     # via
