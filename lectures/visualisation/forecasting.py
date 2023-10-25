@@ -2,7 +2,8 @@ import pandas as pd
 import requests
 
 
-def tidy_format(record):
+def tidy_format(record: dict) -> dict[str, str | float]:
+    """Turn a nested yr forecast record into a flat one-level dict"""
     tidy_dict = {"time": record["time"]}
     for section, sub_dict in record["data"].items():
         for _, fields in sub_dict.items():
@@ -15,7 +16,7 @@ def tidy_format(record):
     return tidy_dict
 
 
-def locate_city(city, country="Norway"):
+def locate_city(city: str, country: str = "Norway") -> tuple[float, float]:
     """return (lat, long) for a city"""
     r = requests.get(
         "https://geocode.maps.co/search",
@@ -29,7 +30,14 @@ def locate_city(city, country="Norway"):
     return (float(location["lat"]), float(location["lon"]))
 
 
-def city_forecast(city, country="Norway"):
+def city_forecast(city: str, country: str = "Norway") -> pd.DataFrame:
+    """Given a city name, return a DataFrame of the weather forecast
+
+    1. resolves gps for city
+    2. fetches forecast
+    3. tidies data
+    4. wraps in DataFrame
+    """
     lat, lon = locate_city(city, country)
     url = "https://api.met.no/weatherapi/locationforecast/2.0/compact"
     r = requests.get(

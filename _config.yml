@@ -11,6 +11,7 @@ author: |
 exclude_patterns:
   - .nox
   - .pytest_cache
+  - .virtual_documents
 
 # disable execution to start
 execute:

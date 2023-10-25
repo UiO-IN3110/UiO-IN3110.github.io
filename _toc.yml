@@ -38,10 +38,13 @@ parts:
     chapters:
       - file: lectures/pandas/Pandas
       - file: lectures/pandas/Pandas_exercises
+      - file: lectures/pandas/PublicAPIs
       - file: lectures/pandas/API-exercises
   - caption: Visualisation
     chapters:
-      - file: lectures/visualisation/altair-demo
+      - file: lectures/visualisation/visualisation
+      - file: lectures/visualisation/matplotlib
+      - file: lectures/visualisation/altair
       - file: lectures/visualisation/corona-data
   - caption: HTTP and web servers
     chapters:
