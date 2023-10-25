@@ -58,5 +58,5 @@ tzdata==2023.3
     # via pandas
 vega-datasets==0.9.0
     # via -r requirements.in
-werkzeug==2.3.7
+werkzeug==3.0.1
     # via flask
