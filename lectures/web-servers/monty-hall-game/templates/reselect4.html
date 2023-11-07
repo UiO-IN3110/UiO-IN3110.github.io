@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <title>Change your mind?</title>
 
 <form action="/final?game_id={{ game_id }}" method="POST">
@@ -9,30 +9,8 @@
 
   <h2>So... do you want to change your mind?</h2>
   <br />
-  {% for i in [1, 2, 3] %}
-  <input
-    type="radio"
-    name="door"
-    value="{{ i }}"
-    {%
-    if
-    selected=""
-    ="i"
-    %}
-    checked
-    {%
-    endif
-    %}
-    {%
-    if
-    opened=""
-    ="i"
-    %}
-    disabled
-    {%
-    endif
-    %}
-  />
+  {% for i in [1, 2, 3] %} <input type="radio" name="door" value="{{ i }}" {% if
+  selected==i %} checked {% endif %} {% if opened==i %} disabled {% endif %} >
   Door {{ i }} {% if opened==i %} (opened) {% endif %}
   <br />
   {% endfor %}
