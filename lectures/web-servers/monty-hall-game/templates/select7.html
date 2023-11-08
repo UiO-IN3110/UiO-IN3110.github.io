@@ -2,9 +2,10 @@
 
 <form action="/reselect?game_id={{ game_id }}" method="POST">
   <h1>The magic door game has started</h1>
+  <p>
   Choose one of the 3 doors:
+  </p>
 
-  <br />
   <label>
     <input type="radio" name="door" value="1" checked />
     <img src="/static/door1.png" />
@@ -18,7 +19,7 @@
     <img src="/static/door3.png" />
   </label>
   <br />
-  <input class="btn" type="submit" value="Submit" />
+  <button class="btn btn-primary" type="submit">Submit</button>
 </form>
 
 {% endblock %}
