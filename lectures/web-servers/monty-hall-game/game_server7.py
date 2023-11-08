@@ -3,10 +3,10 @@ A Basic Monty Hall Game.
 ========================
 
 Run with
-python game_server6.py
+python game_server7.py
 
 
-Improvements to game_server5.py:
+Improvements to game_server6.py:
 
 Implement a /statistics page that computes the win/loss chances of all played
 games. For that, I needed to extend the game_state to store all game
@@ -16,6 +16,7 @@ information
 
 import random
 import uuid
+from statistics import mean
 
 from fastapi import FastAPI, Form, Request
 from fastapi.responses import HTMLResponse
@@ -102,23 +103,12 @@ def statistics(request: Request):
     changed_and_won = [e["won"] for e in games if e["changed_choice"]]
     notchanged_and_won = [e["won"] for e in games if not e["changed_choice"]]
 
-    changed_success_rate = (
-        100 * sum(changed_and_won) / len(changed_and_won)
-        if len(changed_and_won) > 0
-        else 0
-    )
-    notchanged_success_rate = (
-        100 * sum(notchanged_and_won) / len(notchanged_and_won)
-        if len(notchanged_and_won) > 0
-        else 0
-    )
+    changed_success_rate = notchanged_success_rate = 0.0
+    if changed_and_won:
+        changed_success_rate = mean(changed_and_won)
+    if notchanged_and_won:
+        notchanged_success_rate = mean(notchanged_and_won)
 
-    s1 = "Changed and won: {} out of {} ({}% success)".format(
-        sum(changed_and_won), len(changed_and_won), changed_success_rate
-    )
-    s2 = "Not changed and won: {} out of {} ({}% success)".format(
-        sum(notchanged_and_won), len(notchanged_and_won), notchanged_success_rate
-    )
     return templates.TemplateResponse(
         "statistics7.html",
         {
@@ -129,8 +119,6 @@ def statistics(request: Request):
             "changed_success_rate": changed_success_rate,
         },
     )
-
-    return f"<h1>Statistics</h1>{s1}</br>{s2}"
 
 
 if __name__ == "__main__":

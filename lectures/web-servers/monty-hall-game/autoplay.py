@@ -40,11 +40,11 @@ def autoplay(samples):
     stats = r.json()
 
     stay = stats["not changed"]
-    stay_rate = sum(stay) / len(stay)
+    stay_rate = sum(stay) / (len(stay) or 1)
     print(f"stay wins: {sum(stay)} / {len(stay)}: {stay_rate:.0%}")
 
     switch = stats["changed"]
-    switch_rate = sum(switch) / len(switch)
+    switch_rate = sum(switch) / (len(switch) or 1)
     print(f"switch wins: {sum(switch)} / {len(switch)}: {switch_rate:.0%}")
 
 

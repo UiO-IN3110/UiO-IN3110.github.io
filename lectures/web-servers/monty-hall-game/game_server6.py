@@ -16,6 +16,7 @@ information
 
 import random
 import uuid
+from statistics import mean
 
 from fastapi import FastAPI, Form, Request
 from fastapi.responses import HTMLResponse
@@ -97,23 +98,14 @@ def statistics():
     changed_and_won = [e["won"] for e in games if e["changed_choice"]]
     notchanged_and_won = [e["won"] for e in games if not e["changed_choice"]]
 
-    changed_sucess_rate = (
-        100 * sum(changed_and_won) / len(changed_and_won)
-        if len(changed_and_won) > 0
-        else 0
-    )
-    notchanged_success_rate = (
-        100 * sum(notchanged_and_won) / len(notchanged_and_won)
-        if len(notchanged_and_won) > 0
-        else 0
-    )
+    changed_success_rate = notchanged_success_rate = 0.0
+    if changed_and_won:
+        changed_success_rate = mean(changed_and_won)
+    if notchanged_and_won:
+        notchanged_success_rate = mean(notchanged_and_won)
 
-    s1 = "Changed and won: {} out of {} ({}% success)".format(
-        sum(changed_and_won), len(changed_and_won), changed_sucess_rate
-    )
-    s2 = "Not changed and won: {} out of {} ({}% success)".format(
-        sum(notchanged_and_won), len(notchanged_and_won), notchanged_success_rate
-    )
+    s1 = f"Changed and won: {sum(changed_and_won)} out of {len(changed_and_won)} ({changed_success_rate:.0%} success)"
+    s2 = f"Not changed and won: {sum(notchanged_and_won)} out of {len(notchanged_and_won)} ({notchanged_success_rate:.0%} success)"
     return f"<h1>Statistics</h1>{s1}</br>{s2}"
 
 

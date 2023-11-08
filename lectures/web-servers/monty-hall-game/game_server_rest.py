@@ -17,7 +17,6 @@ information
 import random
 import uuid
 from functools import partial
-from typing import Optional
 
 from fastapi import FastAPI
 from pydantic import BaseModel, Field
@@ -31,10 +30,10 @@ class MontyHallGame(BaseModel):
     """Represents a Monty Hall game state"""
 
     winning: int = Field(default_factory=partial(random.randint, 1, 3))
-    first_choice: Optional[int]
-    opened: Optional[int]
-    second_choice: Optional[int]
-    has_won: Optional[bool]
+    first_choice: int | None = None
+    opened: int | None = None
+    second_choice: int | None = None
+    has_won: bool | None = None
 
     def choose(self, choice: int):
         """The first step: Make a choice"""

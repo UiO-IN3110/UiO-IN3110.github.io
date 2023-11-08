@@ -1,23 +1,21 @@
 """
-A Basic Monty Hall Game.
-========================
+A Basic Monty Hall Game
+=======================
 
 Run with
-python game_server6.py
+
+    python3 game_server_rest.py
 
 
-Improvements to game_server5.py:
-
-Implement a /statistics page that computes the win/loss chances of all played
-games. For that, I needed to extend the game_state to store all game
-information
+This is an alternate implementation,
+use in combination with autoplay.py to play monty hall via a REST API.
 """
 
 
 import random
 import uuid
+from enum import IntEnum
 from functools import partial
-from typing import Optional
 
 from fastapi import FastAPI
 from pydantic import BaseModel, Field
@@ -27,16 +25,22 @@ app = FastAPI()
 game_states = {}  # Maps game id to winner door
 
 
+class Door(IntEnum):
+    one = 1
+    two = 2
+    three = 3
+
+
 class MontyHallGame(BaseModel):
     """Represents a Monty Hall game state"""
 
-    winning: int = Field(default_factory=partial(random.randint, 1, 3))
-    first_choice: Optional[int]
-    opened: Optional[int]
-    second_choice: Optional[int]
-    has_won: Optional[bool]
+    winning: Door = Field(default_factory=partial(random.randint, 1, 3))
+    first_choice: Door | None = None
+    opened: Door | None = None
+    second_choice: Door | None = None
+    has_won: bool | None = None
 
-    def choose(self, choice: int):
+    def choose(self, choice: Door):
         """The first step: Make a choice"""
         self.first_choice = choice
 
@@ -65,6 +69,14 @@ class MontyHallGame(BaseModel):
         return self.second_choice
 
 
+class EndGame(MontyHallGame):
+    # narrow type for REST model
+    first_choice: Door
+    opened: Door
+    second_choice: Door
+    has_won: bool
+
+
 class NewGame(BaseModel):
     id: str
 
@@ -78,13 +90,17 @@ def new_game():
 
 
 class Choice(BaseModel):
-    door: int
+    """Represents the request model for choosing a door"""
+
+    door: Door
 
 
 class MidGame(BaseModel):
+    """The state model for a game after the first choice and reveal"""
+
     id: str
-    first_choice: int
-    opened: int
+    first_choice: Door
+    opened: Door
 
 
 @app.post("/games/{game_id}/choose", response_model=MidGame)
@@ -101,10 +117,12 @@ def choose(game_id: str, choice: Choice):
 
 
 class SecondChoice(BaseModel):
+    """Request model for second choice"""
+
     switch: bool
 
 
-@app.post("/games/{game_id}/choose-again", response_model=MontyHallGame)
+@app.post("/games/{game_id}/choose-again", response_model=EndGame)
 def choose_again(game_id: str, choice: SecondChoice):
     game = game_states[game_id]
     game.choose_again(switch=choice.switch)
