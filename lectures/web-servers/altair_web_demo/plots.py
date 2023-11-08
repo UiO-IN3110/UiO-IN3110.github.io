@@ -69,7 +69,7 @@ def get_fylker():
     return fylke_data().fylke_name.unique()
 
 
-ymax = 200
+ymax = 1600
 
 
 def plot_daily_cases_altair(fylker=None):
