@@ -564,7 +564,7 @@ websocket-client==1.5.2
     # via jupyter-server
 websockets==11.0.3
     # via uvicorn
-werkzeug==2.3.4
+werkzeug==3.0.1
     # via flask
 wheel==0.40.0
     # via sphinx-togglebutton
