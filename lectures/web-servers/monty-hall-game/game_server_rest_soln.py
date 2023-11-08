@@ -17,7 +17,7 @@ import uuid
 from enum import IntEnum
 from functools import partial
 
-from fastapi import FastAPI
+from fastapi import FastAPI, HTTPException, status
 from pydantic import BaseModel, Field
 
 app = FastAPI()
@@ -35,10 +35,10 @@ class MontyHallGame(BaseModel):
     """Represents a Monty Hall game state"""
 
     winning: Door = Field(default_factory=partial(random.randint, 1, 3))
-    first_choice: Door | None = None
-    opened: Door | None = None
-    second_choice: Door | None = None
-    has_won: bool | None = None
+    first_choice: Door = None
+    opened: Door = None
+    second_choice: Door = None
+    has_won: bool = None
 
     def choose(self, choice: Door):
         """The first step: Make a choice"""
@@ -69,14 +69,6 @@ class MontyHallGame(BaseModel):
         return self.second_choice
 
 
-class EndGame(MontyHallGame):
-    # narrow type for REST model
-    first_choice: Door
-    opened: Door
-    second_choice: Door
-    has_won: bool
-
-
 class NewGame(BaseModel):
     id: str
 
@@ -105,6 +97,8 @@ class MidGame(BaseModel):
 
 @app.post("/games/{game_id}/choose", response_model=MidGame)
 def choose(game_id: str, choice: Choice):
+    if game_id not in game_states:
+        raise HTTPException(status.HTTP_404_NOT_FOUND)
     game = game_states[game_id]
     game.choose(choice.door)
     game.reveal()
@@ -122,7 +116,7 @@ class SecondChoice(BaseModel):
     switch: bool
 
 
-@app.post("/games/{game_id}/choose-again", response_model=EndGame)
+@app.post("/games/{game_id}/choose-again", response_model=MontyHallGame)
 def choose_again(game_id: str, choice: SecondChoice):
     game = game_states[game_id]
     game.choose_again(switch=choice.switch)
