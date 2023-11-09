@@ -37,8 +37,10 @@
 
     <form action="javascript:refreshPlot()" id="fylke-form">
       {% for fylke in fylker %}
-      <input type="checkbox" name="{{ fylke }}" value="{{ fylke }}" />
-      <label for="{{ fylke }}">{{ fylke }}</label>
+      <label>
+        <input type="checkbox" name="fylker" value="{{ fylke }}" />
+        {{ fylke }}
+      </label>
       <br />
       {% endfor %}
       <button type="submit">Refresh</button>
@@ -58,8 +60,7 @@
 
         // get selected location checkboxes
         for (checkbox of document
-          .getElementById("fylke-form")
-          .querySelectorAll("input[type=checkbox]")) {
+          .querySelectorAll("input[name=fylker]")) {
           if (checkbox.checked) {
             plotUrl.searchParams.append("fylker", checkbox.value);
             mplUrl.searchParams.append("fylker", checkbox.value);
