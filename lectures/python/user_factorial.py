@@ -18,11 +18,14 @@ def factorial(n: int) -> int:
     return n * factorial(n - 1)
 
 
-
 if __name__ == "__main__":
-    import math, sys
+    import math
+    import sys
+
     N = int(sys.argv[1])
     print(f"Testing user defined factorial function for {N=}")
     user_n = factorial(N)
     ref_factorial = math.factorial(N)
-    assert user_n == math.factorial(N), f"Factorial function returning wrong answer {user_n}!={ref_factorial}"
+    assert user_n == math.factorial(
+        N
+    ), f"Factorial function returning wrong answer {user_n}!={ref_factorial}"
