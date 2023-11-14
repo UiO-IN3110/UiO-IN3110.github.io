@@ -1,0 +1,16 @@
+[build-system]
+requires = ["setuptools>=64.4.0", "wheel", "pip>=22.3"]
+
+
+[project]
+name = "myarray"
+authors = [{ "name" = "Jørgen S. Dokken", "email" = "dokken@simula.no" }]
+readme = "README.md"
+license = { "file" = "LICENSE" }
+version = "1.0.0"
+requires-python = ">=3.8"
+dependencies = []
+
+[project.optional-dependencies]
+test = ["pytest"]
+dev = ["pdbpp", "ipython"]
