@@ -4,18 +4,18 @@ Defines an Array class.
 Class template for Arrays, IN 3110 assignment 3
 """
 
+__all__ = ["Array", "asarray"]
+
 
 class Array:
     """A class defining an API for arrays"""
 
     def __init__(self, shape, *values):
-        """
-
-        Make sure that you check that your array actually is an array, which means it is homogeneous (one data type).
+        """Make sure that you check that your array actually is an array, which means it is homogeneous (one data type).
 
         Args:
             shape (tuple): shape of the array as a tuple. A 1D array with n elements will have shape = (n,).
-            *values: The values in the array. These should all be the same data type. Either numeric or boolean.
+            values: The values in the array. These should all be the same data type. Either numeric or boolean.
 
         Raises:
             ValueError: If the values are not all of the same type.
