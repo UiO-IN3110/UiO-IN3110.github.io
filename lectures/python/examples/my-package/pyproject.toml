@@ -1,0 +1,22 @@
+[build-system]
+requires = ["setuptools>=64.4.0", "wheel", "pip>=22.3"]
+
+
+[project]
+name="pkg"
+authors=[{"name"="Jørgen S. Dokken", "email"="dokken@simula.no"},
+         {"name"="Miroslav Kuchta", "email"="miroslav.kuchta@gmail.com"}
+]
+readme="README.md"
+license={"file"="LICENSE"}
+version="0.1.0"
+requires-python=">=3.8"
+dependencies=["numpy>=1.20.0"]
+
+[project.optional-dependencies]
+test = [
+    "pytest",
+]
+dev = [
+    "pdbpp", "ipython"
+]

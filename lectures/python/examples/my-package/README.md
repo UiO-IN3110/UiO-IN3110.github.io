@@ -2,6 +2,6 @@
 
 Simple package. For testing use
 
-```
-pytest .
+```bash
+python3 -m pytest .
 ```
