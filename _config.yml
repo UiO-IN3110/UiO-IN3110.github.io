@@ -6,7 +6,7 @@ author: |
   Joakim Sundnes, Ola Skavhaug, Jonathan Feinberg, Karl-Erik Holter,
   Vidar Tonaas Fauske, Benjamin Ragan-Kelley, Lisa Pankewitz,
   Sebastian Mitusch, Simon Funke, Ingeborg Gjerde, Vegard Vinje,
-  and Miroslav Kuchta
+  Miroslav Kuchta and Jørgen S. Dokken
 
 exclude_patterns:
   - .nox

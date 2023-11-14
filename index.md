@@ -16,7 +16,7 @@ video](play.png "Play video")](https://youtube.com/channel/UCpOB3OcVNTqnIiXcagei
 The lecture was initially created by Hans Petter Langtangen and extended
 by Joakim Sundnes, Ola Skavhaug, Jonathan Feinberg, Karl-Erik Holter,
 Vidar Tonaas Fauske, Benjamin Ragan-Kelley, Lisa Pankewitz, Sebastian
-Mitusch, Simon Funke, Ingeborg Gjerde, Vegard Vinje and Miroslav Kuchta.
+Mitusch, Simon Funke, Ingeborg Gjerde, Vegard Vinje, Miroslav Kuchta and Jørgen S. Dokken.
 It is being taught on a yearly basis at University of Oslo under the
 name [IN3110/IN4110](http://www.uio.no/studier/emner/matnat/ifi/IN3110/).
 
