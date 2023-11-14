@@ -6,6 +6,7 @@ Class template for Arrays, IN 3110 assignment 3
 
 __all__ = ["Array", "asarray"]
 
+
 class Array:
     """A class defining an API for arrays"""
 
