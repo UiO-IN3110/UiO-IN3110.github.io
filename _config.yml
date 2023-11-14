@@ -12,6 +12,8 @@ exclude_patterns:
   - .nox
   - .pytest_cache
   - .virtual_documents
+  - .conda
+  - .ipynb_checkpoints
 
 # disable execution to start
 execute:
