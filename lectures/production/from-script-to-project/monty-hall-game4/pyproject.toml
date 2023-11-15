@@ -5,18 +5,19 @@ requires = [
 build-backend = "setuptools.build_meta"
 
 [project]
-version = "2022.11.17"
-requires-python = ">=3.7"
+version = "0.1.0"
+requires-python = ">=3.8"
 license = {text = "MIT License"}
 
-name = "uio-monty-hall-game"
+name = "monty_hall_game"
 description = "..."
 readme = "README.md"
-dynamic = ["dependencies"]
+dynamic = ["dependencies", "optional-dependencies"]
 
 
 [tool.setuptools.dynamic]
-dependencies = {file = ["requirements.txt"]}
+dependencies = {file = ["requirements.txt",]}
+optional-dependencies.dev = { file = ["dev-requirements.txt"] }
 
 [project.scripts]
 monty-hall-cli = "monty_hall_game.cli:main"
