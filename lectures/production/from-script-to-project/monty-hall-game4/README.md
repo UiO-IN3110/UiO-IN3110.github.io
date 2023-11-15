@@ -7,14 +7,36 @@ a command line and web interface.
 
 Install the game with
 
-    pip install .
+```bash
+python3 -m pip install .
+```
 
 ## Running the game
 
 The command line interface is started with:
 
-    monty-hall-cli
+```bash
+monty-hall-cli
+```
+
+or with
+
+```bash
+python3 -m monty_hall_game
+```
 
 The web server is started with:
 
-    monty-hall-web
+```bash
+monty-hall-web
+```
+
+## Documentation
+
+The documentation is available online, or can be built locally with
+
+```bash
+cd docs
+make html
+firefox _build/html/index.html
+```
