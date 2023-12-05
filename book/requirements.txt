@@ -181,8 +181,6 @@ jinja2==3.1.2
 json5==0.9.14
     # via jupyterlab-server
 jsonpointer==2.3
-    # via jsonschema
-jsonschema[format-nongpl]==4.20.0
     # via
     #   altair
     #   jupyter-book
@@ -190,6 +188,8 @@ jsonschema[format-nongpl]==4.20.0
     #   jupyterlab-server
     #   nbformat
 jsonschema-specifications==2023.11.2
+    # via jsonschema
+jsonschema[format-nongpl]==4.20.0
     # via jsonschema
 jupyter-book==0.15.1
     # via -r requirements.in
