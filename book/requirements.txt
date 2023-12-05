@@ -38,6 +38,7 @@ attrs==23.1.0
     #   cattrs
     #   jsonschema
     #   jupyter-cache
+    #   referencing
     #   requests-cache
 babel==2.12.1
     # via
@@ -102,6 +103,10 @@ docutils==0.18.1
     #   sphinxcontrib-bibtex
 email-validator==2.0.0.post2
     # via fastapi
+exceptiongroup==1.2.0
+    # via
+    #   cattrs
+    #   pytest
 executing==1.2.0
     # via stack-data
 fastapi[all]==0.95.2
@@ -177,13 +182,15 @@ json5==0.9.14
     # via jupyterlab-server
 jsonpointer==2.3
     # via jsonschema
-jsonschema[format-nongpl]==4.17.3
+jsonschema[format-nongpl]==4.20.0
     # via
     #   altair
     #   jupyter-book
     #   jupyter-events
     #   jupyterlab-server
     #   nbformat
+jsonschema-specifications==2023.11.2
+    # via jsonschema
 jupyter-book==0.15.1
     # via -r requirements.in
 jupyter-cache==0.6.1
@@ -202,11 +209,11 @@ jupyter-core==5.3.0
     #   nbclient
     #   nbconvert
     #   nbformat
-jupyter-events==0.6.3
+jupyter-events==0.9.0
     # via jupyter-server
 jupyter-lsp==2.1.0
     # via jupyterlab
-jupyter-server==2.7.2
+jupyter-server==2.11.2
     # via
     #   jupyter-lsp
     #   jupyterlab
@@ -359,8 +366,6 @@ pygments==2.15.1
     #   sphinx
 pyparsing==3.0.9
     # via matplotlib
-pyrsistent==0.19.3
-    # via jsonschema
 pytest==7.3.1
     # via -r ../requirements.txt
 python-dateutil==2.8.2
@@ -393,6 +398,11 @@ pyzmq==25.0.2
     #   ipykernel
     #   jupyter-client
     #   jupyter-server
+referencing==0.31.1
+    # via
+    #   jsonschema
+    #   jsonschema-specifications
+    #   jupyter-events
 requests==2.31.0
     # via
     #   -r ../requirements.txt
@@ -409,6 +419,10 @@ rfc3986-validator==0.1.1
     # via
     #   jsonschema
     #   jupyter-events
+rpds-py==0.13.2
+    # via
+    #   jsonschema
+    #   referencing
 scipy==1.11.2
     # via -r ../requirements.txt
 send2trash==1.8.2
@@ -495,6 +509,10 @@ terminado==0.17.1
     #   jupyter-server-terminals
 tinycss2==1.2.1
     # via nbconvert
+tomli==2.0.1
+    # via
+    #   jupyterlab
+    #   pytest
 toolz==0.12.0
     # via altair
 tornado==6.3.3
@@ -522,6 +540,7 @@ traitlets==5.9.0
     #   nbformat
 typing-extensions==4.6.1
     # via
+    #   altair
     #   async-lru
     #   myst-nb
     #   myst-parser
