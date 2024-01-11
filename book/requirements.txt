@@ -102,6 +102,10 @@ docutils==0.18.1
     #   sphinxcontrib-bibtex
 email-validator==2.0.0.post2
     # via fastapi
+exceptiongroup==1.2.0
+    # via
+    #   cattrs
+    #   pytest
 executing==1.2.0
     # via stack-data
 fastapi[all]==0.95.2
@@ -161,7 +165,7 @@ itsdangerous==2.1.2
     #   flask
 jedi==0.18.2
     # via ipython
-jinja2==3.1.2
+jinja2==3.1.3
     # via
     #   altair
     #   fastapi
@@ -495,6 +499,10 @@ terminado==0.17.1
     #   jupyter-server-terminals
 tinycss2==1.2.1
     # via nbconvert
+tomli==2.0.1
+    # via
+    #   jupyterlab
+    #   pytest
 toolz==0.12.0
     # via altair
 tornado==6.3.3
@@ -522,6 +530,7 @@ traitlets==5.9.0
     #   nbformat
 typing-extensions==4.6.1
     # via
+    #   altair
     #   async-lru
     #   myst-nb
     #   myst-parser
