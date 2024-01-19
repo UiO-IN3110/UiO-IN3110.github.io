@@ -102,6 +102,10 @@ docutils==0.18.1
     #   sphinxcontrib-bibtex
 email-validator==2.0.0.post2
     # via fastapi
+exceptiongroup==1.2.0
+    # via
+    #   cattrs
+    #   pytest
 executing==1.2.0
     # via stack-data
 fastapi[all]==0.95.2
@@ -214,7 +218,7 @@ jupyter-server==2.7.2
     #   notebook-shim
 jupyter-server-terminals==0.4.4
     # via jupyter-server
-jupyterlab==4.0.0
+jupyterlab==4.0.11
     # via -r ../requirements.txt
 jupyterlab-pygments==0.2.2
     # via nbconvert
@@ -495,6 +499,10 @@ terminado==0.17.1
     #   jupyter-server-terminals
 tinycss2==1.2.1
     # via nbconvert
+tomli==2.0.1
+    # via
+    #   jupyterlab
+    #   pytest
 toolz==0.12.0
     # via altair
 tornado==6.3.3
@@ -522,6 +530,7 @@ traitlets==5.9.0
     #   nbformat
 typing-extensions==4.6.1
     # via
+    #   altair
     #   async-lru
     #   myst-nb
     #   myst-parser
