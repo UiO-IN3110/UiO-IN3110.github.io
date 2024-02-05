@@ -22,7 +22,6 @@ also added a form to pick another door. This form sends a POST request to
 
 """
 
-
 import random
 import uuid
 

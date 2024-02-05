@@ -12,7 +12,6 @@ Improvements to game_server2.py:
   and displays it in the reselect3.html template
 """
 
-
 from fastapi import FastAPI, Form, Request
 from fastapi.responses import HTMLResponse
 from fastapi.templating import Jinja2Templates
