@@ -11,7 +11,6 @@ This is an alternate implementation,
 use in combination with autoplay.py to play monty hall via a REST API.
 """
 
-
 import random
 import uuid
 from enum import IntEnum
