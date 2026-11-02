@@ -11,7 +11,6 @@ Improvements to game_server1.py:
 - The template contains a form with a POST request to the /reselect.
 """
 
-
 from fastapi import FastAPI, Request
 from fastapi.responses import HTMLResponse
 from fastapi.templating import Jinja2Templates

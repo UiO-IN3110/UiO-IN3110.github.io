@@ -4,8 +4,7 @@
 class Point:
     """Class representing a 2-D Cartesian point"""
 
-    def __init__(self, x, y):
-        ...
+    def __init__(self, x, y): ...
 
     def __repr__(self):
         return f"Point({self.x}, {self.y})"

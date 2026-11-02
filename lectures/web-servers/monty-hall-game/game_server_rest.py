@@ -13,7 +13,6 @@ games. For that, I needed to extend the game_state to store all game
 information
 """
 
-
 import random
 import uuid
 from functools import partial
